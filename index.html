@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Greentruth Landing</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -245,7 +246,7 @@
         class="fixed w-full h-full pointer-events-none bottom-[-48%] md:bottom-[-30%] 2xl:bottom-[-13%] left-0 2xl:left-[-5%] "
       >
         <svg id="hero-floating-dots"
-          class="absolute w-[260px] md:w-[540px] overflow-visible"
+          class="absolute 2xl:bottom-[10%] w-[260px] md:w-[540px] overflow-visible"
           height="735"
           viewBox="0 0 608 735"
           fill="none"
@@ -635,7 +636,7 @@
       <div
         class="max-w-[80%] xl:max-w-[56%] text-[20px] leading-[32px] xl:text-[24px] xl:leading-10 text-[#292929]"
       >
-        <p class="font-normal">
+        <p id="greentruth-connects-text" class="font-normal">
           Greentruth connects and orchestrates producers, verifiers, and
           companies reporting emissions through the EarnDLT Registry—simplifying
           the complexity of environmental data accounting so verified data moves
@@ -733,11 +734,14 @@
             class="w-full h-auto lg:hidden"
           />
 
-          <img
-            src="assets/images/greentruth-overview.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto hidden lg:block"
-          />
+          <lottie-player
+           src="assets/animations/overview-tab-animation.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto hidden lg:block"
+           loop
+           autoplay
+          ></lottie-player>
         </div>
 
         <div
@@ -797,11 +801,14 @@
             alt="Greentruth overview"
             class="w-full h-auto lg:hidden"
           />
-          <img
-            src="assets/images/greentruth-mint.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto hidden lg:block"
-          />
+          <lottie-player
+           src="assets/animations/Mint-tab-animation.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto hidden lg:block"
+           loop
+           autoplay
+          ></lottie-player>
         </div>
       </div>
 
@@ -851,11 +858,14 @@
             alt="Greentruth overview"
             class="w-full h-auto lg:hidden"
           />
-          <img
-            src="assets/images/greentruth-acquire.svg"
-            alt="Greentruth overview"
+          <lottie-player
+            src="assets/animations/acquire-tab-animation.json"
+            background="transparent"
+            speed="1"
             class="w-full h-auto hidden lg:block"
-          />
+            loop
+            autoplay
+         ></lottie-player>
         </div>
 
         <div
@@ -998,11 +1008,14 @@
             alt="Greentruth overview"
             class="w-full h-auto lg:hidden"
           />
-          <img
-            src="assets/images/greentruth-integrate.svg"
-            alt="Greentruth overview"
+          <lottie-player
+            src="assets/animations/integrate-tab-animation.json"
+            background="transparent"
+            speed="1"
             class="w-full h-auto hidden lg:block"
-          />
+            loop
+            autoplay
+         ></lottie-player>
         </div>
 
         <div

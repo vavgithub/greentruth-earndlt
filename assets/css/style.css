@@ -53,7 +53,6 @@
   color: #808080;
 }
 
-/* keep only small local rules here; font-face moved to assets/css/fonts.css */
 
 /* Tab states */
 .tab-btn {
@@ -62,6 +61,7 @@
   line-height: 1;
   padding: 12px 24px;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .active-overview {
   background: #f5f5ed;
@@ -97,10 +97,6 @@
   color: #333;
   border-bottom: 1px solid #000;
 }
-/* Prevent layout shift when borders toggle */
-.tab-btn {
-  box-sizing: border-box;
-}
 
 .accordion-header.is-open .accordion-icon svg {
   transform: rotate(180deg);
@@ -109,12 +105,6 @@
 /* Ensure the icon is only visible on screens smaller than 'md' */
 .accordion-icon {
   display: none;
-}
-@media (max-width: 767px) {
-  /* Tailwind's default 'md' breakpoint is 768px */
-  .accordion-icon {
-    display: block;
-  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -132,31 +122,6 @@
   box-shadow: inset 10px 20px 40px 0 rgba(0, 0, 0, 0.7);
 }
 
-/* Mint tab positions */
-@media (min-width: 1024px) {
-  #hexagon-bg-2.mint-active {
-    top: 30%;
-  }
-}
-/* Update Mint for 1280px */
-@media (min-width: 1280px) {
-  #hexagon-bg-1.mint-active {
-    top: 29%;
-  }
-}
-
-/* Acquire tab positions (same shift as Mint by default) */
-@media (min-width: 1024px) {
-  #hexagon-bg-2.acquire-active {
-    top: 41%;
-  }
-}
-@media (min-width: 1280px) {
-  #hexagon-bg-1.acquire-active {
-    top: 39%;
-  }
-}
-
 .tooltip-arrow {
   position: absolute;
   z-index: 0;
@@ -167,14 +132,6 @@
   height: 80px;
   background-color: #142d21;
   border-radius: 2px;
-}
-
-@media (min-width: 1280px) {
-  .tooltip-arrow {
-    bottom: -40px;
-    width: 100px;
-    height: 100px;
-  }
 }
 
 /* Default link styles */
@@ -320,5 +277,70 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* =========================================
+   Contact Form Styles
+   ========================================= */
+
+/* Clean on load; show errors only after submit attempt (no JS) */
+.error-text {
+  display: none;
+}
+.input-field:user-invalid {
+  border-color: #e66547 !important;
+  box-shadow: 0 0 0 1px #e66547;
+}
+.input-field:user-invalid ~ .error-text {
+  display: block;
+}
+/* Consent message */
+.consent-wrap:has(#consent:user-invalid) + #error-consent {
+  display: block;
+}
+/* CSS-only success: show panel when URL fragment is #form-success */
+#form-success {
+  display: none;
+}
+#form-success:target {
+  display: block;
+}
+body:has(#form-success:target) #contact-form {
+  display: none;
+}
+
+/* =========================================
+   Media Queries
+   ========================================= */
+
+/* Update Mint for 1280px */
+@media (min-width: 1280px) {
+  #hexagon-bg-1.mint-active {
+    top: 29%;
+  }
+  #hexagon-bg-1.acquire-active {
+    top: 39%;
+  }
+  .tooltip-arrow {
+    bottom: -40px;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Mint tab positions */
+@media (min-width: 1024px) {
+  #hexagon-bg-2.mint-active {
+    top: 30%;
+  }
+  #hexagon-bg-2.acquire-active {
+    top: 41%;
+  }
+}
+
+@media (max-width: 767px) {
+  .accordion-icon {
+    display: block;
   }
 }

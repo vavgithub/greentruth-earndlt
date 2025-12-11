@@ -1,7 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
+    
+  // =============================================================================
+  // 1. SETUP & UTILITIES
+  // =============================================================================
+  
+  // Register GSAP ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
 
-  // --- 45 dots ---
+  // Handle Window Resize
+  // We use a debounce (timer) to prevent the reload from firing 
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      // Only reload if the width actually changed (ignores mobile address bar vertical resizing)
+      if (window.innerWidth !== document.body.clientWidth) {
+          window.location.reload();
+      }
+    }, 250);
+  });
+
+
+  // =============================================================================
+  // 2. DATA & CONFIGURATION
+  // =============================================================================
+
+  // Data Set A: "Mandate" Section Pattern (49 dots)
+  // Used in Phase 1 (Hero -> Mandate)
   const targetDotsData = [
     { x: 124.9, y: 163.6, r: 6.1, color: "#303030", blurLevel: 2 },
     { x: 188.4, y: 100.1, r: 6.1, color: "#303030", blurLevel: 2 },
@@ -35,194 +60,27 @@ document.addEventListener("DOMContentLoaded", () => {
     { x: 442.3, y: 354.1, r: 17.8, color: "#999999", blurLevel: 0 },
     { x: 55.5, y: 156.2, r: 17.1, color: "#999999", blurLevel: 0 },
     { x: 188.2, y: 354.1, r: 17.8, color: "#999999", blurLevel: 0 },
-    { x: 240.0, y: 284.6, r: 22.4, color: "#B3B3B3", blurLevel: 2 },
-    { x: 404.2, y: 301.2, r: 22.4, color: "#B3B3B3", blurLevel: 2 },
-    { x: 535.9, y: 138.7, r: 22.4, color: "#B3B3B3", blurLevel: 2 },
-    { x: 245.9, y: 399.9, r: 23.8, color: "#B3B3B3", blurLevel: 2 },
-    { x: 378.8, y: 227.1, r: 23.8, color: "#B3B3B3", blurLevel: 2 },
-    { x: 315.3, y: 417.6, r: 22.4, color: "#B3B3B3", blurLevel: 2 },
-    { x: 313.0, y: 268.2, r: 23.8, color: "#B3B3B3", blurLevel: 2 },
-    { x: 97.9, y: 199.4, r: 8.5, color: "#303030", blurLevel: 2 },
+    { x: 240.0, y: 284.6, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
+    { x: 404.2, y: 301.2, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
+    { x: 535.9, y: 138.7, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
+    { x: 245.9, y: 399.9, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
+    { x: 378.8, y: 227.1, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
+    { x: 315.3, y: 417.6, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
+    { x: 313.0, y: 268.2, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
+    { x: 97.9, y: 199.4, r: 8.5, color: "#303030", blurLevel: 0 },
     { x: 305.3, y: 263.6, r: 12.2, color: "#606060", blurLevel: 1 },
     { x: 220.4, y: 388.5, r: 10.8, color: "#404040", blurLevel: 1.5 },
     { x: 157.2, y: 402.6, r: 7.9, color: "#242424", blurLevel: 2.5 },
     { x: 270.1, y: 607.0, r: 15.6, color: "#626262", blurLevel: 0.5 },
+    { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 },
+    { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 },
+    { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 },
+    { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 },
     { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 }
   ];
 
-  const sourceSvg = document.querySelector("#hero-floating-dots");
-  const sourceGroup = sourceSvg.querySelector("g");
-  const sourcePaths = sourceSvg.querySelectorAll("path");
-  const targetContainer = document.querySelector("#mandate-section-target");
-
-  // --- ANIMATION IMPLEMENTATION ---
-  // 1. The Pinning Trigger (Master Controller for the Section)
-  ScrollTrigger.create({
-    trigger: "#mandate-section",
-    start: "center center",
-    end: "+=800",
-    pin: true,
-    pinSpacing: true,
-    id: "pinning"
-  });
-
-  const tlAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#hero-section",
-      start: "top top",
-      endTrigger: "#mandate-section",
-      // end: "center center", // Removed duplicate key
-      end: () => ScrollTrigger.getById("pinning").start + 400,
-      scrub: 1,
-      invalidateOnRefresh: true // <--- IMPORTANT: Forces recalculation on resize
-    }
-  });
-
-  // Animate the group opacity to 1
-  tlAnimation.to(sourceGroup, { opacity: 1 }, 0);
-
-  // 2. APPLY THE ANIMATION
-  sourcePaths.forEach((path, index) => {
-    if (index >= targetDotsData.length) return;
-
-    // We use Function-based values for x, y, and scale.
-    // This runs the calculation logic FRESH every time the user resizes the window.
-    tlAnimation.to(path, {
-      x: () => calculateDotValues(index, path).xMove,
-      y: () => calculateDotValues(index, path).yMove,
-      scale: () => calculateDotValues(index, path).scale,
-      fill: targetDotsData[index].color,
-      filter: `blur(${targetDotsData[index].blurLevel}px)`,
-      transformOrigin: "center center",
-      ease: "power1.inOut"
-    }, 0);
-  });
-
-  // --- PHASE 2: Move from Mandate End to Compliance Center ---
-
-  // 1. Pinning is now handled by the tlComplianceSequence ScrollTrigger
-  // to ensure synchronization between the pin and the animation timeline.
-
-  // 2. Animate Dots towards Compliance Center
-  const tlComplianceTransition = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#compliance-section",
-      start: "top bottom", 
-      end: "center center",
-      scrub: 1,
-      invalidateOnRefresh: true
-    }
-  });
-
-  sourcePaths.forEach((path, index) => {
-    if (index >= targetDotsData.length) return;
-
-    tlComplianceTransition.to(path, {
-      x: () => calculateComplianceCenterValues(index, path).xMove,
-      y: () => calculateComplianceCenterValues(index, path).yMove,
-      scale: () => calculateComplianceCenterValues(index, path).scale,
-      ease: "power1.inOut"
-    }, 0);
-  });
-
-  // 3. Scale ONE Dot to fill the Green Circle & Animate Content
-  // We combine scaling, content fade-in, and content fade-out into one timeline
-  const tlComplianceSequence = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#compliance-section",
-      start: "center center",
-      end: "+=6000", // Increased for longer sequence
-      pin: true,     // Pinning integrated here
-      scrub: 0.1,    // Responsive scrubbing
-      invalidateOnRefresh: true
-    }
-  });
-
-  // Pick the last dot (top-most in SVG) to expand
-  const scalingDot = sourcePaths[sourcePaths.length - 1];
-
-  // Ensure scalingDot is visible at start of sequence (fix for glitch)
-  tlComplianceSequence.set(scalingDot, { opacity: 1 }, 0);
-  const otherDots = Array.from(sourcePaths).slice(0, sourcePaths.length - 1);
-  const finalCircleTarget = document.querySelector("#compliance-circle-target");
-  
-  // Elements to animate inside
-  const contentElements = [
-    "#compliance-heading",
-    "#compliance-li-1",
-    "#compliance-li-2",
-    "#compliance-li-3",
-    "#compliance-text-1",
-    "#compliance-text-2"
-  ];
-
-  // Initial setup
-  gsap.set(contentElements, { y: 20, opacity: 0 });
-  
-  // --- STEP 1: Scale Up (0% -> 20%) ---
-  tlComplianceSequence.to(scalingDot, {
-    scale: () => calculateComplianceScalingValues(scalingDot).scale,
-    fill: "#142D21",
-    filter: "blur(0px)",
-    duration: 2, // Relative duration
-    ease: "power1.inOut"
-  }, 0);
-
-  // Fade out other dots simultaneously
-  tlComplianceSequence.to(otherDots, {
-    opacity: 0,
-    duration: 0.5
-  }, 0);
-
-  // Fade in the target container (background circle) near the end of scaling
-  tlComplianceSequence.to(finalCircleTarget, {
-    opacity: 1,
-    duration: 0.5,
-    ease: "power1.in"
-  }, 1.5); 
-
-  // --- STEP 2: Content Fade In (20% -> 50%) ---
-  tlComplianceSequence.to(contentElements, {
-    y: 0,
-    opacity: 1,
-    duration: 2,
-    stagger: 0.3,
-    ease: "power2.out"
-  }, 2);
-
-  // --- STEP 3: Hold (Text stays visible) ---
-  // We add a dummy tween to create a pause/hold duration.
-  // Previous ends at 4. We hold for 4 units (until 8).
-  tlComplianceSequence.to({}, { duration: 1 }, 4);
-
-  // --- STEP 4: Content Fade Out ---
-  // Starts after Hold (at 8).
-  tlComplianceSequence.to(contentElements, {
-    y: -20,
-    opacity: 0,
-    duration: 2,
-    stagger: 0.1,
-    ease: "power2.in"
-  }, 5);
-
-  // --- STEP 5: Scale Down ---
-  // Starts after Content Fade Out (8 + 2 = 10).
-  // Scale the dot back down to original small size
-  // And fade out the container background
-  tlComplianceSequence.to(finalCircleTarget, {
-    opacity: 0,
-    duration: 1, // Quick fade for container
-    ease: "power1.out"
-  }, 7);
-
-  tlComplianceSequence.to(scalingDot, {
-    scale: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).scale, 
-    duration: 3, // Slow scale down (10 to 13)
-    ease: "power1.inOut"
-  }, 7);
-  
-  // --- PHASE 4: Form the GreenTruth Logo ---
-  
+  // Data Set B: "GreenTruth Logo" Pattern
+  // Used in Phase 4 (Formation of the logo)
   const finaltargetDotsData = [
     { x: 74.0, y: 74.0, r: 12.0, color: "#1AAC66" },
     { x: 51.2, y: 74.0, r: 10.7, color: "#178B53" },
@@ -271,98 +129,372 @@ document.addEventListener("DOMContentLoaded", () => {
     { x: 5.4, y: 96.9, r: 4.2, color: "#142D21" },
   ];
 
-  // 1. Combine Pinning and Animation into a single, slower timeline
-  const tlLogoFormation = gsap.timeline({
+
+  // =============================================================================
+  // 3. DOM ELEMENT SELECTION
+  // =============================================================================
+
+  const sourceSvg = document.querySelector("#hero-floating-dots");
+  const sourceGroup = sourceSvg.querySelector("g");
+  const sourcePaths = sourceSvg.querySelectorAll("path");
+  const targetContainer = document.querySelector("#mandate-section-target");
+  
+
+  // =============================================================================
+  // 4. ANIMATION PHASE 1: HERO -> MANDATE
+  //    (Move dots from hero to first scattered formation)
+  // =============================================================================
+
+  // 4a. Pinning Trigger (Master Controller)
+  // Pins the #mandate-section while dots move into place.
+  ScrollTrigger.create({
+    trigger: "#mandate-section",
+    start: "center center",
+    end: "+=800",
+    pin: true,
+    pinSpacing: true,
+    id: "pinning"
+  });
+
+  // 4b. Animation Timeline
+  // scrub: 1 links animation progress directly to scrollbar
+  const tlAnimation = gsap.timeline({
     scrollTrigger: {
-      trigger: "#greentruth-connects-section",
-      start: "center center",
-      end: "+=3000", // Increased duration for slower, clearer movement
-      pin: true,
-      scrub: 1, // Smooth scrubbing
+      trigger: "#hero-section",
+      start: "top top",
+      endTrigger: "#mandate-section",
+      // Ends exactly when the pinning starts (+ buffer)
+      end: () => ScrollTrigger.getById("pinning").start + 400,
+      scrub: 1,
+      invalidateOnRefresh: true // recalculation on resize
+    }
+  });
+
+  // 1. Reveal the group
+  tlAnimation.to(sourceGroup, { opacity: 1 }, 0);
+
+  // 2. Animate every dot to its "Mandate" position
+  sourcePaths.forEach((path, index) => {
+    if (index >= targetDotsData.length) return;
+
+    // We use Function-based values for x, y, and scale.
+    // This runs the logic inside 'calculateDotValues' FRESH on every resize.
+    tlAnimation.to(path, {
+      x: () => calculateDotValues(index, path).xMove,
+      y: () => calculateDotValues(index, path).yMove,
+      scale: () => calculateDotValues(index, path).scale,
+      fill: targetDotsData[index].color,
+      filter: `blur(${targetDotsData[index].blurLevel}px)`,
+      transformOrigin: "center center",
+      ease: "power1.inOut"
+    }, 0);
+  });
+
+
+  // =============================================================================
+  // 5. ANIMATION PHASE 2: MANDATE -> COMPLIANCE ENTRY
+  //    (Move dots from scattered mandate to the center of the next section)
+  // =============================================================================
+
+  const tlComplianceTransition = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#compliance-section",
+      start: "top bottom", 
+      end: "center center",
+      scrub: 1,
       invalidateOnRefresh: true
     }
   });
 
-  // Ensure all dots are visible for this phase
+  sourcePaths.forEach((path, index) => {
+    if (index >= targetDotsData.length) return;
+
+    tlComplianceTransition.to(path, {
+      x: () => calculateComplianceCenterValues(index, path).xMove,
+      y: () => calculateComplianceCenterValues(index, path).yMove,
+      scale: () => calculateComplianceCenterValues(index, path).scale,
+      ease: "power1.inOut"
+    }, 0);
+  });
+
+
+  // =============================================================================
+  // 6. ANIMATION PHASE 3: COMPLIANCE SEQUENCE
+  //    (Scale one dot, show content, hide content, scale down)
+  // =============================================================================
+
+  // 6a. Main Timeline for the sequence
+  const tlComplianceSequence = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#compliance-section",
+      start: "center center",
+      end: "+=6000", // Long duration for reading text
+      pin: true,    // Pin the section so user sees animation
+      scrub: 0.1,   // Responsive scrubbing
+      invalidateOnRefresh: true
+    }
+  });
+
+  // Identify Elements
+  // Use the last dot in the list as the "Hero Dot" that expands
+  const scalingDot = sourcePaths[sourcePaths.length - 1];
+  const otherDots = Array.from(sourcePaths).slice(0, sourcePaths.length - 1);
+  const finalCircleTarget = document.querySelector("#compliance-circle-target");
+  
+  // Text elements to animate
+  const contentElements = [
+    "#compliance-heading",
+    "#compliance-li-1",
+    "#compliance-li-2",
+    "#compliance-li-3",
+    "#compliance-text-1",
+    "#compliance-text-2"
+  ];
+
+  // Initial State
+  tlComplianceSequence.set(scalingDot, { opacity: 1 }, 0);
+  gsap.set(contentElements, { y: 20, opacity: 0 });
+  
+  // --- STEP 1: Scale Up (0% -> 20%) ---
+  // Expand the scalingDot to fill the screen/circle
+  tlComplianceSequence.fromTo(scalingDot, {
+    x: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).xMove,
+    y: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).yMove,
+    scale: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).scale,
+    fill: targetDotsData[sourcePaths.length - 1].color,
+    filter: "blur(0px)",
+    transformOrigin: "center center"
+  }, {
+    scale: () => calculateComplianceScalingValues(scalingDot).scale,
+    fill: "#142D21",
+    filter: "blur(0px)",
+    duration: 2,
+    ease: "power1.inOut",
+    immediateRender: false,
+    overwrite: "auto"
+  }, 0);
+
+  // Fade out all other dots
+  tlComplianceSequence.to(otherDots, {
+    opacity: 0,
+    duration: 0.5
+  }, 0);
+
+  // Fade in the background container circle
+  tlComplianceSequence.to(finalCircleTarget, {
+    opacity: 1,
+    duration: 0.5,
+    ease: "power1.in"
+  }, 1.5); 
+
+  // --- STEP 2: Content Fade In (20% -> 50%) ---
+  tlComplianceSequence.to(contentElements, {
+    y: 0,
+    opacity: 1,
+    duration: 2,
+    stagger: 0.3,
+    ease: "power2.out"
+  }, 2);
+
+  // --- STEP 3: Hold (50% -> 80%) ---
+  // A dummy tween to keep text visible while user scrolls
+  tlComplianceSequence.to({}, { duration: 1 }, 4);
+
+  // --- STEP 4: Content Fade Out (80% -> 90%) ---
+  tlComplianceSequence.to(contentElements, {
+    y: -20,
+    opacity: 0,
+    duration: 2,
+    stagger: 0.1,
+    ease: "power2.in"
+  }, 5);
+
+  // --- STEP 5: Scale Down (90% -> 100%) ---
+  // Shrink dot back to original size
+  tlComplianceSequence.to(finalCircleTarget, {
+    opacity: 0,
+    duration: 1,
+    ease: "power1.out"
+  }, 7);
+
+  tlComplianceSequence.to(scalingDot, {
+    scale: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).scale, 
+    duration: 3,
+    ease: "power1.inOut"
+  }, 7);
+  
+
+  // =============================================================================
+  // 7. ANIMATION PHASE 4: FORM GREENTRUTH LOGO
+  //    (Move dots from center to form the logo shape)
+  // =============================================================================
+
+  // 7a. Pinning for the final section
+  ScrollTrigger.create({
+    trigger: "#greentruth-connects-section",
+    start: "center center",
+    end: "+=4000",
+    pin: true,
+    pinSpacing: true,
+    id: "greentruth-pin"
+  });
+
+  // 7b. Logo Formation Timeline
+  const tlLogoFormation = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#greentruth-connects-section",
+      start: "top bottom", 
+      end: () => ScrollTrigger.getById("greentruth-pin").end, 
+      scrub: 0.5, // Smoother scrub
+      invalidateOnRefresh: true
+    }
+  });
+
+  // Ensure all dots are visible again
   tlLogoFormation.to(sourcePaths, { opacity: 1, duration: 0.1 }, 0);
 
+  // Setup Final Text
+  const greentruthText = document.querySelector("#greentruth-connects-text");
+  if (greentruthText) gsap.set(greentruthText, { y: 50, opacity: 0 });
+
   // Move dots to Logo Formation with Stagger
-  // We use function-based values and a stagger to make them "separate" visually
   tlLogoFormation.to(sourcePaths, {
-    x: (index, target) => {
+    x: (index, path) => {
       if (index >= finaltargetDotsData.length) return 0;
-      return calculateLogoValues(index, target).xMove;
+      return calculateLogoValues(index, path).xMove;
     },
-    y: (index, target) => {
+    y: (index, path) => {
       if (index >= finaltargetDotsData.length) return 0;
-      return calculateLogoValues(index, target).yMove;
+      return calculateLogoValues(index, path).yMove;
     },
-    scale: (index, target) => {
+    scale: (index, path) => {
       if (index >= finaltargetDotsData.length) return 0;
-      return calculateLogoValues(index, target).scale;
+      return calculateLogoValues(index, path).scale;
     },
     fill: (index) => {
       if (index >= finaltargetDotsData.length) return "#303030";
       return finaltargetDotsData[index].color;
     },
     filter: "blur(0px)",
-    ease: "power2.inOut",
+    ease: "power1.inOut",
     stagger: {
-      amount: 2, // Spread start times over 2 seconds relative to timeline
-      from: "random" // Dots will leave center in a random order, creating separation
+      amount: 3, 
+      from: "random"
     },
-    duration: 3 // Each dot takes 3 relative seconds to travel
+    duration: 1 
   }, 0);
 
+  // Animate Final Text In (starts after dots form)
+  if (greentruthText) {
+    tlLogoFormation.to(greentruthText, {
+      y: 0,
+      opacity: 1,
+      duration: 1.5, 
+      ease: "power2.out"
+    }, 4); 
+  }
+
+
+  // =============================================================================
+  // 8. ANIMATION PHASE 5: DOM REPARENTING (EXIT)
+  //    (Move the floating container into the final section to keep it visible)
+  // =============================================================================
+
+  ScrollTrigger.create({
+    trigger: "#greentruth-connects-section",
+    start: () => ScrollTrigger.getById("greentruth-pin").end, 
+    onEnter: () => {
+      // 1. Get elements
+      const container = document.querySelector("#floating-dots-container");
+      const section = document.querySelector("#greentruth-connects-section");
+      
+      // 2. Calculate the position relative to the section before moving
+      const containerRect = container.getBoundingClientRect();
+      const sectionRect = section.getBoundingClientRect();
+      
+      const relativeTop = containerRect.top - sectionRect.top;
+      const relativeLeft = containerRect.left - sectionRect.left;
+
+      // 3. Move the container into the section (Re-parenting)
+      // This stops it from being fixed to the viewport and locks it to the section
+      section.appendChild(container);
+
+      // 4. Set Absolute Position relative to this new parent
+      container.style.position = "absolute";
+      container.style.top = relativeTop + "px";
+      container.style.left = relativeLeft + "px";
+      container.style.bottom = "auto";
+      container.style.width = containerRect.width + "px";
+      container.style.height = containerRect.height + "px";
+    },
+    onLeaveBack: () => {
+      // Reverse the process if user scrolls back up
+      const container = document.querySelector("#floating-dots-container");
+      const hero = document.querySelector("#hero-section"); // Original parent
+      
+      hero.appendChild(container);
+
+      // Clear inline styles to revert to CSS class defaults (fixed positioning)
+      container.style.position = "";
+      container.style.top = "";
+      container.style.left = "";
+      container.style.bottom = "";
+      container.style.width = "";
+      container.style.height = "";
+      
+      // Sync animation state
+      tlLogoFormation.progress(1, true);
+    }
+  });
   
-  // --- HELPER FUNCTION: Contains your original math, but runs dynamically ---
-  // --- HELPER for Phase 1 ---
+
+ // =============================================================================
+  // 9. HELPER FUNCTIONS (MATH)
+  // =============================================================================
+
+  // HELPER: Phase 1 Calculations (Hero -> Mandate)
   function calculateDotValues(index, path) {
     const target = targetDotsData[index];
 
-    // 1. FRESH READS of Element Positions (Key to responsiveness)
+    // FRESH READS: Get current dimensions of Section, Target Container, and SVG
     const sectionRect = document.querySelector("#mandate-section").getBoundingClientRect();
     const targetRect = targetContainer.getBoundingClientRect();
     const svgRect = sourceSvg.getBoundingClientRect();
 
-    // Calculate the center of the SECTION
+    // Calculate center coordinates for the Section and the Target Container
     const sectionCenterX = sectionRect.left + sectionRect.width / 2;
     const sectionCenterY = sectionRect.top + sectionRect.height / 2;
-
-    // Calculate the center of the TARGET DIV
     const targetCenterX = targetRect.left + targetRect.width / 2;
     const targetCenterY = targetRect.top + targetRect.height / 2;
 
-    // Convert to SVG units (Recalculated on resize because svgRect changes)
+    // Calculate ratio to convert screen pixels into SVG coordinate units
     const svgUnitScaleX = 608 / svgRect.width;
     const svgUnitScaleY = 735 / svgRect.height;
 
-    // Distance from Section Center to Target Center
+    // Calculate distances relative to the section, then map to Window Center
     const distFromSectionCenterX = targetCenterX - sectionCenterX;
     const distFromSectionCenterY = targetCenterY - sectionCenterY;
-
-    // When animation ends (Window Center)
     const windowCenterX = window.innerWidth / 2;
     const windowCenterY = window.innerHeight / 2;
 
-    // Final Target Position
+    // Determine the final X/Y position on screen where the dot should land
     const finalTargetX = windowCenterX + distFromSectionCenterX;
     const finalTargetY = windowCenterY + distFromSectionCenterY;
 
-    // Compare Final Target Position to SVG's current center
+    // Calculate the offset from the SVG's center in pixels
     const finalPixelDistX = finalTargetX - (svgRect.left + svgRect.width / 2);
     const finalPixelDistY = finalTargetY - (svgRect.top + svgRect.height / 2);
 
-    // Convert to "SVG Units"
+    // Convert that pixel offset into SVG units
     const finalOffsetX = finalPixelDistX * svgUnitScaleX;
     const finalOffsetY = finalPixelDistY * svgUnitScaleY;
 
-    // Dot specific calculations
+    // Get current position of the specific dot within the SVG
     const bbox = path.getBBox();
     const currentX = bbox.x + bbox.width / 2;
     const currentY = bbox.y + bbox.height / 2;
 
-    // Calculate moves
+    // Result: Calculate final travel distance (delta) and scale factor
     const xMove = (target.x + finalOffsetX) - currentX;
     const yMove = (target.y + finalOffsetY) - currentY;
     const scale = (target.r * 2) / bbox.width;
@@ -370,112 +502,106 @@ document.addEventListener("DOMContentLoaded", () => {
     return { xMove, yMove, scale };
   }
 
-  // --- HELPER for Phase 2 ---
+  // HELPER: Phase 2 Calculations (Move to Center of Screen)
   function calculateComplianceCenterValues(index, path) {
-    // 1. Define the Destination (Client Coordinates)
-    // Since #compliance-circle-target is absolutely centered (left-1/2 top-1/2),
-    // its destination during the pin is exactly the center of the viewport.
+    // Destination: Exact center of the viewport
     const destX = window.innerWidth / 2;
     const destY = window.innerHeight / 2;
   
-    // 2. Convert Screen Coordinates -> SVG Coordinates
-    // We use the SVG's own matrix to map the pixel point into SVG units (viewBox space)
-    const svgElement = document.querySelector("svg"); // Ensure this selects your specific parent SVG
-    
-    // Create a point to transform
+    // Create a point and use Matrix Transform to convert Screen Coords -> SVG Coords
+    const svgElement = sourceSvg;
     let pt = svgElement.createSVGPoint();
     pt.x = destX;
     pt.y = destY;
-  
-    // Transform the point using the inverse of the Screen CTM
-    // This handles all CSS scaling, aspect ratios, and positioning automatically.
     const svgP = pt.matrixTransform(svgElement.getScreenCTM().inverse());
   
-    // 'svgP' is now the exact (x, y) inside the SVG viewBox that aligns with the screen center.
-  
-    // 3. Calculate the GSAP Move Values
+    // Get current dot position
     const bbox = path.getBBox();
     const currentX = bbox.x + (bbox.width / 2);
     const currentY = bbox.y + (bbox.height / 2);
   
+    // Calculate difference between Target SVG position and Current SVG position
     const xMove = svgP.x - currentX;
     const yMove = svgP.y - currentY;
   
-    // 4. Calculate Scale (Optional - keeps your existing sizing logic)
-    // This calculates how much to scale the dot to reach 15px on screen
-    const currentViewBoxWidth = 608; // Your SVG's internal width
-    const svgRect = svgElement.getBoundingClientRect();
-    const pixelsPerUnit = svgRect.width / currentViewBoxWidth; 
-    // Note: This scale logic is rough; for precision, consider checking the CTM.a property.
-    
-    const targetScreenSize = 15;
-    const scale = targetScreenSize / (bbox.width * pixelsPerUnit);
+    // Calculate scale based on the target radius from data
+    const target = targetDotsData[index];
+    const scale = (target.r * 2) / bbox.width;
   
     return { xMove, yMove, scale };
   }
 
-  // --- HELPER for Phase 3 (Scaling) ---
+  // HELPER: Phase 3 Calculations (Scale Dot to fill target)
   function calculateComplianceScalingValues(path) {
+    // Get dimensions of the source SVG and the green target circle
     const svgRect = sourceSvg.getBoundingClientRect();
     const targetRect = document.querySelector("#compliance-circle-target").getBoundingClientRect();
     
-    // We want the dot to match the targetRect size on screen.
-    // Target is a circle (600px or 680px).
+    // Calculate the ratio of screen pixels to SVG units
     const targetScreenDiameter = targetRect.width; 
-    
-    const pixelsPerUnit = svgRect.width / 608;
+    const vWidth = sourceSvg.viewBox.baseVal.width || 608;
+    const pixelsPerUnit = svgRect.width / vWidth;
     const bbox = path.getBBox();
     
-    // Calculate required scale
+    // Calculate the scale needed to make the dot fill the target container
     const scale = targetScreenDiameter / (bbox.width * pixelsPerUnit);
 
     return { scale };
   }
 
-  // --- HELPER for Phase 4 ---
+  // HELPER: Phase 4 Calculations (Formation of Logo)
   function calculateLogoValues(index, path) {
     const targetData = finaltargetDotsData[index];
-    const targetDiv = document.querySelector("#greentruth-connects-logo");
     
-    // 1. Target Position in Screen Pixels
-    const targetRect = targetDiv.getBoundingClientRect();
+    // Get dimensions/positions of the Section and the Logo container
+    const section = document.querySelector("#greentruth-connects-section");
+    const logo = document.querySelector("#greentruth-connects-logo");
+    const sectionRect = section.getBoundingClientRect();
+    const logoRect = logo.getBoundingClientRect();
     
-    // Center the 148x148 logo cluster in the target div
-    // Logo Data coordinates range from approx 5 to 142. Center is approx 74.
-    const logoCenterX = 74;
-    const logoCenterY = 74;
+    // Calculate Logo's offset relative to the Section's top-left corner
+    const logoRelX = logoRect.left - sectionRect.left;
+    const logoRelY = logoRect.top - sectionRect.top;
     
-    const divCenterX = targetRect.left + targetRect.width / 2;
-    const divCenterY = targetRect.top + targetRect.height / 2;
+    // Project where the Logo will be when the section is pinned (Centered)
+    // const windowCenterX = window.innerWidth / 2;
+    const windowCenterY = window.innerHeight / 2;
+    const pinnedSectionTop = windowCenterY - (sectionRect.height / 2);
+    const pinnedSectionLeft = sectionRect.left;
     
-    // Calculate where this specific dot should be on screen
-    const destX = divCenterX - logoCenterX + targetData.x;
-    const destY = divCenterY - logoCenterY + targetData.y;
+    // Calculate the absolute screen coordinates of the Logo container
+    const destLogoLeft = pinnedSectionLeft + logoRelX;
+    const destLogoTop = pinnedSectionTop + logoRelY;
+    
+    // Define centers: Logo Cluster (internal) and Logo Div (screen)
+    const logoCenterX = 74; 
+    const logoCenterY = 74; 
+    const destDivCenterX = destLogoLeft + logoRect.width / 2;
+    const destDivCenterY = destLogoTop + logoRect.height / 2;
+    
+    // Calculate the specific dot's final screen X/Y position
+    const destX = destDivCenterX - logoCenterX + targetData.x;
+    const destY = destDivCenterY - logoCenterY + targetData.y;
 
-    // 2. Convert Screen Coordinates -> SVG Coordinates
-    // Using the sourceSvg to map the point back into the SVG's coordinate space
+    // Convert Screen coordinates to SVG coordinates using Matrix Transform
     let pt = sourceSvg.createSVGPoint();
     pt.x = destX;
     pt.y = destY;
     const svgP = pt.matrixTransform(sourceSvg.getScreenCTM().inverse());
 
-    // 3. Calculate Moves
+    // Calculate translation (delta) from current position
     const bbox = path.getBBox();
     const currentX = bbox.x + bbox.width / 2;
     const currentY = bbox.y + bbox.height / 2;
-
     const xMove = svgP.x - currentX;
     const yMove = svgP.y - currentY;
 
-    // 4. Calculate Scale
-    // We compare target radius (in screen pixels) to the dot's SVG width
-    const currentViewBoxWidth = 608; 
+    // Calculate scale: Convert target radius (px) to SVG units
+    const currentViewBoxWidth = sourceSvg.viewBox.baseVal.width || 608; 
     const svgRect = sourceSvg.getBoundingClientRect();
     const pixelsPerUnit = svgRect.width / currentViewBoxWidth;
     
-    const targetRadiusPx = targetData.r;
-    const targetDiameterPx = targetRadiusPx * 2;
-    
+    const targetDiameterPx = targetData.r * 2;
     const scale = targetDiameterPx / (bbox.width * pixelsPerUnit);
 
     return { xMove, yMove, scale };

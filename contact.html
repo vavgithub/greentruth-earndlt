@@ -36,33 +36,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      /* Clean on load; show errors only after submit attempt (no JS) */
-      .error-text {
-        display: none;
-      }
-      .input-field:user-invalid {
-        border-color: #e66547 !important;
-        box-shadow: 0 0 0 1px #e66547;
-      }
-      .input-field:user-invalid ~ .error-text {
-        display: block;
-      }
-      /* Consent message */
-      .consent-wrap:has(#consent:user-invalid) + #error-consent {
-        display: block;
-      }
-      /* CSS-only success: show panel when URL fragment is #form-success */
-      #form-success {
-        display: none;
-      }
-      #form-success:target {
-        display: block;
-      }
-      body:has(#form-success:target) #contact-form {
-        display: none;
-      }
-    </style>
   </head>
   <body
     class="m-0 font-mokoko text-brand-dark bg-white flex flex-col min-h-screen"

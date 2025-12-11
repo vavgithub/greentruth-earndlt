@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Greentruth Landing</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -245,7 +246,7 @@
         class="fixed w-full h-full pointer-events-none bottom-[-48%] md:bottom-[-30%] 2xl:bottom-[-13%] left-0 2xl:left-[-5%] "
       >
         <svg id="hero-floating-dots"
-          class="absolute w-[260px] md:w-[540px] overflow-visible"
+          class="absolute 2xl:bottom-[10%] w-[260px] md:w-[540px] overflow-visible"
           height="735"
           viewBox="0 0 608 735"
           fill="none"
@@ -635,7 +636,7 @@
       <div
         class="max-w-[80%] xl:max-w-[56%] text-[20px] leading-[32px] xl:text-[24px] xl:leading-10 text-[#292929]"
       >
-        <p class="font-normal">
+        <p id="greentruth-connects-text" class="font-normal">
           Greentruth connects and orchestrates producers, verifiers, and
           companies reporting emissions through the EarnDLT Registry—simplifying
           the complexity of environmental data accounting so verified data moves
@@ -727,17 +728,23 @@
           </div>
         </div>
         <div class="max-w-[426px] z-[9] py-[36px] md:py-0 flex-shrink-0">
-          <img
-            src="assets/images/overview-mobile.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto lg:hidden"
-          />
+          <lottie-player
+           src="assets/animations/overview-tab-mobile.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto lg:hidden"
+           loop
+           autoplay
+          ></lottie-player>
 
-          <img
-            src="assets/images/greentruth-overview.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto hidden lg:block"
-          />
+          <lottie-player
+           src="assets/animations/overview-tab-animation.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto hidden lg:block"
+           loop
+           autoplay
+          ></lottie-player>
         </div>
 
         <div
@@ -792,16 +799,22 @@
         <div
           class="max-w-[426px] z-[9] py-[36px] md:py-0 mb-[70px] md:mb-0 flex-shrink-0"
         >
-          <img
-            src="assets/images/mint-mobile.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto lg:hidden"
-          />
-          <img
-            src="assets/images/greentruth-mint.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto hidden lg:block"
-          />
+          <lottie-player
+           src="assets/animations/mint-tab-mobile.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto lg:hidden"
+           loop
+           autoplay
+          ></lottie-player>
+          <lottie-player
+           src="assets/animations/Mint-tab-animation.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto hidden lg:block"
+           loop
+           autoplay
+          ></lottie-player>
         </div>
       </div>
 
@@ -846,16 +859,22 @@
           </div> -->
         </div>
         <div class="max-w-[426px] z-[9] py-[36px] md:py-0 flex-shrink-0">
-          <img
-            src="assets/images/acquire-mobile.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto lg:hidden"
-          />
-          <img
-            src="assets/images/greentruth-acquire.svg"
-            alt="Greentruth overview"
+          <lottie-player
+           src="assets/animations/acquire-tab-mobile.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto lg:hidden"
+           loop
+           autoplay
+          ></lottie-player>
+          <lottie-player
+            src="assets/animations/acquire-tab-animation.json"
+            background="transparent"
+            speed="1"
             class="w-full h-auto hidden lg:block"
-          />
+            loop
+            autoplay
+         ></lottie-player>
         </div>
 
         <div
@@ -877,7 +896,7 @@
         class="tab-content md:min-h-[640px] max-w-content mx-auto px-5 md:px-10 pt-10 lg:px-[100px] flex flex-col md:flex-row justify-between gap-10 md:pb-20 lg:pb-0"
       >
         <div
-          class="flex flex-col justify-between max-w-full md:max-w-[316px] lg:max-w-[402px] xl:max-w-[580px] z-[10]"
+          class="flex flex-col justify-between max-w-full md:max-w-[408px] lg:max-w-[402px] xl:max-w-[580px] z-[10]"
         >
           <div class="font-inter text-[#292929]">
             <p class="pb-5 md:pb-6">
@@ -993,16 +1012,22 @@
           </div>
         </div>
         <div class="max-w-[426px] z-[9] py-[36px] md:py-0 flex-shrink-0">
-          <img
-            src="assets/images/integrate-mobile.svg"
-            alt="Greentruth overview"
-            class="w-full h-auto lg:hidden"
-          />
-          <img
-            src="assets/images/greentruth-integrate.svg"
-            alt="Greentruth overview"
+          <lottie-player
+           src="assets/animations/integrate-tab-mobile.json"
+           background="transparent"
+           speed="1"
+           class="w-full h-auto lg:hidden"
+           loop
+           autoplay
+          ></lottie-player>
+          <lottie-player
+            src="assets/animations/integrate-tab-animation.json"
+            background="transparent"
+            speed="1"
             class="w-full h-auto hidden lg:block"
-          />
+            loop
+            autoplay
+         ></lottie-player>
         </div>
 
         <div

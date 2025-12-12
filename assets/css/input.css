@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #378457;
+  --color-brand-darkgreen: #142D21;
+  --color-brand-red: #E66547;
+  --color-brand-dark: #333;
+
+  --font-mokoko: Mokoko, sans-serif;
+  --font-inter: Inter, sans-serif;
+
+  --max-width-content: 1280px;
+}

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/tailwind.css && cp ./*.html public/",
-    "watch": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/tailwind.css --watch"
+    "build": "rm -rf dist && mkdir -p dist/assets/css && cp -r assets dist/ && npx @tailwindcss/cli -i ./assets/css/input.css -o ./dist/assets/css/tailwind.css && cp ./*.html dist/",
+    "dev": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/tailwind.css --watch"
   },
   "repository": {
     "type": "git",

@@ -446,10 +446,100 @@ document.addEventListener("DOMContentLoaded", () => {
       tlLogoFormation.progress(1, true);
     }
   });
+
+    // =============================================================================
+  // 9. GET STARTED SECTION ANIMATIONS
+  // =============================================================================
+
+  ScrollTrigger.matchMedia({
+    // --- Desktop Only (min-width: 768px) ---
+    "(min-width: 768px)": function () {
+      
+      const section = document.querySelector("#get-started-section");
+      if (!section) return;
+
+      const steps = section.querySelectorAll(".get-started-step");
+      const header = section.querySelector("#get-started-header");
+      const footer = section.querySelector("#greenlight-footer");
+
+      // Initial visibility setup
+      gsap.set(header, { autoAlpha: 0 });
+      if (footer) gsap.set(footer, { autoAlpha: 0 });
+
+      // 1. PIN THE SECTION
+      const mainTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",     
+          end: "+=2500",        
+          pin: true,            
+          scrub: 1,             
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onLeave: () => {
+             if (footer) gsap.to(footer, { autoAlpha: 1, duration: 0.5 });
+          },
+          onEnterBack: () => {
+             if (footer) gsap.to(footer, { autoAlpha: 0, duration: 0.3 });
+          }
+        }
+      });
+
+      // 2. ANIMATION
+      
+      // Step 1 drops (from -450 up to 0)
+      mainTl.fromTo(steps[0], 
+        { y: -450 }, 
+        { y: 0, duration: 1, ease: "power1.out" }
+      );
+
+      // Fade in the header concurrently with Step 1
+      mainTl.to(header, { autoAlpha: 1, duration: 0.8, ease: "power1.out" }, "<+0.1");
+
+      // Step 2 drops (from -250 up to 0)
+      mainTl.fromTo(steps[1], 
+        { y: -250 }, 
+        { y: 0, duration: 1, ease: "power1.out" },
+        "<+0.2" // Slight overlap
+      );
+
+      mainTl.fromTo(steps[2], 
+        { y: -90 }, 
+        { y: 0, duration: 1, ease: "power1.out" },
+        "<+0.2" // Slight overlap
+      );
+
+      // Empty buffer
+      mainTl.to({}, { duration: 0.5 });
+    },
+
+    // --- Mobile Animation ---
+    "(max-width: 767px)": function() {
+      // Clean up desktop transforms
+      const steps = document.querySelectorAll(".get-started-step");
+      gsap.set(steps, { clearProps: "all" });
+
+      // Target the text content containers specifically
+      const contents = document.querySelectorAll(".step-content");
+      
+      contents.forEach((content) => {
+        gsap.from(content, {
+          scrollTrigger: {
+            trigger: content,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.8
+        });
+      });
+    }
+  });
   
 
  // =============================================================================
-  // 9. HELPER FUNCTIONS (MATH)
+  // 10. HELPER FUNCTIONS (MATH)
   // =============================================================================
 
   // HELPER: Phase 1 Calculations (Hero -> Mandate)

@@ -237,6 +237,9 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
+  .top-2 {
+    top: calc(var(--spacing) * 2);
+  }
   .top-10 {
     top: calc(var(--spacing) * 10);
   }
@@ -276,8 +279,17 @@
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
+  .bottom-\[-10px\] {
+    bottom: -10px;
+  }
   .bottom-\[-48\%\] {
     bottom: -48%;
+  }
+  .bottom-\[1vh\] {
+    bottom: 1vh;
+  }
+  .bottom-\[2vh\] {
+    bottom: 2vh;
   }
   .bottom-\[5px\] {
     bottom: 5px;
@@ -474,6 +486,12 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
+  .h-\[15vh\] {
+    height: 15vh;
+  }
+  .h-\[25vh\] {
+    height: 25vh;
+  }
   .h-\[73px\] {
     height: 73px;
   }
@@ -506,6 +524,9 @@
   }
   .max-h-\[1102px\] {
     max-height: 1102px;
+  }
+  .max-h-screen {
+    max-height: 100vh;
   }
   .min-h-\[80vh\] {
     min-height: 80vh;
@@ -579,6 +600,9 @@
   .max-w-\[300px\] {
     max-width: 300px;
   }
+  .max-w-\[320px\] {
+    max-width: 320px;
+  }
   .max-w-\[426px\] {
     max-width: 426px;
   }
@@ -587,6 +611,9 @@
   }
   .max-w-\[530px\] {
     max-width: 530px;
+  }
+  .max-w-\[586px\] {
+    max-width: 586px;
   }
   .max-w-\[800px\] {
     max-width: 800px;
@@ -874,6 +901,9 @@
   .bg-\[\#FF6B5A\] {
     background-color: #FF6B5A;
   }
+  .bg-\[\#FF7E6C\] {
+    background-color: #FF7E6C;
+  }
   .bg-\[\#e66547\] {
     background-color: #e66547;
   }
@@ -1002,6 +1032,9 @@
   }
   .pb-10 {
     padding-bottom: calc(var(--spacing) * 10);
+  }
+  .pb-\[5vh\] {
+    padding-bottom: 5vh;
   }
   .pb-\[60px\] {
     padding-bottom: 60px;
@@ -1529,6 +1562,16 @@
       position: absolute;
     }
   }
+  .md\:top-0 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:top-4 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 4);
+    }
+  }
   .md\:top-10 {
     @media (width >= 48rem) {
       top: calc(var(--spacing) * 10);
@@ -1707,6 +1750,11 @@
   .md\:w-auto {
     @media (width >= 48rem) {
       width: auto;
+    }
+  }
+  .md\:max-w-5xl {
+    @media (width >= 48rem) {
+      max-width: var(--container-5xl);
     }
   }
   .md\:max-w-\[211px\] {
@@ -1925,6 +1973,11 @@
   .md\:pb-20 {
     @media (width >= 48rem) {
       padding-bottom: calc(var(--spacing) * 20);
+    }
+  }
+  .md\:pb-\[10vh\] {
+    @media (width >= 48rem) {
+      padding-bottom: 10vh;
     }
   }
   .md\:pb-\[60px\] {

@@ -528,8 +528,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // We want to align the bottoms of the orange content initially.
       // PLUS a small base amount so they can "move up" a bit even for Step 1.
       const baseShift = 50;
-      const spacer2 = 200;
-      const spacer3 = 360;
+      // DYNAMIC CALCULATION based on CSS vh values (15vh and 25vh)
+      const spacer2 = window.innerHeight * 0.15; 
+      const spacer3 = window.innerHeight * 0.25;
 
       const startY1 = baseShift;
       const startY2 = baseShift + spacer2;
@@ -548,7 +549,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const mainTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top+50px top",     
+          start: "top+50px top+=15px",     
           end: () => window.innerWidth < 1280 ? "+=2500" : "+=4000",
           pin: true,            
           scrub: 1,             

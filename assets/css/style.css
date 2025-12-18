@@ -1,3 +1,9 @@
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @font-face {
   font-family: "Mokoko";
   src: url("../fonts/MokokoRg.otf") format("opentype");

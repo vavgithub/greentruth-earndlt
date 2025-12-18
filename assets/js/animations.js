@@ -30,19 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const targetDotsData = [
     { x: 124.9, y: 163.6, r: 6.1, color: "#303030", blurLevel: 2 },
     { x: 188.4, y: 100.1, r: 6.1, color: "#303030", blurLevel: 2 },
-    { x: 505.8, y: 163.6, r: 6.1, color: "#303030", blurLevel: 2 },
+    { x: 505.8, y: 203.6, r: 40, color: "#999999", blurLevel: 0, imagePattern: "url(#img-dot-1)" },
     { x: 289.1, y: 371.9, r: 6.1, color: "#303030", blurLevel: 2 },
     { x: 494.0, y: 376.1, r: 6.1, color: "#303030", blurLevel: 2 },
     { x: 292.4, y: 241.3, r: 6.1, color: "#303030", blurLevel: 2 },
     { x: 515.5, y: 357.9, r: 6.1, color: "#303030", blurLevel: 2 },
     { x: 139.8, y: 440.1, r: 6.1, color: "#303030", blurLevel: 2 },
-    { x: 199.3, y: 151.8, r: 11.8, color: "#606060", blurLevel: 1 },
+    { x: 349.3, y: 131.8, r: 46, color: "#B3B3B3", blurLevel: 0, imagePattern: "url(#img-dot-2)" },
     { x: 98.0, y: 238.9, r: 11.8, color: "#606060", blurLevel: 1 },
     { x: 476.2, y: 11.8, r: 11.8, color: "#606060", blurLevel: 1 },
     { x: 424.5, y: 156.2, r: 11.8, color: "#606060", blurLevel: 1 },
     { x: 530.0, y: 203.3, r: 11.8, color: "#606060", blurLevel: 1 },
     { x: 206.0, y: 45.4, r: 11.8, color: "#606060", blurLevel: 1 },
-    { x: 442.3, y: 417.6, r: 11.8, color: "#606060", blurLevel: 1 },
+    { x: 140.3, y: 310.6, r: 50, color: "#B3B3B3", blurLevel: 0, imagePattern: "url(#img-dot-3)" },
     { x: 330.5, y: 94.0, r: 11.8, color: "#606060", blurLevel: 1 },
     { x: 378.8, y: 481.2, r: 11.8, color: "#606060", blurLevel: 1 },
     { x: 217.6, y: 459.2, r: 11.8, color: "#606060", blurLevel: 1 },
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { x: 381.6, y: 381.5, r: 15.0, color: "#808080", blurLevel: 0.5 },
     { x: 467.2, y: 513.5, r: 17.1, color: "#808080", blurLevel: 0.5 },
     { x: 244.2, y: 216.9, r: 15.0, color: "#808080", blurLevel: 0.5 },
-    { x: 233.2, y: 173.3, r: 17.1, color: "#999999", blurLevel: 0 },
+    { x: 373.2, y: 273.3, r: 38, color: "#B3B3B3", blurLevel: 0, imagePattern: "url(#img-dot-4)" },
     { x: 188.2, y: 227.1, r: 17.8, color: "#999999", blurLevel: 0 },
     { x: 381.8, y: 122.9, r: 17.1, color: "#999999", blurLevel: 0 },
     { x: 542.9, y: 277.5, r: 17.8, color: "#999999", blurLevel: 0 },
@@ -61,15 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
     { x: 55.5, y: 156.2, r: 17.1, color: "#999999", blurLevel: 0 },
     { x: 188.2, y: 354.1, r: 17.8, color: "#999999", blurLevel: 0 },
     { x: 240.0, y: 284.6, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
-    { x: 404.2, y: 301.2, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
+    { x: 550.2, y: 421.2, r: 50, color: "#B3B3B3", blurLevel: 0, imagePattern: "url(#img-dot-5)" },
     { x: 535.9, y: 138.7, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
     { x: 245.9, y: 399.9, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
-    { x: 378.8, y: 227.1, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
+    { x: 378.8, y: 207.1, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
     { x: 315.3, y: 417.6, r: 22.4, color: "#B3B3B3", blurLevel: 0 },
-    { x: 313.0, y: 268.2, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
+    { x: 313.0, y: 318.2, r: 23.8, color: "#B3B3B3", blurLevel: 0 },
     { x: 97.9, y: 199.4, r: 8.5, color: "#303030", blurLevel: 0 },
     { x: 305.3, y: 263.6, r: 12.2, color: "#606060", blurLevel: 1 },
-    { x: 220.4, y: 388.5, r: 10.8, color: "#404040", blurLevel: 1.5 },
+    { x: 340.4, y: 488.5, r: 49, color: "#B3B3B3", blurLevel: 0, imagePattern: "url(#img-dot-6)" },
     { x: 157.2, y: 402.6, r: 7.9, color: "#242424", blurLevel: 2.5 },
     { x: 270.1, y: 607.0, r: 15.6, color: "#626262", blurLevel: 0.5 },
     { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 },
@@ -139,6 +139,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const sourcePaths = sourceSvg.querySelectorAll("path");
   const targetContainer = document.querySelector("#mandate-section-target");
   
+  // NEW: Create Image Clones
+  const imageClones = [];
+  
+  targetDotsData.forEach((data, index) => {
+    if (data.imagePattern) {
+        // Find corresponding path
+        const original = sourcePaths[index];
+        if (!original) return;
+        
+        // Clone it
+        const clone = original.cloneNode(true);
+        // Set new styles
+        clone.style.fill = data.imagePattern;
+        clone.style.opacity = 0; // Start hidden
+        // Append to the same group so it shares the coordinate space
+        sourceGroup.appendChild(clone);
+        
+        // Store reference
+        imageClones.push({ index, element: clone });
+    }
+  });
+
 
   // =============================================================================
   // 4. ANIMATION PHASE 1: HERO -> MANDATE
@@ -179,6 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // We use Function-based values for x, y, and scale.
     // This runs the logic inside 'calculateDotValues' FRESH on every resize.
+    
+    // -- Original Dot (Background/Underlay) --
     tlAnimation.to(path, {
       x: () => calculateDotValues(index, path).xMove,
       y: () => calculateDotValues(index, path).yMove,
@@ -188,6 +212,20 @@ document.addEventListener("DOMContentLoaded", () => {
       transformOrigin: "center center",
       ease: "power1.inOut"
     }, 0);
+    
+    // -- Image Clone (Overlay) --
+    const cloneObj = imageClones.find(c => c.index === index);
+    if (cloneObj) {
+         tlAnimation.to(cloneObj.element, {
+            x: () => calculateDotValues(index, path).xMove,
+            y: () => calculateDotValues(index, path).yMove,
+            scale: () => calculateDotValues(index, path).scale,
+            opacity: 1, // Fade IN the image
+            filter: "blur(0px)",
+            transformOrigin: "center center",
+            ease: "power1.inOut"
+         }, 0);
+    }
   });
 
 
@@ -208,13 +246,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sourcePaths.forEach((path, index) => {
     if (index >= targetDotsData.length) return;
+    
+    const target = targetDotsData[index];
+
+    // -- Original Dot --
+    // Force scale calculation to simulate small dot size if this was an image dot
+    let scaleFn = () => calculateComplianceCenterValues(index, path).scale;
+    if (target.imagePattern) {
+        // target.r is 50, but we want it to shrink to something like r=6.1
+        // Ratio = 6.1 / 50 = 0.122
+        scaleFn = () => calculateComplianceCenterValues(index, path).scale * 0.122;
+    }
 
     tlComplianceTransition.to(path, {
       x: () => calculateComplianceCenterValues(index, path).xMove,
       y: () => calculateComplianceCenterValues(index, path).yMove,
-      scale: () => calculateComplianceCenterValues(index, path).scale,
+      scale: scaleFn,
+      fill: target.color,
       ease: "power1.inOut"
     }, 0);
+    
+    // -- Image Clone --
+    const cloneObj = imageClones.find(c => c.index === index);
+    if (cloneObj) {
+         tlComplianceTransition.to(cloneObj.element, {
+            x: () => calculateComplianceCenterValues(index, path).xMove,
+            y: () => calculateComplianceCenterValues(index, path).yMove,
+            scale: scaleFn, // Shrink image too as it fades out
+            opacity: 0, // Fade OUT the image
+            ease: "power1.inOut"
+         }, 0);
+    }
   });
 
 
@@ -309,14 +371,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.in"
   }, 5);
 
-  // --- STEP 5: Scale Down (90% -> 100%) ---
-  // Shrink dot back to original size
+  // Fade out the circle target (and shadow) alongside text
   tlComplianceSequence.to(finalCircleTarget, {
     opacity: 0,
-    duration: 1,
-    ease: "power1.out"
-  }, 7);
+    duration: 2,
+    ease: "power2.in"
+  }, 5);
 
+  // --- STEP 5: Scale Down (90% -> 100%) ---
+  // Shrink dot back to original size
   tlComplianceSequence.to(scalingDot, {
     scale: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).scale, 
     duration: 3,
@@ -459,69 +522,100 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!section) return;
 
       const steps = section.querySelectorAll(".get-started-step");
-      const header = section.querySelector("#get-started-header");
-      const footer = section.querySelector("#greenlight-footer");
+      const logo = section.querySelector("#sticky-logo");
 
-      // Initial visibility setup
-      gsap.set(header, { autoAlpha: 0 });
-      if (footer) gsap.set(footer, { autoAlpha: 0 });
+      // --- 1. INITIAL SETUP ---
+      // We want to align the bottoms of the orange content initially.
+      // PLUS a small base amount so they can "move up" a bit even for Step 1.
+      const baseShift = 50;
+      const spacer2 = 200;
+      const spacer3 = 360;
 
-      // 1. PIN THE SECTION
+      const startY1 = baseShift;
+      const startY2 = baseShift + spacer2;
+      const startY3 = baseShift + spacer3;
+
+      // Set initial positions
+      // Note: (Step 1, 2, 3)
+      gsap.set(steps[0], { y: startY1 });
+      gsap.set(steps[1], { y: startY2 });
+      gsap.set(steps[2], { y: startY3 });
+      
+      // Ensure Logo starts at 20% opacity
+      if(logo) gsap.set(logo, { opacity: 0.2 });
+
+      // --- 2. TIMELINE CONFIGURATION ---
       const mainTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top top",     
-          end: "+=2500",        
+          start: "top+50px top",     
+          end: () => window.innerWidth < 1280 ? "+=2500" : "+=4000",
           pin: true,            
           scrub: 1,             
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          onLeave: () => {
-             if (footer) gsap.to(footer, { autoAlpha: 1, duration: 0.5 });
-          },
-          onEnterBack: () => {
-             if (footer) gsap.to(footer, { autoAlpha: 0, duration: 0.3 });
-          }
         }
       });
 
-      // 2. ANIMATION
-      
-      // Step 1 drops (from -450 up to 0)
-      mainTl.fromTo(steps[0], 
-        { y: -450 }, 
-        { y: 0, duration: 1, ease: "power1.out" }
-      );
+      // --- 3. ANIMATION LOGIC ---
+      // All move UP together (same speed) to y:0.
+      // Step 1 travels 'startY1', Step 2 'startY2', Step 3 'startY3'.  
+      // Step 3 (Longest distance)
+      mainTl.to(steps[2], { 
+        y: 0, 
+        duration: startY3, 
+        ease: "none" 
+      }, 0);
 
-      // Fade in the header concurrently with Step 1
-      mainTl.to(header, { autoAlpha: 1, duration: 0.8, ease: "power1.out" }, "<+0.1");
+      // Step 2 (Middle distance)
+      mainTl.to(steps[1], { 
+        y: 0, 
+        duration: startY2, 
+        ease: "none" 
+      }, 0);
 
-      // Step 2 drops (from -250 up to 0)
-      mainTl.fromTo(steps[1], 
-        { y: -250 }, 
-        { y: 0, duration: 1, ease: "power1.out" },
-        "<+0.2" // Slight overlap
-      );
+      // Step 1 (Shortest distance)
+      mainTl.to(steps[0], { 
+        y: 0, 
+        duration: startY1, 
+        ease: "none" 
+      }, 0);
 
-      mainTl.fromTo(steps[2], 
-        { y: -90 }, 
-        { y: 0, duration: 1, ease: "power1.out" },
-        "<+0.2" // Slight overlap
-      );
+      // --- 4. LOGO ANIMATION ---
+      // "only step-3 starts scrolling up... and while logo will become 1 opacity"
+      if (logo) {
+        mainTl.to(logo, {
+          opacity: 1,
+          duration: startY3 - startY2, 
+          ease: "none"
+        }, startY2); // Starts exactly when Step 2 finishes
+      }
 
-      // Empty buffer
-      mainTl.to({}, { duration: 0.5 });
+      // --- 5. Get started FOOTER ANIMATION ---
+      // Initially opacity 0.
+      // Appears AFTER logo becomes opacity 1 (which ends at startY3).
+      const footer = section.querySelector("#greenlight-footer");
+      if (footer) {
+        gsap.set(footer, { opacity: 0 }); // Ensure it starts hidden
+        
+        mainTl.to(footer, {
+          opacity: 1,
+          duration: 150, // Arbitrary duration for fade-in
+          ease: "none"
+        }, startY3); // Starts exactly when Step 3 (and Logo animation) finishes
+      }
+
+      // Add a buffer at the end if needed, or just let it finish.
+      mainTl.to({}, { duration: 10 }); // Optional buffer
     },
 
     // --- Mobile Animation ---
     "(max-width: 767px)": function() {
-      // Clean up desktop transforms
       const steps = document.querySelectorAll(".get-started-step");
-      gsap.set(steps, { clearProps: "all" });
+      const logo = document.querySelector("#sticky-logo");
+      gsap.set([steps, logo], { clearProps: "all" });
 
-      // Target the text content containers specifically
       const contents = document.querySelectorAll(".step-content");
-      
       contents.forEach((content) => {
         gsap.from(content, {
           scrollTrigger: {
@@ -529,7 +623,7 @@ document.addEventListener("DOMContentLoaded", () => {
             start: "top 85%",
             toggleActions: "play none none reverse"
           },
-          y: 30,
+          y: 15,
           opacity: 0,
           duration: 0.8
         });

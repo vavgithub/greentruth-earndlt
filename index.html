@@ -236,6 +236,26 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            <pattern id="img-dot-1" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <image href="assets/images/image-1.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+            <pattern id="img-dot-2" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <image href="assets/images/image-2.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+            <pattern id="img-dot-3" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <image href="assets/images/image-3.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+            <pattern id="img-dot-4" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <image href="assets/images/image-4.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+            <pattern id="img-dot-5" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <image href="assets/images/image-5.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+            <pattern id="img-dot-6" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <image href="assets/images/image-6.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+          </defs>
           <g opacity="0.12">
             <path
               d="M97.9371 199.435C116.94 199.435 132.345 184.031 132.345 165.028C132.345 146.025 116.94 130.62 97.9371 130.62C78.9342 130.62 63.5293 146.025 63.5293 165.028C63.5293 184.031 78.9342 199.435 97.9371 199.435Z"
@@ -540,13 +560,13 @@
     <!-- Compliance Circle Section -->
     <section
       id="compliance-section"
-      class="flex flex-col items-center justify-center pt-[50px] md:pt-0 pb-[100px] xl:pb-[50px] min-h-[100vh] scroll-mt-10"
+      class="flex flex-col items-center justify-center  min-h-[100vh] scroll-mt-10"
     >
       <div
         class="relative flex items-center justify-center w-full min-h-[600px] md:min-h-[700px] overflow-hidden"
       >
         <div id="compliance-circle-target"
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center w-[600px] h-[600px] md:w-[680px] md:h-[680px] mx-auto opacity-0"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center w-[600px] h-[600px] md:w-[680px] md:h-[680px] mx-auto opacity-0 bg-[#142D21] inset-shadow-effect"
         >
           <div id="compliance-content-wrapper"
             class="px-5 py-7 sm:px-10 sm:py-10 md:px-16 md:py-16 flex flex-col items-start justify-center w-full max-w-[60%] sm:max-w-[64%]"
@@ -1983,162 +2003,99 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
     </section>
 
     <section
-          id="cost-of-standing-still"
-          class="w-full bg-[#FF6B5A] font-sans text-[#1a1a1a] mb-[100px] md:mb-0 overflow-hidden px-5 md:px-10 lg:px-[100px]"
+    id="cost-of-standing-still"
+    class="w-full bg-[#FF7E6C] font-sans text-[#1a1a1a] overflow-hidden mb-[100px] md:mb-0 relative z-20"
+  >
+    <div class="max-w-[1440px] mx-auto pt-[60px] pb-10 relative px-5 md:px-10 lg:px-[100px]">
+       <div class="max-w-[530px] relative z-20">
+          <h2 class="font-mokoko text-[18px] md:text-[20px] font-mdeium tracking-wide text-[#1a1a1a]">The Cost of Standing Still</h2>
+          <p class="text-14 md:text-[16px] mb-8 md:mb-12 font-inter">Stalled Deals. Penalties. Lost Ground.</p>
+        </div>
+    </div>
+  
+  
+    <div id="get-started-section" class="w-full bg-white relative z-20 overflow-hidden h-screen max-h-screen flex flex-col"> 
+      <div class=" w-full bg-[#FF7E6C] flex-shrink-0">
+        <div class="border-[2px] border-t border-white/20 max-w-[320px] md:max-w-5xl mx-auto relative z-20"></div>
+      </div>     
+      <div class="relative w-full max-w-[1440px] mx-auto flex-grow h-full flex flex-col">
+
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-full bg-[#FF7E6C] z-0 pointer-events-none"></div>
+        <div 
+          id="get-started-header" 
+          class="relative z-30 px-5 md:px-10 lg:px-[100px] pt-4 md:pt-[60px] pb-4 flex-shrink-0"
         >
-          <div class="max-w-[1440px] mx-auto pt-[60px] pb-10 relative">
-            <div class="max-w-[530px] relative z-20">
-              <h2
-                class="font-mokoko text-[18px] md:text-[20px] font-mdeium tracking-wide text-[#1a1a1a]"
-              >
-                The Cost of Standing Still
-              </h2>
-              <p class="text-14 md:text-[16px] mb-8 md:mb-12 font-inter">
-                Stalled Deals. Penalties. Lost Ground.
-              </p>
-
-              <div
-                class="space-y-4 md:space-y-6 text-base leading-relaxed max-w-[530px] font-medium opacity-90"
-              >
-                <p>
-                  Every month of delay widens the compliance gap. Regulations like
-                  <span class="font-bold border-b border-black/20">SB 253</span> and
-                  <span class="font-bold border-b border-black/20">EU CBAM</span>
-                  are already in effect—and markets are adapting faster than most
-                  companies can report.
-                </p>
-                <p>
-                  Fragmented data slows verification, increases audit exposure, and
-                  erodes credibility with investors, regulators, and procurement
-                  partners.
-                </p>
-                <p class="font-bold text-lg">
-                  The risk isn’t abstract.<br />
-                  It’s operational, financial, and compounding.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="mt-16 border-[2px] border-t border-white/20 w-full max-w-5xl relative z-20"
-            >
-              <img
-                src="assets/icons/logo-white.svg"
-                alt="white logo"
-                class="absolute top-8 right-0 min-[1320px]:top-0 min-[1320px]:right-[-18%] w-[100px] md:w-[140px] z-[20]"
-              />
+          <h2 class="font-mokoko text-[20px] md:text-[24px] text-[#1a1a1a] font-medium">
+            Get Started
+          </h2>
+          <p class="text-[16px] md:text-[20px] leading-5 md:leading-[24px] text-[#1a1a1a] max-w-[300px]">
+            No Cost. No Risk. No Complexity.<br />Go as Fast as You Need.
+          </p>
+        </div>        
+        <img
+          id="sticky-logo"
+          src="assets/icons/logo-white.svg"
+          alt="logo"
+          class="absolute top-2 md:top-0 right-5 md:right-10 w-[100px] md:w-[140px] z-50 pointer-events-none invert brightness-0"
+          style="opacity: 0.2;" 
+        />
+  
+        <div class="grid grid-cols-1 md:grid-cols-3 w-full flex-grow items-end relative z-10">
+          
+          <div class="relative bg-[#FF7E6C] h-full flex flex-col justify-center md:justify-end get-started-step z-10 pl-5 md:pl-10 lg:pl-[100px] pb-[5vh] md:pb-[10vh]">
+            <div class="absolute right-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"></div>
+            
+            <div class="relative z-10 md:max-w-[211px] pl-5 md:pl-0 step-content">
+              <p class="font-mokoko text-[24px] md:text-[30px] font-bold">Step 1</p>
+              <p class="font-mokoko text-[16px] md:text-[20px] leading-5 md:leading-[24px] font-bold mb-4">Create your account</p>
+              <p class="text-sm text-[#1a1a1a]">Enter your company details and D-U-N-S® number to set up your verified organization profile.</p>
             </div>
           </div>
-
-          <div
-            id="get-started-section"
-            class="grid grid-cols-1 md:grid-cols-3 w-full max-w-[1440px] mx-auto items-stretch relative"
-          >
-            <div
-              class="relative bg-[#FF6B5A] py-10 md:p-[80px_0px] md:pr-20 flex flex-col justify-between"
-            >
-              <div class="mb-10 md:mb-[120px] relative z-10">
-                <h2
-                  class="font-mokoko text-[20px] md:text-[24px] text-[#1a1a1a] font-medium"
-                >
-                  Get Started
-                </h2>
-                <p
-                  class="text-[16px] md:text-[20px] leading-5 md:leading-[24px] text-[#1a1a1a] max-w-[300px]"
-                >
-                  No Cost. No Risk. No Complexity.<br />Go as Fast as You Need.
-                </p>
-              </div>
-
-              <div class="relative z-10 md:max-w-[211px]">
-                <div class="font-mokoko text-[24px] md:text-[30px] font-bold">
-                  Step 1
-                </div>
-                <div class="font-mokoko text-[16px] md:text-[20px] font-bold mb-4">
-                  Create your account
-                </div>
-                <p class="text-sm text-[#1a1a1a]">
-                  Enter your company details and D-U-N-S® number to set up your
-                  verified organization profile.
-                </p>
+  
+          <div class="flex flex-col w-full h-full get-started-step z-10">
+            <div class="bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 pb-[5vh] md:pb-[10vh]">
+              <div class="md:max-w-[240px] step-content">
+                <p class="font-mokoko text-[24px] md:text-[30px] leading-5 md:leading-[24px] font-bold">Step 2</p>
+                <p class="font-mokoko text-[16px] md:text-[20px] font-bold mb-4">Discover & Acquire</p>
+                <p class="text-sm text-[#333]">Search verified gas data by delivery location. Compare and select options aligned with your emissions goals.</p>
               </div>
             </div>
-
-            <div class="flex flex-col w-full">
-              <div
-                class="bg-[#FF6B5A] py-10 md:p-[80px_0px] md:pr-20 flex-grow flex flex-col justify-end"
-              >
-                <div class="mt-0 md:mt-[180px] md:max-w-[240px]">
-                  <div class="font-mokoko text-[24px] md:text-[30px] font-bold">
-                    Step 2
-                  </div>
-                  <div
-                    class="font-mokoko text-[16px] md:text-[20px] font-bold mb-4"
-                  >
-                    Discover & Acquire
-                  </div>
-                  <p class="text-sm text-[#333]">
-                    Search verified gas data by delivery location. Compare and
-                    select options aligned with your emissions goals.
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white h-[200px] w-full hidden md:block"></div>
-            </div>
-
-            <div class="flex flex-col w-full">
-              <div
-                class="bg-[#FF6B5A] py-10 md:p-[80px_0px] md:pr-20 flex-grow flex flex-col justify-end"
-              >
-                <div class="mt-0 md:mt-[80px] md:max-w-[240px]">
-                  <div class="font-mokoko text-[24px] md:text-[30px] font-bold">
-                    Step 3
-                  </div>
-                  <div
-                    class="font-mokoko text-[16px] md:text-[20px] font-bold mb-4"
-                  >
-                    Retire & Report
-                  </div>
-                  <p class="text-sm text-[#333]">
-                    Retire tokens and generate audit-ready records for filings and
-                    disclosures.
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white h-[360px] w-full hidden md:block relative">
-                <div
-                  class="absolute left-full top-0 h-full w-screen bg-white"
-                ></div>
+            <div class="bg-white h-[15vh] w-full hidden md:block"></div>
+          </div>
+  
+          <div class="flex flex-col w-full h-full get-started-step z-10">
+            <div class="relative bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 pb-[5vh] md:pb-[10vh]">
+              <div class="absolute left-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"></div>
+              <div class="md:max-w-[240px] relative z-10 step-content">
+                <p class="font-mokoko text-[24px] md:text-[30px] font-bold">Step 3</p>
+                <p class="font-mokoko text-[16px] md:text-[20px] leading-5 md:leading-[24px] font-bold mb-4">Retire & Report</p>
+                <p class="text-sm text-[#333]">Retire tokens and generate audit-ready records for filings and disclosures.</p>
               </div>
             </div>
-
-            <div
-              class="hidden md:flex md:absolute bottom-[5px] md:left-[68%] lg:left-[62%] xl:left-[60%] min-[1320px]:left-[55%] md:-translate-x-1/2 z-30 items-center justify-between w-full max-w-[500px] p-6"
-            >
-              <div class="pr-2">
-                <h2 class="text-[24px] font-bold text-black mb-1 leading-tight">
-                  Greenlight your compliance.
-                </h2>
-                <p class="text-sm text-black">
-                  Reach out to learn how verified emissions data can ease your compliance challenges.
-                </p>
-              </div>
-
-              <button 
-                onclick="window.location.href='/contact.html'"
-                class="bg-[#155C3A] hover:bg-[#163024] text-white text-lg font-semibold py-3 px-14 md:px-12 rounded-full transition-colors duration-200 w-auto"
-              >
-                Contact&nbsp;Us
-              </button>
+            <div class="bg-white h-[25vh] w-full hidden md:block relative">
+               <div class="absolute left-[100%] top-0 h-full w-[100vw] bg-white"></div>
             </div>
           </div>
-        </section>
+  
+        </div>
+  
+        <div id="greenlight-footer" class="hidden md:flex md:absolute bottom-[-10px] md:left-[68%] lg:left-[62%] xl:left-[60%] min-[1320px]:left-[55%] md:-translate-x-1/2 z-30 items-center justify-between w-full max-w-[586px] p-6 z-20">
+          <div class="pr-2">
+            <h2 class="text-[24px] font-bold text-black mb-1 leading-tight">Greenlight your compliance.</h2>
+            <p class="text-sm text-black">Reach out to learn how verified emissions data can ease your compliance challenges.</p>
+          </div>
+          <button onclick="window.location.href='/contact.html'" class="bg-[#155C3A] hover:bg-[#163024] text-white text-lg font-semibold py-3 px-14 md:px-12 rounded-full transition-colors duration-200 w-auto">Contact&nbsp;Us</button>
+        </div>
+  
+      </div>
+    </div>
+  </section>
 
         <section class="mt-[-70px] md:-mt-[100px] md:hidden mb-10">
           <div
-            class="flex items-center justify-center w-full max-w-[500px] mx-auto p-6"
+            class="flex items-start flex-wrap gap-4  justify-center w-full max-w-[500px] mx-auto p-6"
           >
-            <div class="pr-6">
+            <div class="text-center">
               <h2 class="text-[16px] font-bold text-black mb-1">
                 Greenlight your compliance.
               </h2>

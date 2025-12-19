@@ -7,15 +7,31 @@ document.addEventListener("DOMContentLoaded", () => {
   // Register GSAP ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
 
+  // OPTIMIZATION: Disconnect animation time from system time if CPU lags
+  // This prevents massive "jumps" to catch up if the browser freezes for a moment
+  gsap.ticker.lagSmoothing(1000, 16)
+
   // Handle Window Resize
-  // We use a debounce (timer) to prevent the reload from firing 
   let resizeTimer;
+  let lastWidth = window.innerWidth;
+  
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
+    
+    // Always refresh ScrollTrigger immediately
+    ScrollTrigger.refresh();
+    
     resizeTimer = setTimeout(() => {
-      // Only reload if the width actually changed (ignores mobile address bar vertical resizing)
-      if (window.innerWidth !== document.body.clientWidth) {
+      const currentWidth = window.innerWidth;
+      
+      // Only reload if width changed significantly (more than 50px)
+      // This prevents reloads from minor address bar show/hide on mobile
+      if (Math.abs(currentWidth - lastWidth) > 50) {
+          lastWidth = currentWidth;
           window.location.reload();
+      } else {
+          // For minor changes, just refresh ScrollTrigger again
+          ScrollTrigger.refresh();
       }
     }, 250);
   });
@@ -175,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     end: "+=800",
     pin: true,
     pinSpacing: true,
+    anticipatePin: 1, 
     id: "pinning"
   });
 
@@ -191,6 +208,8 @@ document.addEventListener("DOMContentLoaded", () => {
       invalidateOnRefresh: true // recalculation on resize
     }
   });
+
+  tlAnimation.set(sourcePaths, { force3D: true });
 
   // 1. Reveal the group
   tlAnimation.to(sourceGroup, { opacity: 1 }, 0);
@@ -220,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
             x: () => calculateDotValues(index, path).xMove,
             y: () => calculateDotValues(index, path).yMove,
             scale: () => calculateDotValues(index, path).scale,
-            opacity: 1, // Fade IN the image
+            autoAlpha: 1, // Fade IN the image
             filter: "blur(0px)",
             transformOrigin: "center center",
             ease: "power1.inOut"
@@ -273,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
             x: () => calculateComplianceCenterValues(index, path).xMove,
             y: () => calculateComplianceCenterValues(index, path).yMove,
             scale: scaleFn, // Shrink image too as it fades out
-            opacity: 0, // Fade OUT the image
+            autoAlpha: 0, // Fade OUT the image
             ease: "power1.inOut"
          }, 0);
     }
@@ -292,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
       start: "center center",
       end: "+=6000", // Long duration for reading text
       pin: true,    // Pin the section so user sees animation
-      scrub: 0.1,   // Responsive scrubbing
+      scrub: 1,   // Responsive scrubbing
       invalidateOnRefresh: true
     }
   });
@@ -315,6 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial State
   tlComplianceSequence.set(scalingDot, { opacity: 1 }, 0);
+  tlComplianceSequence.set(scalingDot, { force3D: true }, 0);
   gsap.set(contentElements, { y: 20, opacity: 0 });
   
   // --- STEP 1: Scale Up (0% -> 20%) ---
@@ -345,9 +365,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fade in the background container circle
   tlComplianceSequence.to(finalCircleTarget, {
     opacity: 1,
-    duration: 0.5,
+    duration: 0.01,
     ease: "power1.in"
-  }, 1.5); 
+  }, 2.0); 
 
   // --- STEP 2: Content Fade In (20% -> 50%) ---
   tlComplianceSequence.to(contentElements, {
@@ -374,9 +394,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fade out the circle target (and shadow) alongside text
   tlComplianceSequence.to(finalCircleTarget, {
     opacity: 0,
-    duration: 2,
+    duration: 0.1,
     ease: "power2.in"
-  }, 5);
+  }, 6.5);
 
   // --- STEP 5: Scale Down (90% -> 100%) ---
   // Shrink dot back to original size
@@ -408,7 +428,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: "#greentruth-connects-section",
       start: "top bottom", 
       end: () => ScrollTrigger.getById("greentruth-pin").end, 
-      scrub: 0.5, // Smoother scrub
+      scrub: 1, // Smoother scrub
       invalidateOnRefresh: true
     }
   });
@@ -528,9 +548,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // We want to align the bottoms of the orange content initially.
       // PLUS a small base amount so they can "move up" a bit even for Step 1.
       const baseShift = 50;
-      // DYNAMIC CALCULATION based on CSS vh values (15vh and 25vh)
-      const spacer2 = window.innerHeight * 0.15; 
-      const spacer3 = window.innerHeight * 0.25;
+      // DYNAMIC CALCULATION based on actual DOM height (since we now use CSS clamp)
+      const step2Spacer = steps[1].querySelector('.bg-white');
+      const step3Spacer = steps[2].querySelector('.bg-white');
+
+      const spacer2 = step2Spacer ? step2Spacer.offsetHeight : 0;
+      const spacer3 = step3Spacer ? step3Spacer.offsetHeight : 0;
 
       const startY1 = baseShift;
       const startY2 = baseShift + spacer2;
@@ -690,6 +713,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // HELPER: Phase 2 Calculations (Move to Center of Screen)
   function calculateComplianceCenterValues(index, path) {
     // Destination: Exact center of the viewport
+    // We use window dimensions because the target section IS pinned to the center of the viewport.
+    // Measuring the DOM element directly (getBoundingClientRect) causes jitters/drift if calculated during scroll.
     const destX = window.innerWidth / 2;
     const destY = window.innerHeight / 2;
   

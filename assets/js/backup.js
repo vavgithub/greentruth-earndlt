@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { x: 97.9, y: 199.4, r: 8.5, color: "#303030", blurLevel: 0 },
     { x: 305.3, y: 263.6, r: 12.2, color: "#606060", blurLevel: 1 },
     { x: 340.4, y: 488.5, r: 49, color: "#B3B3B3", blurLevel: 0, imagePattern: "url(#img-dot-6)" },
-    { x: 57.2, y: 402.6, r: 7.9, color: "#242424", blurLevel: 2.5 },
+    { x: 157.2, y: 402.6, r: 7.9, color: "#242424", blurLevel: 2.5 },
     { x: 270.1, y: 607.0, r: 15.6, color: "#626262", blurLevel: 0.5 },
     { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 },
     { x: 390.0, y: 405.7, r: 11.3, color: "#434343", blurLevel: 1 },
@@ -154,11 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const sourceGroup = sourceSvg.querySelector("g");
   const sourcePaths = sourceSvg.querySelectorAll("path");
   const targetContainer = document.querySelector("#mandate-section-target");
-  // Leader/scaling references (last dot on top)
-  const scalingDot = sourcePaths[sourcePaths.length - 1];
-  const otherDots = Array.from(sourcePaths).slice(0, sourcePaths.length - 1);
   
-  // Create Image Clones
+  // NEW: Create Image Clones
   const imageClones = [];
   
   targetDotsData.forEach((data, index) => {
@@ -172,8 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Set new styles
         clone.style.fill = data.imagePattern;
         clone.style.opacity = 0; // Start hidden
-        
-        // Append image to group (It is now on top of the dots)
+        // Append to the same group so it shares the coordinate space
         sourceGroup.appendChild(clone);
         
         // Store reference
@@ -181,23 +177,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- LAYERING FIX ---
-  // Currently, the images we just added are "on top" of everything.
-  // We need the Leader Dot (the last dot) to be on top of the images.
-  // We grab the last dot and append it again. This physically moves it 
-  // to the very end of the DOM, making it the highest layer.
-  
-  const leaderDotRef = sourcePaths[sourcePaths.length - 1];
-  sourceGroup.appendChild(leaderDotRef);
-
 
   // =============================================================================
   // 4. ANIMATION PHASE 1: HERO -> MANDATE
   //    (Move dots from hero to first scattered formation)
   // =============================================================================
-
-  // Keep scalingDot hidden in hero; will fade in near the end of mandate arrival
-  gsap.set(scalingDot, { opacity: 0 });
 
   // 4a. Pinning Trigger (Master Controller)
   // Pins the #mandate-section while dots move into place.
@@ -263,134 +247,82 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 3. Fade in scalingDot only near the end of mandate arrival
-  const mandateFadeInTime = Math.max(tlAnimation.duration() - 0.2, 0);
-  tlAnimation.to(scalingDot, { opacity: 1, duration: 0.2, ease: "power1.inOut" }, mandateFadeInTime);
-
 
   // =============================================================================
-  // 5. ANIMATION PHASE 2: FLOCK MERGE (MOVEMENT ONLY)
-  //    (Dots simply fly to the center. No scaling yet.)
+  // 5. ANIMATION PHASE 2: MANDATE -> COMPLIANCE ENTRY
+  //    (Move dots from scattered mandate to the center of the next section)
   // =============================================================================
 
-  // A. Define Actors (SWITCHED TO LAST DOT)
-  // The last dot in the DOM is always visually "on top" in SVG.
-  const leaderIndex = sourcePaths.length - 1;
-  const leaderDot = sourcePaths[leaderIndex]; 
-  
-  // The flock is everyone ELSE (indices 0 to length-1)
-  let flockDots = Array.from(sourcePaths).slice(0, leaderIndex);
-
-  // B. Timing Configuration
-  const flockStartTime   = 1.0; 
-  const streamDuration   = 8.0;  
-
-  // C. Sort Flock by Distance 
-  const windowCenter = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-  
-  flockDots.sort((a, b) => {
-    const rectA = a.getBoundingClientRect();
-    const rectB = b.getBoundingClientRect();
-    const distA = Math.hypot(rectA.x - windowCenter.x, rectA.y - windowCenter.y);
-    const distB = Math.hypot(rectB.x - windowCenter.x, rectB.y - windowCenter.y);
-    return distA - distB; 
-  });
-
-  // D. FLOCK ANIMATION TIMELINE (Define first)
-  // -------------------------------------------------------------------------
-  // IMPORTANT: Start Phase 2 only after Phase 1 is completely done
-  // Use "top center" instead of "top bottom" to ensure mandate section is past before starting
   const tlComplianceTransition = gsap.timeline({
     scrollTrigger: {
       trigger: "#compliance-section",
-      start: "top center", // Start later to ensure Phase 1 is complete
-      end: "bottom top", 
-      scrub: 1.5,
+      start: "top bottom", 
+      end: "center center",
+      scrub: 1,
       invalidateOnRefresh: true
     }
   });
 
-// E. LEADER DOT ANIMATION (Phase 2)
-tlComplianceTransition.fromTo(leaderDot, {
-  x: () => calculateDotValues(leaderIndex, leaderDot).xMove,
-  y: () => calculateDotValues(leaderIndex, leaderDot).yMove,
-  fill: targetDotsData[leaderIndex].color,
-  // Ensure we start with whatever blur Phase 1 gave it, so it doesn't jump
-  filter: `blur(${targetDotsData[leaderIndex].blurLevel}px)` 
-}, {
-  x: () => calculateComplianceCenterValues(leaderIndex, leaderDot).xMove,
-  y: () => calculateComplianceCenterValues(leaderIndex, leaderDot).yMove,
-  fill: "#142D21",
-  
-  // FIX: Force the leader to be sharp as it arrives at the center
-  filter: "blur(0px)", 
-  
-  duration: 30,   
-  ease: "none",   
-  immediateRender: false
-}, 0.1);
-
-
-  // E. FLOCK ANIMATION (Just Movement)
-  // -------------------------------------------------------------------------
-
- flockDots.forEach((dot, i) => {
-  const originalIndex = Array.from(sourcePaths).indexOf(dot);
-  const dest = calculateComplianceCenterValues(originalIndex, dot);
-
-  const progress = i / flockDots.length; 
-  const arrivalDelay = progress * streamDuration * 5.0; 
-  const travelDuration = 40.0 + (Math.random() * 16.0); 
-  let startTime = flockStartTime + arrivalDelay; 
-
-  tlComplianceTransition.to(dot, {
-    x: () => dest.xMove,
-    y: () => dest.yMove,
-    fill: "#142D21", 
+  sourcePaths.forEach((path, index) => {
+    if (index >= targetDotsData.length) return;
     
-    // FIX: Remove blur as they fly to the center.
-    // This prevents the "shadow cluster" effect.
-    filter: "blur(0px)", 
-    
-    duration: travelDuration,
-    ease: "power2.in",
-    overwrite: "auto"
-  }, startTime);
+    const target = targetDotsData[index];
 
-    // Image Clone Handling
-    const cloneObj = imageClones.find(c => c.index === originalIndex);
+    // -- Original Dot --
+    // Force scale calculation to simulate small dot size if this was an image dot
+    let scaleFn = () => calculateComplianceCenterValues(index, path).scale;
+    if (target.imagePattern) {
+        // target.r is 50, but we want it to shrink to something like r=6.1
+        // Ratio = 6.1 / 50 = 0.122
+        scaleFn = () => calculateComplianceCenterValues(index, path).scale * 0.122;
+    }
+
+    tlComplianceTransition.to(path, {
+      x: () => calculateComplianceCenterValues(index, path).xMove,
+      y: () => calculateComplianceCenterValues(index, path).yMove,
+      scale: scaleFn,
+      fill: target.color,
+      ease: "power1.inOut"
+    }, 0);
+    
+    // -- Image Clone --
+    const cloneObj = imageClones.find(c => c.index === index);
     if (cloneObj) {
-      tlComplianceTransition.to(cloneObj.element, {
-        x: () => dest.xMove,
-        y: () => dest.yMove,
-        autoAlpha: 0, 
-        duration: travelDuration,
-        ease: "power2.in",
-        overwrite: "auto"
-      }, startTime);
+         tlComplianceTransition.to(cloneObj.element, {
+            x: () => calculateComplianceCenterValues(index, path).xMove,
+            y: () => calculateComplianceCenterValues(index, path).yMove,
+            scale: scaleFn, // Shrink image too as it fades out
+            autoAlpha: 0, // Fade OUT the image
+            ease: "power1.inOut"
+         }, 0);
     }
   });
 
 
-// =============================================================================
+  // =============================================================================
   // 6. ANIMATION PHASE 3: COMPLIANCE SEQUENCE
+  //    (Scale one dot, show content, hide content, scale down)
   // =============================================================================
 
-  // 6a. Main Timeline
+  // 6a. Main Timeline for the sequence
   const tlComplianceSequence = gsap.timeline({
     scrollTrigger: {
       trigger: "#compliance-section",
-      start: "center center", 
-      end: "+=6000", 
-      pin: true,    
-      scrub: 1,     
+      start: "center center",
+      end: "+=6000", // Long duration for reading text
+      pin: true,    // Pin the section so user sees animation
+      scrub: 1,   // Responsive scrubbing
       invalidateOnRefresh: true
     }
   });
 
+  // Identify Elements
+  // Use the last dot in the list as the "Hero Dot" that expands
+  const scalingDot = sourcePaths[sourcePaths.length - 1];
+  const otherDots = Array.from(sourcePaths).slice(0, sourcePaths.length - 1);
   const finalCircleTarget = document.querySelector("#compliance-circle-target");
   
-  // Text elements
+  // Text elements to animate
   const contentElements = [
     "#compliance-heading",
     "#compliance-li-1",
@@ -400,47 +332,42 @@ tlComplianceTransition.fromTo(leaderDot, {
     "#compliance-text-2"
   ];
 
-  // --- CRITICAL FIX: CLEAN SLATE ---
-  // Instantly remove 'blur' filters from EVERY dot (Leader + Flock).
-  // This prevents the flock behind the leader from looking like a "shadow" or "glow".
-  tlComplianceSequence.set(sourcePaths, { 
-    filter: "none",
-    force3D: true 
-  }, 0);
-
+  // Initial State
+  tlComplianceSequence.set(scalingDot, { opacity: 1 }, 0);
+  tlComplianceSequence.set(scalingDot, { force3D: true }, 0);
   gsap.set(contentElements, { y: 20, opacity: 0 });
   
-  // --- STEP 1: Absorb & Scale Up (0% -> 20%) ---
+  // --- STEP 1: Scale Up (0% -> 20%) ---
+  // Expand the scalingDot to fill the screen/circle
   tlComplianceSequence.fromTo(scalingDot, {
     x: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).xMove,
     y: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).yMove,
     scale: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).scale,
-    fill: "#142D21",
+    fill: targetDotsData[sourcePaths.length - 1].color,
+    filter: "blur(0px)",
     transformOrigin: "center center"
   }, {
     scale: () => calculateComplianceScalingValues(scalingDot).scale,
-    fill: "#142D21", 
+    fill: "#142D21",
+    filter: "blur(0px)",
     duration: 2,
     ease: "power1.inOut",
     immediateRender: false,
-    overwrite: "auto" // Ensures Phase 1 stops fighting
+    overwrite: "auto"
   }, 0);
 
-  // B. "Absorb" the flock
+  // Fade out all other dots
   tlComplianceSequence.to(otherDots, {
-    scale: 0,   
-    opacity: 0, 
-    duration: 1.5,
-    ease: "power1.in",
-    stagger: { amount: 0.5, from: "center" }
+    opacity: 0,
+    duration: 0.5
   }, 0);
 
-  // C. Reveal Green Background
+  // Fade in the background container circle
   tlComplianceSequence.to(finalCircleTarget, {
     opacity: 1,
-    duration: 0.1,
+    duration: 0.01,
     ease: "power1.in"
-  }, 1.8);
+  }, 2.0); 
 
   // --- STEP 2: Content Fade In (20% -> 50%) ---
   tlComplianceSequence.to(contentElements, {
@@ -452,7 +379,8 @@ tlComplianceTransition.fromTo(leaderDot, {
   }, 2);
 
   // --- STEP 3: Hold (50% -> 80%) ---
-  tlComplianceSequence.to({}, { duration: 2 }, 4);
+  // A dummy tween to keep text visible while user scrolls
+  tlComplianceSequence.to({}, { duration: 1 }, 4);
 
   // --- STEP 4: Content Fade Out (80% -> 90%) ---
   tlComplianceSequence.to(contentElements, {
@@ -461,56 +389,25 @@ tlComplianceTransition.fromTo(leaderDot, {
     duration: 2,
     stagger: 0.1,
     ease: "power2.in"
-  }, 6);
+  }, 5);
 
-  // Fade out container
+  // Fade out the circle target (and shadow) alongside text
   tlComplianceSequence.to(finalCircleTarget, {
     opacity: 0,
-    duration: 0.5,
+    duration: 0.1,
     ease: "power2.in"
-  }, 8);
+  }, 6.5);
 
-  // --- STEP 5: Scale Down & Logo Formation Transition (90% -> 100%) ---
-  
-  // 5a. Scaling Dot: Shrinks FIRST (Stays in center)
+  // --- STEP 5: Scale Down (90% -> 100%) ---
+  // Shrink dot back to original size
   tlComplianceSequence.to(scalingDot, {
-    scale: () => calculateLogoValues(sourcePaths.length - 1, scalingDot).scale, // Scale to final logo size
-    // x & y stay at center for now
-    duration: 2, 
+    scale: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).scale, 
+    duration: 3,
     ease: "power1.inOut"
-  }, 8.5);
-
-  // 5b. Flock: Moves OUT while leader is shrinking
-  // The flock leaves the center to form the logo while the leader stays put & shrinks.
-  tlComplianceSequence.set(otherDots, { opacity: 1 }, 8.5);
+  }, 7);
   
-  tlComplianceSequence.to(otherDots, {
-    x: (index, path) => calculateLogoValues(index, path).xMove,
-    y: (index, path) => calculateLogoValues(index, path).yMove,
-    scale: (index, path) => calculateLogoValues(index, path).scale,
-    fill: (index) => finaltargetDotsData[index]?.color ?? "#303030",
-    filter: "blur(0px)",
-    duration: 2.5, 
-    ease: "power2.inOut",
-    stagger: {
-      amount: 1,
-      from: "random"
-    }
-  }, 8.5);
 
-  // 5c. Scaling Dot: Moves LAST
-  // After it has finished shrinking (at 8.5 + 2 = 10.5), it moves to its final spot.
-  tlComplianceSequence.to(scalingDot, {
-    x: () => calculateLogoValues(sourcePaths.length - 1, scalingDot).xMove,
-    y: () => calculateLogoValues(sourcePaths.length - 1, scalingDot).yMove,
-    fill: () => finaltargetDotsData[sourcePaths.length - 1]?.color ?? "#303030",
-    filter: "blur(0px)",
-    duration: 1.5,
-    ease: "power1.inOut"
-  }, 10.5);
-
-
-    // =============================================================================
+  // =============================================================================
   // 7. ANIMATION PHASE 4: FORM GREENTRUTH LOGO
   //    (Move dots from center to form the logo shape)
   // =============================================================================
@@ -519,14 +416,13 @@ tlComplianceTransition.fromTo(leaderDot, {
   ScrollTrigger.create({
     trigger: "#greentruth-connects-section",
     start: "center center",
-    end: "+=1500", // Reduced from 4000 to make it faster
+    end: "+=4000",
     pin: true,
     pinSpacing: true,
     id: "greentruth-pin"
   });
 
-  // 7b. Logo Formation Timeline (Text Reveal Only)
-  // Movement is now handled in the previous phase for continuous flow.
+  // 7b. Logo Formation Timeline
   const tlLogoFormation = gsap.timeline({
     scrollTrigger: {
       trigger: "#greentruth-connects-section",
@@ -537,22 +433,52 @@ tlComplianceTransition.fromTo(leaderDot, {
     }
   });
 
+  // Ensure all dots are visible again
+  tlLogoFormation.to(sourcePaths, { opacity: 1, duration: 0.1 }, 0);
+
   // Setup Final Text
   const greentruthText = document.querySelector("#greentruth-connects-text");
   if (greentruthText) gsap.set(greentruthText, { y: 50, opacity: 0 });
+
+  // Move dots to Logo Formation with Stagger
+  tlLogoFormation.to(sourcePaths, {
+    x: (index, path) => {
+      if (index >= finaltargetDotsData.length) return 0;
+      return calculateLogoValues(index, path).xMove;
+    },
+    y: (index, path) => {
+      if (index >= finaltargetDotsData.length) return 0;
+      return calculateLogoValues(index, path).yMove;
+    },
+    scale: (index, path) => {
+      if (index >= finaltargetDotsData.length) return 0;
+      return calculateLogoValues(index, path).scale;
+    },
+    fill: (index) => {
+      if (index >= finaltargetDotsData.length) return "#303030";
+      return finaltargetDotsData[index].color;
+    },
+    filter: "blur(0px)",
+    ease: "power1.inOut",
+    stagger: {
+      amount: 3, 
+      from: "random"
+    },
+    duration: 1 
+  }, 0);
 
   // Animate Final Text In (starts after dots form)
   if (greentruthText) {
     tlLogoFormation.to(greentruthText, {
       y: 0,
       opacity: 1,
-      duration: 1, // Faster duration
+      duration: 1.5, 
       ease: "power2.out"
-    }, 0); // Start immediately at the beginning of the timeline
+    }, 4); 
   }
 
 
-   // =============================================================================
+  // =============================================================================
   // 8. ANIMATION PHASE 5: DOM REPARENTING (EXIT)
   //    (Move the floating container into the final section to keep it visible)
   // =============================================================================
@@ -599,9 +525,6 @@ tlComplianceTransition.fromTo(leaderDot, {
       container.style.width = "";
       container.style.height = "";
       
-      // Hide the scalingDot when returning to hero to avoid stray dot
-      gsap.set(scalingDot, { opacity: 0 });
-
       // Sync animation state
       tlLogoFormation.progress(1, true);
     }
@@ -706,9 +629,8 @@ tlComplianceTransition.fromTo(leaderDot, {
         }, startY3); // Starts exactly when Step 3 (and Logo animation) finishes
       }
 
-      // Add a substantial buffer at the end so the user can read the content
-      // before the footer scrolls into view.
-      mainTl.to({}, { duration: 200 }); // Large buffer for a "hold" phase
+      // Add a buffer at the end if needed, or just let it finish.
+      mainTl.to({}, { duration: 10 }); // Optional buffer
     },
 
     // --- Mobile Animation ---
@@ -732,6 +654,7 @@ tlComplianceTransition.fromTo(leaderDot, {
       });
     }
   });
+  
 
  // =============================================================================
   // 10. HELPER FUNCTIONS (MATH)

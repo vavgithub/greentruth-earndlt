@@ -1,4 +1,4 @@
-
+@charset "UTF-8";
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -204,68 +204,52 @@ body {
 }
 
 #proof-tabs-container .tab-btn img {
-  pointer-events: none;
-  display: block;
+  max-height: 24px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.2s, opacity 0.2s;
 }
 
-/* =========================================
-   Active/Inactive States
-   ========================================= */
+/* Active State for Tab Buttons */
+#proof-tabs-container .tab-btn.active {
+  background: #F5F5ED; 
+  /* Brand-red top border if desired, or handle via classes */
+}
+#proof-tabs-container .tab-btn.active img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
 
-/* --- TAB 1: OVERVIEW Logic --- */
-/* Active: Top/Right borders Black. Bottom Transparent. */
-#proof-tabs-container .tab-btn.active-overview {
+/* Content visibility */
+.proof-content {
+  display: none; /* hidden by default */
+}
+
+/* TAB BORDERS logic mirrors the HTML approach:
+   .tab-border-r, .tab-border-b, etc.
+   We can enforce them here or rely on Tailwind utility classes in HTML.
+   Existing logic in HTML seems to use:
+   border-b border-black (inactive)
+   border-t border-black bg-[#F5F5ED] (active)
+*/
+
+/* Helper classes to match the 'active-overview' style logic from before, 
+   but applied more generically if needed. 
+*/
+.tab-active-style {
+  background: #f5f5ed !important;
   border-top: 1px solid #000;
+}
+
+/* Specifically for the borders between tabs */
+.tab-border-r {
   border-right: 1px solid #000;
-  border-left: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  z-index: 10;
 }
-
-/* Inactive: Bottom border Black. */
-#proof-tabs-container .tab-btn.inactive-overview {
-  background-color: transparent;
-  border-top: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-bottom: 1px solid #000;
-}
-
-/* --- TAB 2 & 3: MIDDLE Logic --- */
-/* Active: Top/Left/Right borders Black. Bottom Transparent. */
-#proof-tabs-container .tab-btn.active-middle {
-  border-top: 1px solid #000;
+.tab-border-l {
   border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid transparent;
-  z-index: 10;
 }
-
-/* Inactive: Bottom border Black. */
-#proof-tabs-container .tab-btn.inactive-middle {
-  background-color: transparent;
-  border-top: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-bottom: 1px solid #000;
-}
-
-/* --- TAB 4: LAST Logic --- */
-/* Active: Top/Left borders Black. Bottom Transparent. */
-#proof-tabs-container .tab-btn.active-last {
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-right: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  z-index: 10;
-}
-
-/* Inactive: Bottom border Black. */
-#proof-tabs-container .tab-btn.inactive-last {
-  background-color: transparent;
-  border-top: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
+.tab-border-b {
   border-bottom: 1px solid #000;
 }
 
@@ -355,12 +339,9 @@ body:has(#form-success:target) #contact-form {
   }
 }
 
-.hero-nav{
-  display: none;
-}
-
-@media (max-width: 1899px) {
-  .hero-nav{
-    display: block;
+/* Explicitly hide the in-hero nav on large screens to override any potential Tailwind conflicts */
+@media (min-width: 1900px) {
+  .hero-nav {
+    display: none;
   }
 }

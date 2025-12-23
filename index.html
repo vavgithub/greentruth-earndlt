@@ -155,6 +155,57 @@
         </ul>
       </nav>-->
     </div>
+       <!-- Floating Nav for >=1900px (outside hero to avoid stacking issues) -->
+       <nav
+       class="hidden min-[1900px]:block fixed right-[0%] top-[40%] text-[13px] leading-[2] text-brand-dark flex-shrink-0 pl-5 lg:pt-[36px] z-[999] isolate"
+       >
+       <ul
+           class="list-none relative bg-white/80 p-10 rounded-lg"
+         >
+           <li>
+             <a
+               href="#hero-section"
+               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+               >Top</a
+             >
+           </li>
+           <li>
+             <a
+               href="#compliance-section"
+               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+               >The Challenge</a
+             >
+           </li>
+           <li>
+             <a
+               href="#platform-section"
+               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+               >The Platform</a
+             >
+           </li>
+           <li>
+             <a
+               href="#proof-in-action"
+               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+               >Proof in Action</a
+             >
+           </li>
+           <li>
+             <a
+               href="#cost-of-standing-still"
+               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+               >The Cost of Waiting</a
+             >
+           </li>
+           <!--<li>
+             <a
+               href="#get-started-section"
+               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+               >Get Started</a
+             >
+           </li>-->
+         </ul>
+       </nav>
 
     <!-- HERO Section -->
     <section
@@ -175,12 +226,10 @@
             >
           </p>
         </div>
+        <!-- In-hero nav for screens < 1900px -->
         <nav
-          class="hidden md:block min-[1900px]:fixed right-[0%] top-[40%] text-[13px] leading-[2] text-brand-dark flex-shrink-0 pl-5 lg:pt-[36px]"
-        >
-          <ul
-            class="list-none relative min-[1900px]:bg-white/80  min-[1900px]:p-10  min-[1900px]:rounded-lg  min-[1900px]:z-50"
-          >
+        class="hero-nav hidden md:block max-[1899px]:block min-[1900px]:hidden  text-[13px] leading-[2] text-brand-dark flex-shrink-0 pl-5 lg:pt-[36px]">
+          <ul class="list-none relative">
             <li>
               <a
                 href="#hero-section"
@@ -216,13 +265,6 @@
                 >The Cost of Waiting</a
               >
             </li>
-            <!--<li>
-              <a
-                href="#get-started-section"
-                class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
-                >Get Started</a
-              >
-            </li>-->
           </ul>
         </nav>
       </div>

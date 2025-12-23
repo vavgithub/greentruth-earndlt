@@ -354,3 +354,13 @@ body:has(#form-success:target) #contact-form {
     display: block;
   }
 }
+
+.hero-nav{
+  display: none;
+}
+
+@media (max-width: 1899px) {
+  .hero-nav{
+    display: block;
+  }
+}

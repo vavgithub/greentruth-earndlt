@@ -339,7 +339,6 @@ body:has(#form-success:target) #contact-form {
   }
 }
 
-/* Explicitly hide the in-hero nav on large screens to override any potential Tailwind conflicts */
 @media (min-width: 1900px) {
   .hero-nav {
     display: none;

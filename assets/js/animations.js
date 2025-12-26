@@ -325,7 +325,7 @@ tlComplianceTransition.fromTo(leaderDot, {
   // FIX: Force the leader to be sharp as it arrives at the center
   filter: "blur(0px)", 
   
-  duration: 30,   
+  duration: 50,   
   ease: "none",   
   immediateRender: false
 }, 0.1);
@@ -519,7 +519,7 @@ tlComplianceTransition.fromTo(leaderDot, {
   ScrollTrigger.create({
     trigger: "#greentruth-connects-section",
     start: "center center",
-    end: "+=1500", // Reduced from 4000 to make it faster
+    end: "+=1100", // Reduced from 4000 to make it faster
     pin: true,
     pinSpacing: true,
     id: "greentruth-pin"
@@ -539,16 +539,19 @@ tlComplianceTransition.fromTo(leaderDot, {
 
   // Setup Final Text
   const greentruthText = document.querySelector("#greentruth-connects-text");
-  if (greentruthText) gsap.set(greentruthText, { y: 50, opacity: 0 });
+  if (greentruthText) gsap.set(greentruthText, { y: 20, opacity: 0 });
 
   // Animate Final Text In (starts after dots form)
   if (greentruthText) {
     tlLogoFormation.to(greentruthText, {
       y: 0,
       opacity: 1,
-      duration: 1, // Faster duration
+      duration: 0.5, // Faster duration relative to scroll distance
       ease: "power2.out"
-    }, 0); // Start immediately at the beginning of the timeline
+    }, 0); 
+    
+    // Add buffer to timeline so animation completes early
+    tlLogoFormation.to({}, { duration: 0.7 });
   }
 
 
@@ -599,9 +602,6 @@ tlComplianceTransition.fromTo(leaderDot, {
       container.style.width = "";
       container.style.height = "";
       
-      // Hide the scalingDot when returning to hero to avoid stray dot
-      gsap.set(scalingDot, { opacity: 0 });
-
       // Sync animation state
       tlLogoFormation.progress(1, true);
     }
@@ -650,7 +650,7 @@ tlComplianceTransition.fromTo(leaderDot, {
         scrollTrigger: {
           trigger: section,
           start: "top+50px top+=15px",     
-          end: () => window.innerWidth < 1280 ? "+=2500" : "+=4000",
+          end: () => window.innerWidth < 1280 ? "+=1200" : "+=2300",
           pin: true,            
           scrub: 1,             
           anticipatePin: 1,
@@ -687,14 +687,14 @@ tlComplianceTransition.fromTo(leaderDot, {
       if (logo) {
         mainTl.to(logo, {
           opacity: 1,
-          duration: startY3 - startY2, 
+          duration: 150, // Fixed duration for fade in
           ease: "none"
-        }, startY2); // Starts exactly when Step 2 finishes
+        }, startY3); // Starts exactly when Step 3 FINISHES moving
       }
 
       // --- 5. Get started FOOTER ANIMATION ---
       // Initially opacity 0.
-      // Appears AFTER logo becomes opacity 1 (which ends at startY3).
+      // Appears AFTER logo becomes opacity 1.
       const footer = section.querySelector("#greenlight-footer");
       if (footer) {
         gsap.set(footer, { opacity: 0 }); // Ensure it starts hidden
@@ -703,7 +703,7 @@ tlComplianceTransition.fromTo(leaderDot, {
           opacity: 1,
           duration: 150, // Arbitrary duration for fade-in
           ease: "none"
-        }, startY3); // Starts exactly when Step 3 (and Logo animation) finishes
+        }, startY3 + 150); // Starts after Logo finishes fading in (startY3 + 150)
       }
 
       // Add a substantial buffer at the end so the user can read the content

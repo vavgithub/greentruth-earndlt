@@ -152,6 +152,32 @@ document.addEventListener("DOMContentLoaded", () => {
   sections.forEach((section) => {
     observer.observe(section);
   });
+
+  // Lottie Animation Control (Play only when visible)
+  const lottieObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const player = entry.target;
+      // Ensure player is ready and has methods
+      if (entry.isIntersecting) {
+        if (typeof player.play === 'function') {
+             player.play();
+        }
+      } else {
+        if (typeof player.stop === 'function') {
+            player.stop();
+        }
+      }
+    });
+  }, { threshold: 0.1 }); // Trigger when 10% visible
+
+  // Observe all lottie-players
+  // Wait a tick to ensure custom elements might be upgraded, though usually fine on DOMContentLoaded
+  setTimeout(() => {
+      document.querySelectorAll('lottie-player').forEach(player => {
+        lottieObserver.observe(player);
+      });
+  }, 100);
+
 });
 
 document.addEventListener("DOMContentLoaded", () => {

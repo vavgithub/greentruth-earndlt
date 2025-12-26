@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     id: "pinning"
   });
 
-  // 4b. Animation Timeline
+    // 4b. Animation Timeline
   // scrub: 1 links animation progress directly to scrollbar
   const tlAnimation = gsap.timeline({
     scrollTrigger: {
@@ -221,7 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Ends exactly when the pinning starts (+ buffer)
       end: () => ScrollTrigger.getById("pinning").start + 400,
       scrub: 1,
-      invalidateOnRefresh: true // recalculation on resize
+      invalidateOnRefresh: true, // recalculation on resize
+      fastScrollEnd: true,
+      preventOverlaps: true
     }
   });
 
@@ -306,18 +308,14 @@ document.addEventListener("DOMContentLoaded", () => {
       start: "top center", // Start later to ensure Phase 1 is complete
       end: "bottom top", 
       scrub: 1.5,
-      invalidateOnRefresh: true
+      invalidateOnRefresh: true,
+      fastScrollEnd: true,
+      preventOverlaps: true
     }
   });
 
 // E. LEADER DOT ANIMATION (Phase 2)
-tlComplianceTransition.fromTo(leaderDot, {
-  x: () => calculateDotValues(leaderIndex, leaderDot).xMove,
-  y: () => calculateDotValues(leaderIndex, leaderDot).yMove,
-  fill: targetDotsData[leaderIndex].color,
-  // Ensure we start with whatever blur Phase 1 gave it, so it doesn't jump
-  filter: `blur(${targetDotsData[leaderIndex].blurLevel}px)` 
-}, {
+tlComplianceTransition.to(leaderDot, {
   x: () => calculateComplianceCenterValues(leaderIndex, leaderDot).xMove,
   y: () => calculateComplianceCenterValues(leaderIndex, leaderDot).yMove,
   fill: "#142D21",
@@ -325,9 +323,9 @@ tlComplianceTransition.fromTo(leaderDot, {
   // FIX: Force the leader to be sharp as it arrives at the center
   filter: "blur(0px)", 
   
-  duration: 30,   
-  ease: "none",   
-  immediateRender: false
+  duration: 50,   
+  ease: "none",
+  overwrite: "auto"
 }, 0.1);
 
 
@@ -384,7 +382,9 @@ tlComplianceTransition.fromTo(leaderDot, {
       end: "+=6000", 
       pin: true,    
       scrub: 1,     
-      invalidateOnRefresh: true
+      invalidateOnRefresh: true,
+      fastScrollEnd: true,
+      preventOverlaps: true
     }
   });
 
@@ -411,9 +411,9 @@ tlComplianceTransition.fromTo(leaderDot, {
   gsap.set(contentElements, { y: 20, opacity: 0 });
   
   // --- STEP 1: Absorb & Scale Up (0% -> 20%) ---
+  // FIX: Removed x/y from 'from' vars to prevent jumping back to previous calculated positions.
+  // We trust Phase 2 has successfully moved it to the center.
   tlComplianceSequence.fromTo(scalingDot, {
-    x: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).xMove,
-    y: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).yMove,
     scale: () => calculateComplianceCenterValues(sourcePaths.length - 1, scalingDot).scale,
     fill: "#142D21",
     transformOrigin: "center center"
@@ -519,7 +519,7 @@ tlComplianceTransition.fromTo(leaderDot, {
   ScrollTrigger.create({
     trigger: "#greentruth-connects-section",
     start: "center center",
-    end: "+=1500", // Reduced from 4000 to make it faster
+    end: "+=800", // Reduced from 1100 to 600 for faster exit
     pin: true,
     pinSpacing: true,
     id: "greentruth-pin"
@@ -530,25 +530,30 @@ tlComplianceTransition.fromTo(leaderDot, {
   const tlLogoFormation = gsap.timeline({
     scrollTrigger: {
       trigger: "#greentruth-connects-section",
-      start: "top bottom", 
+      start: "center center", // Changed from "top bottom" to fix "coming from bottom" visual
       end: () => ScrollTrigger.getById("greentruth-pin").end, 
-      scrub: 1, // Smoother scrub
-      invalidateOnRefresh: true
+      scrub: 1, 
+      invalidateOnRefresh: true,
+      fastScrollEnd: true,
+      preventOverlaps: true
     }
   });
 
   // Setup Final Text
   const greentruthText = document.querySelector("#greentruth-connects-text");
-  if (greentruthText) gsap.set(greentruthText, { y: 50, opacity: 0 });
+  if (greentruthText) gsap.set(greentruthText, { y: 20, opacity: 0 });
 
   // Animate Final Text In (starts after dots form)
   if (greentruthText) {
     tlLogoFormation.to(greentruthText, {
       y: 0,
       opacity: 1,
-      duration: 1, // Faster duration
+      duration: 0.5, // Faster duration relative to scroll distance
       ease: "power2.out"
-    }, 0); // Start immediately at the beginning of the timeline
+    }, 0); 
+    
+    // Add buffer to timeline so animation completes early
+    tlLogoFormation.to({}, { duration: 0.7 });
   }
 
 
@@ -599,9 +604,6 @@ tlComplianceTransition.fromTo(leaderDot, {
       container.style.width = "";
       container.style.height = "";
       
-      // Hide the scalingDot when returning to hero to avoid stray dot
-      gsap.set(scalingDot, { opacity: 0 });
-
       // Sync animation state
       tlLogoFormation.progress(1, true);
     }
@@ -650,7 +652,7 @@ tlComplianceTransition.fromTo(leaderDot, {
         scrollTrigger: {
           trigger: section,
           start: "top+50px top+=15px",     
-          end: () => window.innerWidth < 1280 ? "+=2500" : "+=4000",
+          end: () => window.innerWidth < 1280 ? "+=1200" : "+=2300",
           pin: true,            
           scrub: 1,             
           anticipatePin: 1,
@@ -687,14 +689,14 @@ tlComplianceTransition.fromTo(leaderDot, {
       if (logo) {
         mainTl.to(logo, {
           opacity: 1,
-          duration: startY3 - startY2, 
+          duration: 150, // Fixed duration for fade in
           ease: "none"
-        }, startY2); // Starts exactly when Step 2 finishes
+        }, startY3); // Starts exactly when Step 3 FINISHES moving
       }
 
       // --- 5. Get started FOOTER ANIMATION ---
       // Initially opacity 0.
-      // Appears AFTER logo becomes opacity 1 (which ends at startY3).
+      // Appears AFTER logo becomes opacity 1.
       const footer = section.querySelector("#greenlight-footer");
       if (footer) {
         gsap.set(footer, { opacity: 0 }); // Ensure it starts hidden
@@ -703,7 +705,7 @@ tlComplianceTransition.fromTo(leaderDot, {
           opacity: 1,
           duration: 150, // Arbitrary duration for fade-in
           ease: "none"
-        }, startY3); // Starts exactly when Step 3 (and Logo animation) finishes
+        }, startY3 + 150); // Starts after Logo finishes fading in (startY3 + 150)
       }
 
       // Add a substantial buffer at the end so the user can read the content
@@ -838,7 +840,12 @@ tlComplianceTransition.fromTo(leaderDot, {
 
   // HELPER: Phase 4 Calculations (Formation of Logo)
   function calculateLogoValues(index, path) {
-    const targetData = finaltargetDotsData[index];
+    // FIX: Handle index out of bounds (if sourcePaths > finaltargetDotsData)
+    // Map excess dots to existing logo positions (using modulo to cycle through)
+    let targetData = finaltargetDotsData[index];
+    if (!targetData) {
+        targetData = finaltargetDotsData[index % finaltargetDotsData.length];
+    }
     
     // Get dimensions/positions of the Section and the Logo container
     const section = document.querySelector("#greentruth-connects-section");

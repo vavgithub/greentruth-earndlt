@@ -39,57 +39,43 @@
             class="navbar__logo-mobile mb-3"
           />
         </a>
-        <!--<nav class="hidden md:block lg:pr-[20px] self-end">
+        <nav class="hidden md:block lg:pr-[20px] self-end">
           <ul class="flex gap-[20px] lg:gap-[30px] list-none md:pb-5 m-0">
             <li>
               <a
-                href="#solutions"
-                class="text-sm text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
-                >Solutions</a
-              >
-            </li>
-            <li>
-              <a
-                href="#platform"
-                class="text-sm text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
-                >Platform</a
-              >
-            </li>
-            <li>
-              <a
-                href="#resources"
-                class="text-sm text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                href="/resources.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
                 >Resources</a
               >
             </li>
             <li>
               <a
-                href="#about"
-                class="text-sm text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                href="/about.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
                 >About</a
               >
             </li>
             <li>
               <a
                 href="/contact.html"
-                class="text-sm text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
                 >Contact</a
               >
             </li>
           </ul>
-        </nav>-->
+        </nav>
         <div
           class="flex items-center md:items-start md:self-start gap-5 md:gap-8 md:absolute md:right-[clamp(1.25rem,9vw,4%)] md:top-[13%] lg:right-[clamp(1.25rem,10vw,10%)] xl:right-0 xl:relative"
         >
           <a
-            href="/contact.html"
+            href="https://app.greentruth.com/register" target="_blank"
             class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
-            >Contact Us</a
+            >Get Started</a
           >
           <a
-            href="https://earndlt.com" target="_blank"
+            href="https://app.greentruth.com/login" target="_blank"
             class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
-            >EarnDLT.com</a
+            >Login</a
           >
           <!--<button
             id="menu-button"
@@ -780,7 +766,6 @@
            speed="1"
            class="w-full h-auto lg:hidden"
            loop
-           autoplay
           ></lottie-player>
 
           <lottie-player
@@ -789,7 +774,6 @@
            speed="1"
            class="w-full h-auto hidden lg:block"
            loop
-           autoplay
           ></lottie-player>
         </div>
 
@@ -851,7 +835,6 @@
            speed="1"
            class="w-full h-auto lg:hidden"
            loop
-           autoplay
           ></lottie-player>
           <lottie-player
            src="assets/animations/Mint-tab-animation.json"
@@ -859,7 +842,6 @@
            speed="1"
            class="w-full h-auto hidden lg:block"
            loop
-           autoplay
           ></lottie-player>
         </div>
         <div
@@ -923,7 +905,6 @@
            speed="1"
            class="w-full h-auto lg:hidden"
            loop
-           autoplay
           ></lottie-player>
           <lottie-player
             src="assets/animations/acquire-tab-animation.json"
@@ -931,7 +912,6 @@
             speed="1"
             class="w-full h-auto hidden lg:block"
             loop
-            autoplay
          ></lottie-player>
         </div>
       </div>
@@ -1063,7 +1043,6 @@
            speed="1"
            class="w-full h-auto lg:hidden"
            loop
-           autoplay
           ></lottie-player>
           <lottie-player
             src="assets/animations/integrate-tab-animation.json"
@@ -1071,7 +1050,6 @@
             speed="1"
             class="w-full h-auto hidden lg:block"
             loop
-            autoplay
          ></lottie-player>
         </div>
 
@@ -2075,11 +2053,18 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
     </div>
   
   
-    <div id="get-started-section" class="w-full bg-white relative z-20 overflow-hidden h-screen max-h-screen flex flex-col"> 
-      <div class=" w-full bg-[#FF7E6C] flex-shrink-0">
-        <div class="border-[2px] border-t border-white/20 max-w-[320px] md:max-w-5xl mx-auto relative z-20"></div>
-      </div>     
-      <div class="relative w-full max-w-[1440px] mx-auto flex-grow h-full flex flex-col">
+  <div id="get-started-section" class="w-full bg-white relative z-20 overflow-hidden h-screen max-h-screen flex flex-col"> 
+    <!-- FIX: Top Orange Background (Header Area) -->
+    <div class="absolute top-0 left-0 w-full h-[60%] bg-[#FF7E6C] z-0 pointer-events-none"></div>
+
+    <div class=" w-full bg-[#FF7E6C] flex-shrink-0 relative z-10">
+      <div class="border-[2px] border-t border-white/20 max-w-[320px] md:max-w-5xl mx-auto relative z-20"></div>
+    </div>     
+    <div class="relative w-full max-w-[1440px] mx-auto flex-grow 2xl:flex-grow-0 h-full 2xl:h-auto 2xl:min-h-[1000px] 2xl:mt-auto flex flex-col z-10">
+      
+       <!-- FIX: Column 1 Background Extension (Orange) -->
+       <!-- This fills the vertical space behind Step 1 so no white gap appears -->
+       <div class="absolute top-0 bottom-[-100vh] left-0 w-full md:w-[33.33%] bg-[#FF7E6C] z-0 pointer-events-none hidden md:block"></div>
 
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-full bg-[#FF7E6C] z-0 pointer-events-none"></div>
         <div 
@@ -2140,8 +2125,11 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
   
         </div>
   
-        <div id="greenlight-footer" class="hidden md:flex md:absolute bottom-[2%] md:left-[68%] lg:left-[62%] xl:left-[60%] min-[1320px]:left-[55%] md:-translate-x-1/2 z-30 items-center justify-between w-full max-w-[586px] p-6 z-20">
-          <div class="pr-2">
+         <div id="greenlight-footer" 
+              class="hidden md:flex md:absolute md:left-[68%] lg:left-[62%] xl:left-[60%] min-[1320px]:left-[55%] md:-translate-x-1/2 z-30 items-center justify-between w-full max-w-[586px] p-6 z-20"
+              style="bottom: calc(clamp(140px, 18vh, 300px) / 2 - 60px);"
+         >
+            <div class="pr-2">
             <h2 class="text-[24px] font-bold text-black mb-1 leading-tight">Greenlight your compliance.</h2>
             <p class="text-sm text-black">Reach out to learn how verified emissions data can ease your compliance challenges.</p>
           </div>
@@ -2174,28 +2162,51 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
           </div>
         </section>
 
-    <footer class="bg-darkgreen h-[100px] md:h-[200px] px-5 md:px-10 lg:px-[100px]">
-      <div
-        class="max-w-[1440px] flex-col sm:flex-row h-full mx-auto flex items-center justify-center sm:justify-between gap-2"
-      >
-        <p class="text-[14px] leading-5 font-light text-white/40">
-          © EarnDLT 2025
-        </p>
-        <nav class="flex items-center gap-4">
-          <a
-            href="privacy.html"
-            class="text-white/60 text-[14px] hover:text-brand-red transition-colors"
-            >Privacy</a
-          >
-          <span class="text-white/30">|</span>
-          <a
-            href="terms-of-use.html"
-            class="text-white/60 text-[14px] hover:text-brand-red transition-colors"
-            >Terms of Use</a
-          >
-        </nav>
-      </div>
-    </footer>
+        <footer class="bg-[#141d19] py-12">
+          <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+              <div class="lg:col-span-3 flex flex-col items-start">
+                <img src="assets/footer/logo.svg" alt="Greentruth Logo" class="" />
+                <p class="text-[10px] text-[#7A7E70] font-normal font-inter text-right ml-16 mt-1">A member of the Earn Ecosystem</p>
+              </div>
+              <div class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 font-mokoko text-[16px] font-medium text-[#7A7E70]">       
+                <div class="flex flex-col space-y-4">
+                  <a href="/" class="hover:text-white transition-colors duration-200">Home</a>
+                  <a href="/resources.html" class="hover:text-white transition-colors duration-200">Resources</a>
+                </div>
+        
+                <div class="flex flex-col space-y-4">
+                  <a href="/contact.html" class="hover:text-white transition-colors duration-200">Contact Us</a>
+                  <a href="https://app.greentruth.com/register" target="_blank" class="hover:text-white transition-colors duration-200">Get Started</a>
+                  <a href="https://app.greentruth.com/login" target="_blank" class="hover:text-white transition-colors duration-200">Login</a>
+                </div>
+        
+                <div class="flex flex-col space-y-4">
+                  <a href="/privacy.html" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+                  <a href="/terms-of-use.html" class="hover:text-white transition-colors duration-200">Term of Use</a>
+                </div>
+              </div>
+        
+              <div class="lg:col-span-3 flex flex-col lg:items-end">
+                <div class="flex space-x-4 mb-4">
+                  <a href="https://www.linkedin.com/company/earndlt/" target="_blank" class="">
+                    <img src="assets/footer/linkedin-icon.svg" alt="Linkedin">
+                  </a>           
+                  <a href="https://x.com/earndlt/" class="" target="_blank">
+                    <img src="assets/footer/x-icon.svg" alt="X">
+                  </a>
+                </div>  
+                <p class="text-sm text-[#7A7E70] font-normal font-inter">
+                  (+1) 877-905-EARN (3276)
+                </p>
+              </div>
+            </div>
+            <div class="border-t border-[#204734] my-8"></div>
+            <div class="text-center text-[12px] text-[#606060] font-normal font-inter">
+              &copy; 2026 EarnDLT®. All Rights Reserved
+            </div>
+          </div>
+        </footer>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/animations.js" defer></script>
   </body>

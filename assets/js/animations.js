@@ -438,7 +438,7 @@ tlComplianceTransition.to(leaderDot, {
   // C. Reveal Green Background
   tlComplianceSequence.to(finalCircleTarget, {
     opacity: 1,
-    duration: 0.1,
+    duration: 0.01,
     ease: "power1.in"
   }, 1.8);
 
@@ -466,7 +466,7 @@ tlComplianceTransition.to(leaderDot, {
   // Fade out container
   tlComplianceSequence.to(finalCircleTarget, {
     opacity: 0,
-    duration: 0.5,
+    duration: 0.01,
     ease: "power2.in"
   }, 8);
 
@@ -548,7 +548,7 @@ tlComplianceTransition.to(leaderDot, {
     tlLogoFormation.to(greentruthText, {
       y: 0,
       opacity: 1,
-      duration: 0.5, // Faster duration relative to scroll distance
+      duration: 0.2, // Faster duration relative to scroll distance
       ease: "power2.out"
     }, 0); 
     

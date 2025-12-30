@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About - Greentruth</title>
-    <link href="assets/css/tailwind.css" rel="stylesheet">
-
+    <link href="assets/css/tailwind.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,11 +14,9 @@
       rel="stylesheet"
     />
   </head>
-  <body
-    class="m-0 font-mokoko text-brand-dark bg-white flex flex-col min-h-screen"
-  >
-    <!-- Header -->
-    <header class="bg-white px-5 md:px-0">
+
+  <body class="">
+    <header class="bg-white px-5 md:px-0 z-50">
       <div
         class="flex justify-between items-center md:items-end py-[25px] md:px-10 lg:px-[100px] max-w-content mx-auto relative"
       >
@@ -42,21 +39,21 @@
             <li>
               <a
                 href="/resources.html"
-                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                class="text-base font-medium text-gt-dark opacity-80 hover:opacity-100 transition-opacity"
                 >Resources</a
               >
             </li>
             <li>
               <a
                 href="/about.html"
-                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                class="text-base font-medium text-gt-dark opacity-100 transition-opacity"
                 >About</a
               >
             </li>
             <li>
               <a
                 href="/contact.html"
-                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                class="text-base font-medium text-gt-dark opacity-80 hover:opacity-100 transition-opacity"
                 >Contact</a
               >
             </li>
@@ -66,132 +63,236 @@
           class="flex items-center md:items-start md:self-start gap-5 md:gap-8 md:absolute md:right-[clamp(1.25rem,9vw,4%)] md:top-[13%] lg:right-[clamp(1.25rem,10vw,10%)] xl:right-0 xl:relative"
         >
           <a
-            href="https://app.greentruth.com/register" target="_blank"
-            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+            href="https://app.greentruth.com/register"
+            target="_blank"
+            class="text-sm font-medium text-gt-red whitespace-nowrap hover:opacity-80 transition-opacity"
             >Get Started</a
           >
           <a
-            href="https://app.greentruth.com/login" target="_blank"
-            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+            href="https://app.greentruth.com/login"
+            target="_blank"
+            class="text-sm font-medium text-gt-red whitespace-nowrap hover:opacity-80 transition-opacity"
             >Login</a
           >
-          <!--<button
-            id="menu-button"
-            class="md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
-            aria-label="Toggle navigation"
-          >
-            <img src="assets/icons/menu-icon.svg" alt="Menu Icon" />
-          </button>-->
         </div>
       </div>
     </header>
 
-    <!-- Mobile Menu Modal -->
-    <!-- <div
-      id="mobile-menu"
-      class="hidden fixed inset-0 bg-white z-50 p-5 animate-fade-in"
-    >
-      <div class="flex justify-end">
-        <button
-          id="close-menu"
-          class="border-0 bg-transparent text-4xl cursor-pointer text-brand-dark"
+    <main class="flex-grow">
+      <section class="px-5 md:px-10 lg:px-[100px] pt-14 md:pt-[88px]">
+        <h1
+          class="max-w-content mx-auto text-[20px] md:text-[36px] font-normal font-mokoko text-brand-red"
         >
-          &times;
-        </button>
-      </div>
-      <nav class="h-full flex items-center justify-center -mt-12">
-        <ul class="flex flex-col gap-8 list-none p-0 m-0 text-center">
-          <li>
-            <a
-              href="index.html#solutions"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Solutions</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html#platform"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Platform</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html#resources"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Resources</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html#about"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="contact.html"
-              class="text-2xl text-brand-dark font-bold opacity-100 transition-opacity"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </div> -->
-
-
-    <div class="min-h-screen flex items-center justify-center">
-        <h1 class="text-[#0f1c16] font-serif text-4xl md:text-3xl tracking-widest uppercase">
-          Coming Soon
+          About Greentruth
         </h1>
-    </div>
+      </section>
 
-    <footer class="bg-[#141d19] py-12">
-        <div class="container mx-auto px-6">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
-            <div class="lg:col-span-3 flex flex-col items-start">
-              <img src="assets/footer/logo.svg" alt="Greentruth Logo" class="" />
-              <p class="text-[10px] text-[#7A7E70] font-normal font-inter text-right ml-16 mt-1">A member of the Earn Ecosystem</p>
-            </div>
-            <div class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 font-mokoko text-[16px] font-medium text-[#7A7E70]">       
-              <div class="flex flex-col space-y-4">
-                <a href="/" class="hover:text-white transition-colors duration-200">Home</a>
-                <a href="/resources.html" class="hover:text-white transition-colors duration-200">Resources</a>
+      <section class="bg-[#E9E9D7] px-5 md:px-10 lg:px-[100px] pb-24">
+        <div class="max-w-content mx-auto">
+          <div
+            class="flex flex-col md:flex-row items-start gap-12 lg:gap-24 pt-14 md:pt-[120px] mb-10"
+          >
+            <div class="w-full md:max-w-[620px]">
+              <h2
+                class="text-[18px] md:text-[26px] font-mokoko font-medium mb-8 md:mb-12 text-[#141D19]"
+              >
+                Greentruth in the Earn Ecosystem
+              </h2>
+              <div
+                class="space-y-6 text-[16px] md:text-[20px] leading-[1.6] text-[#292929] font-normal font-inter"
+              >
+                <p>
+                  Greentruth is a vertical platform within the Earn ecosystem
+                  that provides a market interface and operational layer for
+                  verified emissions and environmental data. EarnDLT supplies
+                  the underlying infrastructure for verification, tokenization,
+                  and registry management.
+                </p>
+                <p>
+                  This arrangement enables Greentruth to deliver a focused,
+                  market-ready implementation, built on infrastructure designed
+                  for scale and rigor.
+                </p>
               </div>
-      
-              <div class="flex flex-col space-y-4">
-                <a href="/contact.html" class="hover:text-white transition-colors duration-200">Contact Us</a>
-                <a href="https://app.greentruth.com/register" target="_blank" class="hover:text-white transition-colors duration-200">Get Started</a>
-                <a href="https://app.greentruth.com/login" target="_blank" class="hover:text-white transition-colors duration-200">Login</a>
-              </div>
-      
-              <div class="flex flex-col space-y-4">
-                <a href="/privacy.html" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
-                <a href="/terms-of-use.html" class="hover:text-white transition-colors duration-200">Term of Use</a>
-              </div>
-            </div>
-      
-            <div class="lg:col-span-3 flex flex-col lg:items-end">
-              <div class="flex space-x-4 mb-4">
-                <a href="https://www.linkedin.com/company/earndlt/" target="_blank" class="">
-                  <img src="assets/footer/linkedin-icon.svg" alt="Linkedin">
-                </a>           
-                <a href="https://x.com/earndlt/" class="" target="_blank">
-                  <img src="assets/footer/x-icon.svg" alt="X">
+              <div class="mt-8">
+                <a
+                  href="https://earndlt.com/"
+                  class="inline-flex items-center text-[#178B53] text-[16px] hover:opacity-80 transition-opacity group font-medium font-mokoko"
+                >
+                  Learn more about Earn
+                  <span
+                    class="ml-2 transform group-hover:translate-x-1 transition-transform"
+                    >&gt;</span
+                  >
                 </a>
-              </div>  
-              <p class="text-sm text-[#7A7E70] font-normal font-inter">
-                (+1) 877-905-EARN (3276)
-              </p>
+              </div>
+            </div>
+            <div
+              class="w-full max-w-[341px] mx-auto flex justify-center pt-10 md:pt-20"
+            >
+              <img
+                src="assets/images/ecosystem.svg"
+                alt="Earn Ecosystem"
+                class=""
+              />
             </div>
           </div>
-          <div class="border-t border-[#204734] my-8"></div>
-          <div class="text-center text-[12px] text-[#606060] font-normal font-inter">
-            &copy; 2026 EarnDLT®. All Rights Reserved
+
+          <hr class="border-[#292929] border-t-1 mb-20" />
+
+          <div class="flex flex-col md:flex-row gap-12 lg:gap-24">
+            <div class="w-full md:max-w-[620px]">
+              <h2
+                class="text-[18px] md:text-[26px] font-mokoko font-medium mb-8 md:mb-12 text-[#141D19]"
+              >
+                Accountability & Controls
+              </h2>
+              <div
+                class="space-y-6 text-[16px] md:text-[20px] leading-[1.6] text-[#292929] font-normal font-inter mb-8"
+              >
+                <p>
+                  Greentruth operates under governance frameworks and operating
+                  standards designed for regulated environments. These standards
+                  define how the organization manages security, data protection,
+                  and regulatory accountability.
+                </p>
+                <p>
+                  These standards ensure Greentruth operates in a manner
+                  suitable for audit, assurance, and regulatory use.
+                </p>
+              </div>
+              <ul
+                class="space-y-3 text-[16px] md:text-[20px] leading-[1.6] text-[#292929] font-normal font-inter pl-5 list-disc marker:text-gt-dark"
+              >
+                <li>
+                  ISO 27001–aligned information security management practices
+                </li>
+                <li>
+                  SOC 2–aligned operational controls governing security,
+                  availability, and operational integrity
+                </li>
+                <li>
+                  GDPR-compliant data protection and privacy controls across EU
+                  operations
+                </li>
+                <li>
+                  Regulatory monitoring and alignment processes across operating
+                  jurisdictions
+                </li>
+              </ul>
+            </div>
+            <div
+              class="w-full max-w-[341px] mx-auto flex flex-col justify-center"
+            >
+              <img
+                src="assets/images/accountability.svg"
+                alt="Accountability Standards"
+                class=""
+              />
+              <div class="mt-8">
+                <a
+                  href="https://earndlt.com/"
+                  class="inline-flex items-center text-[#178B53] text-[16px] hover:opacity-80 transition-opacity group font-medium font-mokoko"
+                >
+                  Learn more about Earn
+                  <span
+                    class="ml-2 transform group-hover:translate-x-1 transition-transform"
+                    >&gt;</span
+                  >
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
+      </section>
+    </main>
 
+    <footer class="bg-[#141d19] py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+          <div class="lg:col-span-3 flex flex-col items-start">
+            <img src="assets/footer/logo.svg" alt="Greentruth Logo" class="" />
+            <p
+              class="text-[10px] text-[#7A7E70] font-normal font-inter text-right ml-16 mt-1"
+            >
+              A member of the Earn Ecosystem
+            </p>
+          </div>
+          <div
+            class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 font-mokoko text-[16px] font-medium text-[#7A7E70]"
+          >
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/"
+                class="hover:text-white transition-colors duration-200"
+                >Home</a
+              >
+              <a
+                href="/resources.html"
+                class="hover:text-white transition-colors duration-200"
+                >Resources</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/contact.html"
+                class="hover:text-white transition-colors duration-200"
+                >Contact Us</a
+              >
+              <a
+                href="https://app.greentruth.com/register"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Get Started</a
+              >
+              <a
+                href="https://app.greentruth.com/login"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Login</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/privacy.html"
+                class="hover:text-white transition-colors duration-200"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms-of-use.html"
+                class="hover:text-white transition-colors duration-200"
+                >Term of Use</a
+              >
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 flex flex-col lg:items-end">
+            <div class="flex space-x-4 mb-4">
+              <a
+                href="https://www.linkedin.com/company/earndlt/"
+                target="_blank"
+                class=""
+              >
+                <img src="assets/footer/linkedin-icon.svg" alt="Linkedin" />
+              </a>
+              <a href="https://x.com/earndlt/" class="" target="_blank">
+                <img src="assets/footer/x-icon.svg" alt="X" />
+              </a>
+            </div>
+            <p class="text-sm text-[#7A7E70] font-normal font-inter">
+              (+1) 877-905-EARN (3276)
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-[#204734] my-8"></div>
+        <div
+          class="text-center text-[12px] text-[#606060] font-normal font-inter"
+        >
+          &copy; 2026 EarnDLT®. All Rights Reserved
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

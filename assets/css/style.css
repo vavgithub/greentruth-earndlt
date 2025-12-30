@@ -43,22 +43,21 @@ body {
 }
 
 /* added by Ru */
-.bg-offwhite{
+.bg-offwhite {
   background-color: #fdfdfb;
-} 
+}
 
 .bg-darkgreen {
-  background-color: #01140B;
+  background-color: #01140b;
 }
 
 .bg-offblack {
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
 }
 
-.footer-text{
+.footer-text {
   color: #808080;
 }
-
 
 /* Tab states */
 .tab-btn {
@@ -213,7 +212,7 @@ body {
 
 /* Active State for Tab Buttons */
 #proof-tabs-container .tab-btn.active {
-  background: #F5F5ED; 
+  background: #f5f5ed;
   /* Brand-red top border if desired, or handle via classes */
 }
 #proof-tabs-container .tab-btn.active img {
@@ -307,11 +306,11 @@ body:has(#form-success:target) #contact-form {
 /* Update Mint for 1280px */
 @media (min-width: 1280px) {
   #hexagon-bg-1.mint-active {
-    top: 29%;
+    top: 24%;
     transition: top 0.2s linear;
   }
   #hexagon-bg-1.acquire-active {
-    top: 39%;
+    top: 34%;
     transition: top 0.2s linear;
   }
   .tooltip-arrow {
@@ -324,11 +323,11 @@ body:has(#form-success:target) #contact-form {
 /* Mint tab positions */
 @media (min-width: 1024px) {
   #hexagon-bg-2.mint-active {
-    top: 30%;
+    top: 24%;
     transition: top 0.2s linear;
   }
   #hexagon-bg-2.acquire-active {
-    top: 41%;
+    top: 34%;
     transition: top 0.2s linear;
   }
 }

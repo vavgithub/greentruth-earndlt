@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <script defer src="assets/js/auth.js"></script>
   </head>
   <body
     class="m-0 font-mokoko text-brand-dark bg-white flex flex-col min-h-screen"
@@ -64,16 +65,24 @@
           class="flex items-center md:items-start md:self-start gap-5 md:gap-8 md:absolute md:right-[clamp(1.25rem,9vw,4%)] md:top-[13%] lg:right-[clamp(1.25rem,10vw,10%)] xl:right-0 xl:relative"
         >
           <a
+            id="get-started-button"
             href="https://app.greentruth.com/register"
             target="_blank"
             class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
             >Get Started</a
           >
           <a
+            id="login-button"
             href="https://app.greentruth.com/login"
             target="_blank"
             class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
             >Login</a
+          >
+          <button
+            id="logout-button"
+            type="button"
+            class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+            >Logout</button
           >
         </div>
       </div>

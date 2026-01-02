@@ -1,13 +1,66 @@
-function openDialog(card) {
-  const title = card.dataset.title;
-  const body = card.dataset.body;
-
-  document.getElementById("dialogTitle").innerText = title;
-  document.getElementById("dialogBody").innerText = body;
-
-  document.getElementById("methodologyDialog").showModal();
+function closeModal(hash) {
+  const dialog = document.getElementById(hash);
+  dialog.close();
+  window.location.hash = "";
+  history.replaceState(null, "", window.location.pathname);
 }
 
-function closeDialog() {
-  document.getElementById("methodologyDialog").close();
+function isUserLoggedIn() {
+  return document.cookie
+    .split("; ")
+    .some((c) => c.startsWith("greentruth_auth=authenticated"));
 }
+
+function handleHashModal() {
+  const hash = window.location.hash.replace("#", "");
+  const dialog = document.getElementById(hash);
+
+  if(isUserLoggedIn()) {
+    Array.from(document.getElementsByClassName("download-pdf")).forEach(element => {
+      element.classList.remove("hidden");
+    });
+    Array.from(document.getElementsByClassName("create-account")).forEach(element => {
+      element.classList.add("hidden");
+    });
+    Array.from(document.getElementsByClassName("login")).forEach(element => {
+      element.classList.add("hidden");
+    });
+  } else {
+    Array.from(document.getElementsByClassName("download-pdf")).forEach(element => {
+      element.classList.add("hidden");
+    });
+    Array.from(document.getElementsByClassName("create-account")).forEach(element => {
+      element.classList.remove("hidden");
+    });
+    Array.from(document.getElementsByClassName("login")).forEach(element => {
+      element.classList.remove("hidden");
+    });
+  }
+
+  document.querySelectorAll("dialog[open]").forEach(d => {
+    if (d !== dialog) d.close();
+  });
+
+  if (dialog?.tagName === "DIALOG") {
+    dialog.showModal();
+  }
+}
+
+// Open on load + hash change
+window.addEventListener("load", handleHashModal);
+window.addEventListener("hashchange", handleHashModal);
+
+// Close logic
+document.querySelectorAll("dialog").forEach(dialog => {
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) {
+      dialog.close();
+      history.replaceState(null, "", window.location.pathname);
+    }
+  });
+
+  dialog.querySelector("[data-close]")?.addEventListener("click", () => {
+    dialog.close();
+    history.replaceState(null, "", window.location.pathname);
+  });
+});

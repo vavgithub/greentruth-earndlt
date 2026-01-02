@@ -28,10 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //check if user is logged in
   if (isUserLoggedIn()) {
-    console.log("User is logged in");
     authenticatedState();
   } else {
-    console.log("Not logged in");
     nonAuthenticatedState();
   }
 });

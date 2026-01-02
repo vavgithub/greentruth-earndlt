@@ -151,13 +151,277 @@
       </nav>
     </div> -->
 
-    <div class="min-h-screen flex items-center justify-center">
+    <!-- <div class="min-h-screen flex items-center justify-center">
       <h1
         class="text-[#0f1c16] font-mokoko text-4xl md:text-3xl tracking-widest uppercase"
-      >
-        Coming Soon
-      </h1>
-    </div>
+      > -->
+
+    <dialog
+      id="methodologyDialog"
+      onclick="if(event.target === this) closeDialog()"
+      class="fixed inset-0 m-auto rounded-lg p-8 max-w-2xl w-full backdrop:bg-black/40"
+    >
+      <div class="flex flex-col gap-6">
+        <h2 id="dialogTitle" class="text-xl font-mokoko text-[#141D19]"></h2>
+
+        <p id="dialogBody" class="font-inter text-base text-[#4a4a4a]"></p>
+
+        <div class="flex justify-end">
+          <button onclick="closeDialog()" class="px-4 py-2 border rounded">
+            Close
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <main class="grow bg-[#E9E9D7] relative overflow-hidden">
+      <section class="px-5 md:px-10 lg:px-[100px] pt-14 md:pt-[88px] bg-white">
+        <h1
+          class="max-w-content mx-auto text-[20px] md:text-[36px] font-normal font-mokoko text-brand-red"
+        >
+          Resources
+        </h1>
+      </section>
+
+      <section class="mx-auto px-20 pb-30">
+        <div
+          id="platform-section"
+          class="max-w-content px-4.5 my-15 flex scroll-mt-10"
+        >
+          <div
+            class="flex items-center px-4.5 gap-1 h-20 bg-[#E9E9D7] text-2xl font-inter font-normal border-t border-r border-[#141D19]"
+          >
+            <span class="whitespace-nowrap"> Methodologies </span>
+          </div>
+
+          <div class="grow border-b bg-tr border-[#141D19] bg-[#E9E9D7]"></div>
+        </div>
+
+        <!-- Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-16 px-10.5"
+        >
+          <!-- Card 1 -->
+          <div
+            class="flex gap-9 pb-[60px]"
+            onclick="openDialog(this)"
+            data-title="Methodology for the Production and Verification of Quantified Emissions Tokens® (QETs) in Accordance with ISO 14064-3"
+            data-body="This methodology establishes standardized processes for quantifying emissions factors, enabling verification while remaining agnostic to the measurement methodologies employed by producers of natural gas and other commodities."
+          >
+            <div class="w-[138px] h-[179px] shrink-0">
+              <img
+                src="/assets/images/resources/resource1.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-6">
+                <h3 class="font-medium text-[#141D19] font-mokoko text-lg">
+                  Methodology for the Production and Verification of Quantified
+                  Emissions Tokens® (QETs) in Accordance with ISO 14064-3
+                </h3>
+
+                <p class="text-[16px] font-normal font-inter">
+                  This methodology establishes standardized processes for
+                  quantifying emissions factors, enabling verification while
+                  remaining agnostic to the measurement methodologies employed
+                  by producers of natural gas and other commodities.
+                </p>
+              </div>
+
+              <a
+                href="#"
+                class="text-base text-brand-red w-full hover:underline inline-flex items-center pt-6"
+              >
+                Download this methodologies >
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flex gap-9 pb-[60px]">
+            <div class="w-[138px] h-[179px] shrink-0">
+              <img
+                src="/assets/images/resources/resource1.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-6">
+                <h3 class="font-medium text-[#141D19] font-mokoko text-lg">
+                  Methodology for the Production and Verification of Low Carbon
+                  Fuel Standard Quantified Emissions Tokens® (QET-LCFS) in
+                  Accordance with ISO 14064-3
+                </h3>
+
+                <p class="text-[16px] font-normal font-inter">
+                  This methodology defines procedures for producing and
+                  verifying QET-LCFS for California LCFS compliance, extending
+                  the core QET framework to incorporate LCFS-specific carbon
+                  intensity, fuel pathway, and CARB verification requirements.
+                </p>
+              </div>
+
+              <a
+                href="#"
+                class="text-base text-brand-red w-full hover:underline inline-flex items-center pt-6"
+              >
+                Download this methodologies >
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flex gap-9 pb-[60px]">
+            <div class="w-[138px] h-[179px] shrink-0">
+              <img
+                src="/assets/images/resources/resource1.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-6">
+                <h3 class="font-medium text-[#141D19] font-mokoko text-lg">
+                  Methodology for the Production and Verification of Ethanol
+                  Quantified Emissions Tokens® (QET-Ethanol) in Accordance with
+                  ISO 14064-3
+                </h3>
+
+                <p class="text-[16px] font-normal font-inter">
+                  This methodology extends the core QET framework to ethanol
+                  production, addressing process-specific characteristics
+                  including biological fermentation, synthetic production
+                  pathways, and diverse feedstock sources.
+                </p>
+              </div>
+
+              <a
+                href="#"
+                class="text-base text-brand-red w-full hover:underline inline-flex items-center pt-6"
+              >
+                Download this methodologies >
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flex gap-9 pb-[60px]">
+            <div class="w-[138px] h-[179px] shrink-0">
+              <img
+                src="/assets/images/resources/resource1.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-6">
+                <h3 class="font-medium text-[#141D19] font-mokoko text-lg">
+                  Methodology for the Production and Verification of Carbon
+                  Capture and Sequestration Quantified Emissions Tokens®
+                  (QET-CCS) — kgCO₂e Removed
+                </h3>
+
+                <p class="text-[16px] font-normal font-inter">
+                  This methodology defines a framework for QET-CCS, where each
+                  token represents 1 kgCO₂e permanently removed and immutably
+                  tracked via the EarnDLT registry. It remains compatible with
+                  established carbon removal standards while anchored to ISO as
+                  the primary normative reference.
+                </p>
+              </div>
+
+              <a
+                href="#"
+                class="text-base text-brand-red w-full hover:underline inline-flex items-center pt-6"
+              >
+                Download this methodologies >
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="flex gap-9 pb-[60px]">
+            <div class="w-[138px] h-[179px] shrink-0">
+              <img
+                src="/assets/images/resources/resource1.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-6">
+                <h3 class="font-medium text-[#141D19] font-mokoko text-lg">
+                  Methodology for the Production and Verification of Solid Fuel
+                  Thermal Quantified Emissions Tokens (QET-SOL) — kgCO₂e/MMBtu
+                </h3>
+
+                <p class="text-[16px] font-normal font-inter">
+                  This methodology defines procedures for producing,
+                  quantifying, disclosing, and verifying QET-SOL with GHG
+                  intensity standardized to kgCO₂e/MMBtu. It enables QET-SOL to
+                  function as audit-ready environmental attribute certificates
+                  aligned with ISO 14064-3 and referencing the EarnDLT QET core
+                  methodology.
+                </p>
+              </div>
+
+              <a
+                href="#"
+                class="text-base text-brand-red w-full hover:underline inline-flex items-center pt-6"
+              >
+                Download this methodologies >
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="flex gap-9 pb-[60px]">
+            <div class="w-[138px] h-[179px] shrink-0">
+              <img
+                src="/assets/images/resources/resource1.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-6">
+                <h3 class="font-medium text-[#141D19] font-mokoko text-lg">
+                  Methodology for the Production and Verification of Renewable
+                  Natural Gas Quantified Emissions Token Thermal Certificates
+                  (QET-RNG) — kgCO₂e/MMBtu
+                </h3>
+
+                <p class="text-[16px] font-normal font-inter">
+                  This methodology defines QET-RNG Thermal Certificates,
+                  measuring GHG intensity in kgCO₂e/MMBtu, with each token
+                  representing 1 MMBtu of verified renewable natural gas. Tokens
+                  are issued and tracked through the EarnDLT registry, providing
+                  immutable records and transparent chain-of-custody.
+                </p>
+              </div>
+
+              <a
+                href="#"
+                class="text-base text-brand-red w-full hover:underline inline-flex items-center pt-6"
+              >
+                Download this methodologies >
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- </h1> -->
+    <!-- </div> -->
 
     <footer class="bg-[#141d19] py-12">
       <div class="container mx-auto px-6">
@@ -251,5 +515,6 @@
         </div>
       </div>
     </footer>
+    <script src="assets/js/modal.js" defer></script>
   </body>
 </html>

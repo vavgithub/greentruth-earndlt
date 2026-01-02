@@ -13,6 +13,7 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-2xl: 42rem;
     --container-5xl: 64rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
@@ -361,11 +362,17 @@
   .m-0 {
     margin: calc(var(--spacing) * 0);
   }
+  .m-auto {
+    margin: auto;
+  }
   .mx-auto {
     margin-inline: auto;
   }
   .my-8 {
     margin-block: calc(var(--spacing) * 8);
+  }
+  .my-15 {
+    margin-block: calc(var(--spacing) * 15);
   }
   .my-\[40px\] {
     margin-block: 40px;
@@ -508,6 +515,9 @@
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
   .h-\[60\%\] {
     height: 60%;
   }
@@ -516,6 +526,9 @@
   }
   .h-\[148px\] {
     height: 148px;
+  }
+  .h-\[179px\] {
+    height: 179px;
   }
   .h-\[600px\] {
     height: 600px;
@@ -598,6 +611,9 @@
   .w-\[128px\] {
     width: 128px;
   }
+  .w-\[138px\] {
+    width: 138px;
+  }
   .w-\[148px\] {
     width: 148px;
   }
@@ -615,6 +631,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-2xl {
+    max-width: var(--container-2xl);
   }
   .max-w-\[60\%\] {
     max-width: 60%;
@@ -692,6 +711,9 @@
     flex-shrink: 0;
   }
   .flex-grow {
+    flex-grow: 1;
+  }
+  .grow {
     flex-grow: 1;
   }
   .border-collapse {
@@ -822,11 +844,26 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .gap-9 {
+    gap: calc(var(--spacing) * 9);
+  }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
+  }
+  .gap-14 {
+    gap: calc(var(--spacing) * 14);
+  }
+  .gap-15 {
+    gap: calc(var(--spacing) * 15);
+  }
+  .gap-16 {
+    gap: calc(var(--spacing) * 16);
+  }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
   }
   .gap-\[20px\] {
     gap: 20px;
@@ -866,6 +903,9 @@
       margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .gap-x-\[60px\] {
+    column-gap: 60px;
+  }
   .space-x-4 {
     :where(& > :not(:last-child)) {
       --tw-space-x-reverse: 0;
@@ -878,6 +918,9 @@
   }
   .gap-y-10 {
     row-gap: calc(var(--spacing) * 10);
+  }
+  .gap-y-\[60px\] {
+    row-gap: 60px;
   }
   .self-end {
     align-self: flex-end;
@@ -902,6 +945,9 @@
   }
   .scroll-smooth {
     scroll-behavior: smooth;
+  }
+  .rounded {
+    border-radius: 0.25rem;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -932,9 +978,16 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
   }
+  .border-r {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 1px;
+  }
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
+  }
+  .border-\[\#141D19\] {
+    border-color: #141D19;
   }
   .border-\[\#204734\] {
     border-color: #204734;
@@ -1082,6 +1135,9 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .px-4\.5 {
+    padding-inline: calc(var(--spacing) * 4.5);
+  }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
@@ -1091,8 +1147,14 @@
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
+  .px-10\.5 {
+    padding-inline: calc(var(--spacing) * 10.5);
+  }
   .px-14 {
     padding-inline: calc(var(--spacing) * 14);
+  }
+  .px-20 {
+    padding-inline: calc(var(--spacing) * 20);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -1123,6 +1185,9 @@
   }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
   }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
@@ -1171,6 +1236,9 @@
   }
   .pb-24 {
     padding-bottom: calc(var(--spacing) * 24);
+  }
+  .pb-30 {
+    padding-bottom: calc(var(--spacing) * 30);
   }
   .pb-\[5vh\] {
     padding-bottom: 5vh;
@@ -1386,6 +1454,9 @@
   }
   .text-\[\#1a1a1a\] {
     color: #1a1a1a;
+  }
+  .text-\[\#4a4a4a\] {
+    color: #4a4a4a;
   }
   .text-\[\#7A7E70\] {
     color: #7A7E70;
@@ -1604,6 +1675,14 @@
       }
     }
   }
+  .backdrop\:bg-black\/40 {
+    &::backdrop {
+      background-color: color-mix(in srgb, #000 40%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-black) 40%, transparent);
+      }
+    }
+  }
   .hover\:bg-\[\#163024\] {
     &:hover {
       @media (hover: hover) {
@@ -1629,6 +1708,13 @@
     &:hover {
       @media (hover: hover) {
         text-decoration-line: none;
+      }
+    }
+  }
+  .hover\:underline {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline;
       }
     }
   }

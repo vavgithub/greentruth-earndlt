@@ -82,8 +82,9 @@
             id="logout-button"
             type="button"
             class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
-            >Logout</button
           >
+            Logout
+          </button>
           <button
             id="menu-button"
             class="md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
@@ -92,24 +93,24 @@
             <img src="assets/icons/menu-icon.svg" alt="Menu Icon" />
           </button>
           <button
-              id="close-menu"
-              class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
-              aria-label="Close navigation"
+            id="close-menu"
+            class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+            aria-label="Close navigation"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
       </div>
     </header>
@@ -118,17 +119,18 @@
     <div
       id="mobile-menu"
       class="hidden fixed inset-x-0 bottom-0 z-50 flex flex-col w-full"
-      style="top: 85px;"
+      style="top: 85px"
     >
       <!-- Backdrop -->
-      <div 
-        class="absolute inset-0 bg-[#01140B] opacity-100 cursor-pointer w-full h-full"
-        style="background-color: #01140B;"
+      <div
+        class="absolute inset-0 bg-[#01140B] opacity-95 cursor-pointer w-full h-full"
         onclick="document.getElementById('close-menu').click()"
       ></div>
 
       <!-- Menu Content -->
-      <div class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in">
+      <div
+        class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in"
+      >
         <!-- Navigation -->
         <nav class="flex flex-col font-mokoko">
           <a
@@ -139,13 +141,13 @@
           </a>
           <a
             href="about.html"
-            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#D0D0D0]"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#142D21]"
           >
             About
           </a>
           <a
             href="contact.html"
-            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#D0D0D0]"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#142D21]"
           >
             Contact
           </a>

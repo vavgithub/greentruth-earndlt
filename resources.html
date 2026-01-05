@@ -17,141 +17,110 @@
     <script defer src="assets/js/auth.js"></script>
   </head>
 
-  <body
-    class="m-0 font-mokoko text-brand-dark bg-white flex flex-col min-h-screen"
-  >
-    <!-- Header -->
-    <header class="bg-white px-5 md:px-0">
+<body class="m-0 font-mokoko text-brand-dark bg-white flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="bg-white px-5 md:px-0 relative z-50">
+    <div
+      class="flex justify-between items-center md:items-end py-[25px] md:px-10 lg:px-[100px] max-w-content mx-auto relative">
+      <a href="/" class="hidden md:block">
+        <img src="assets/images/logo.svg" alt="Greentruth logo" class="navbar__logo mb-3" />
+      </a>
+      <a href="/" class="block md:hidden">
+        <img src="assets/icons/logo-mobile.svg" alt="Greentruth logo" class="navbar__logo-mobile mb-3" />
+      </a>
+      <nav class="hidden md:block lg:pr-[20px] self-end">
+        <ul class="flex gap-[20px] lg:gap-[30px] list-none md:pb-5 m-0">
+          <li>
+            <a href="/resources.html"
+              class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity">Resources</a>
+          </li>
+          <li>
+            <a href="/about.html"
+              class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity">About</a>
+          </li>
+          <li>
+            <a href="/contact.html"
+              class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity">Contact</a>
+          </li>
+        </ul>
+      </nav>
       <div
-        class="flex justify-between items-center md:items-end py-[25px] px-4 md:px-10 lg:px-[100px] max-w-content mx-auto relative"
-      >
-        <a href="/" class="hidden md:block">
-          <img
-            src="assets/images/logo.svg"
-            alt="Greentruth logo"
-            class="navbar__logo mb-3"
-          />
-        </a>
-        <a href="/" class="block md:hidden">
-          <img
-            src="assets/icons/logo-mobile.svg"
-            alt="Greentruth logo"
-            class="navbar__logo-mobile mb-3"
-          />
-        </a>
-        <nav class="hidden md:block lg:pr-[20px] self-end">
-          <ul class="flex gap-[20px] lg:gap-[30px] list-none md:pb-5 m-0">
-            <li>
-              <a
-                href="/resources.html"
-                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
-                >Resources</a
-              >
-            </li>
-            <li>
-              <a
-                href="/about.html"
-                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
-                >About</a
-              >
-            </li>
-            <li>
-              <a
-                href="/contact.html"
-                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <div
-          class="flex items-center md:items-start md:self-start gap-5 md:gap-8 md:absolute md:right-[clamp(1.25rem,9vw,4%)] md:top-[13%] lg:right-[clamp(1.25rem,10vw,10%)] xl:right-0 xl:relative"
-        >
-          <a
-            id="get-started-button"
-            href="https://app.greentruth.com/register"
-            target="_blank"
-            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
-            >Get Started</a
-          >
-          <a
-            id="login-button"
-            href="https://app.greentruth.com/login"
-            target="_blank"
-            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
-            >Login</a
-          >
+        class="flex items-center md:items-start md:self-start gap-5 md:gap-8 md:absolute md:right-[clamp(1.25rem,9vw,4%)] md:top-[13%] lg:right-[clamp(1.25rem,10vw,10%)] xl:right-0 xl:relative">
+        <a id="get-started-button" href="https://app.greentruth.com/register" target="_blank"
+          class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity">Get
+          Started</a>
+        <a id="login-button" href="https://app.greentruth.com/login" target="_blank"
+          class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity">Login</a>
+        <button id="logout-button" type="button"
+          class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity">Logout</button>
           <button
-            id="logout-button"
-            type="button"
-            class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
-          >
-            Logout
-          </button>
-          <!--<button
             id="menu-button"
             class="md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
             aria-label="Toggle navigation"
           >
             <img src="assets/icons/menu-icon.svg" alt="Menu Icon" />
-          </button>-->
-        </div>
+          </button>
+          <button
+              id="close-menu"
+              class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+              aria-label="Close navigation"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Mobile Menu Modal -->
-    <!-- <div
+  <!-- Mobile Menu Modal -->
+  <div
       id="mobile-menu"
-      class="hidden fixed inset-0 bg-white z-50 p-5 animate-fade-in"
+      class="hidden fixed inset-x-0 bottom-0 z-50 flex flex-col w-full"
+      style="top: 85px;"
     >
-      <div class="flex justify-end">
-        <button
-          id="close-menu"
-          class="border-0 bg-transparent text-4xl cursor-pointer text-brand-dark"
-        >
-          &times;
-        </button>
+      <!-- Backdrop -->
+      <div 
+        class="absolute inset-0 bg-[#01140B] opacity-100 cursor-pointer w-full h-full"
+        style="background-color: #01140B;"
+        onclick="document.getElementById('close-menu').click()"
+      ></div>
+
+      <!-- Menu Content -->
+      <div class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in">
+        <!-- Navigation -->
+        <nav class="flex flex-col font-mokoko">
+          <a
+            href="resources.html"
+            class="block py-5 text-center text-[20px] font-medium bg-brand-red text-white transition-colors"
+          >
+            Resources
+          </a>
+          <a
+            href="about.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#D0D0D0]"
+          >
+            About
+          </a>
+          <a
+            href="contact.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#D0D0D0]"
+          >
+            Contact
+          </a>
+        </nav>
       </div>
-      <nav class="h-full flex items-center justify-center -mt-12">
-        <ul class="flex flex-col gap-8 list-none p-0 m-0 text-center">
-          <li>
-            <a
-              href="index.html#solutions"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Solutions</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html#platform"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Platform</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html#resources"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Resources</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html#about"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="contact.html"
-              class="text-2xl text-brand-dark font-bold opacity-100 transition-opacity"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </div> -->
+    </div>
 
     <!-- <div class="min-h-screen flex items-center justify-center">
       <h1
@@ -2179,32 +2148,28 @@
             </div>
           </div>
 
-          <div class="lg:col-span-3 flex flex-col lg:items-end">
-            <div class="flex space-x-4 mb-4">
-              <a
-                href="https://www.linkedin.com/company/earndlt/"
-                target="_blank"
-                class=""
-              >
-                <img src="assets/footer/linkedin-icon.svg" alt="Linkedin" />
-              </a>
-              <a href="https://x.com/earndlt/" class="" target="_blank">
-                <img src="assets/footer/x-icon.svg" alt="X" />
-              </a>
-            </div>
-            <p class="text-sm text-[#7A7E70] font-normal font-inter">
-              (+1) 877-905-EARN (3276)
-            </p>
+        <div class="lg:col-span-3 flex flex-col lg:items-end">
+          <div class="flex space-x-4 mb-4">
+            <a href="https://www.linkedin.com/company/earndlt/" target="_blank" class="">
+              <img src="assets/footer/linkedin-icon.svg" alt="Linkedin" />
+            </a>
+            <a href="https://x.com/earndlt/" class="" target="_blank">
+              <img src="assets/footer/x-icon.svg" alt="X" />
+            </a>
           </div>
-        </div>
-        <div class="border-t border-[#204734] my-8"></div>
-        <div
-          class="text-center text-[12px] text-[#606060] font-normal font-inter"
-        >
-          &copy; 2026 EarnDLT®. All Rights Reserved
+          <p class="text-sm text-[#7A7E70] font-normal font-inter">
+            (+1) 877-905-EARN (3276)
+          </p>
         </div>
       </div>
-    </footer>
-    <script src="assets/js/modal.js" defer></script>
-  </body>
+      <div class="border-t border-[#204734] my-8"></div>
+      <div class="text-center text-[12px] text-[#606060] font-normal font-inter">
+        &copy; 2026 EarnDLT®. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/modal.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+</body>
+
 </html>

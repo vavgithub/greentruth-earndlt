@@ -22,7 +22,7 @@
 
   <body class="m-0 font-mokoko text-brand-dark bg-offwhite">
     <!-- Header -->
-    <header class="bg-white px-5 md:px-0">
+    <header class="bg-white px-5 md:px-0 relative z-50">
       <div
         class="flex justify-between items-center md:items-end py-[25px] md:px-10 lg:px-[100px] max-w-content mx-auto relative"
       >
@@ -86,13 +86,32 @@
             class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
             >Logout</button
           >
-          <!--<button
+          <button
             id="menu-button"
             class="md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
             aria-label="Toggle navigation"
           >
             <img src="assets/icons/menu-icon.svg" alt="Menu Icon" />
-          </button>-->
+          </button>
+          <button
+              id="close-menu"
+              class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+              aria-label="Close navigation"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
         </div>
       </div>
     </header>
@@ -100,55 +119,40 @@
     <!-- Mobile Menu Modal -->
     <div
       id="mobile-menu"
-      class="hidden fixed inset-0 bg-white z-50 p-5 animate-fade-in"
+      class="hidden fixed inset-x-0 bottom-0 z-50 flex flex-col w-full"
+      style="top: 85px;"
     >
-      <!--<div class="flex justify-end">
-        <button
-          id="close-menu"
-          class="border-0 bg-transparent text-4xl cursor-pointer text-brand-dark"
-        >
-          &times;
-        </button>
+      <!-- Backdrop -->
+      <div 
+        class="absolute inset-0 bg-[#01140B] opacity-100 cursor-pointer w-full h-full"
+        style="background-color: #01140B;"
+        onclick="document.getElementById('close-menu').click()"
+      ></div>
+
+      <!-- Menu Content -->
+      <div class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in">
+        <!-- Navigation -->
+        <nav class="flex flex-col font-mokoko">
+          <a
+            href="resources.html"
+            class="block py-5 text-center text-[20px] font-medium bg-brand-red text-white transition-colors"
+          >
+            Resources
+          </a>
+          <a
+            href="about.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#D0D0D0]"
+          >
+            About
+          </a>
+          <a
+            href="contact.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#D0D0D0]"
+          >
+            Contact
+          </a>
+        </nav>
       </div>
-      <nav class="h-full flex items-center justify-center -mt-12">
-        <ul class="flex flex-col gap-8 list-none p-0 m-0 text-center">
-          <li>
-            <a
-              href="#solutions"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Solutions</a
-            >
-          </li>
-          <li>
-            <a
-              href="#platform"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Platform</a
-            >
-          </li>
-          <li>
-            <a
-              href="#resources"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Resources</a
-            >
-          </li>
-          <li>
-            <a
-              href="#about"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="/contact.html"
-              class="text-2xl text-brand-dark opacity-80 hover:opacity-100 transition-opacity"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>-->
     </div>
        <!-- Floating Nav for >=1900px (outside hero to avoid stacking issues) -->
        <nav
@@ -2080,10 +2084,10 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
           id="get-started-header" 
           class="relative z-30 px-5 md:px-10 lg:px-[100px] pt-4 md:pt-[60px] pb-4 flex-shrink-0"
         >
-          <h2 class="font-mokoko text-[20px] md:text-[24px] text-[#1a1a1a] font-medium">
+          <h2 class="font-mokoko text-[32px] lg:text-[48px] text-[#1a1a1a] font-medium">
             Get Started
           </h2>
-          <p class="text-[16px] md:text-[20px] leading-5 md:leading-[24px] text-[#1a1a1a] max-w-[300px]">
+          <p class="text-[24px] leading-[24px] lg:leading-[36px] text-[#1a1a1a] max-w-[220px]">
             No Cost. No Risk. No Complexity.<br />Go as Fast as You Need.
           </p>
         </div>        
@@ -2095,9 +2099,9 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
           style="opacity: 0.2;" 
         />
   
-        <div class="grid grid-cols-1 md:grid-cols-3 w-full flex-grow items-end relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 w-full flex-grow items-end relative z-10 max-h-[580px] md:max-h-none">
           
-          <div class="relative bg-[#FF7E6C] h-full flex flex-col justify-center md:justify-end get-started-step z-10 pl-5 md:pl-10 lg:pl-[100px] pb-[5vh] md:pb-[10vh]">
+          <div class="relative bg-[#FF7E6C] h-full flex flex-col justify-center md:justify-end get-started-step px-5 md:px-0 z-10 pl-5 md:pl-10 lg:pl-[100px] md:pb-[10vh]">
             <div class="absolute right-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"></div>
             
             <div class="relative z-10 md:max-w-[211px] step-content">
@@ -2108,7 +2112,7 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
           </div>
   
           <div class="flex flex-col w-full h-full get-started-step z-10">
-            <div class="bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 pb-[5vh] md:pb-[10vh] relative z-20">
+            <div class="bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 md:pb-[10vh] relative z-20">
               <div class="md:max-w-[240px] step-content">
                 <p class="font-mokoko text-[24px] md:text-[30px] leading-5 md:leading-[24px] font-bold">Step 2</p>
                 <p class="font-mokoko text-[16px] md:text-[20px] font-bold mb-4">Discover & Acquire</p>
@@ -2119,7 +2123,7 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
           </div>
 
           <div class="flex flex-col w-full h-full get-started-step z-10">
-            <div class="relative bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 pb-[5vh] md:pb-[10vh] z-20">
+            <div class="relative bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 md:pb-[10vh] z-20">
               <div class="absolute left-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"></div>
               <div class="md:max-w-[240px] relative z-10 step-content">
                 <p class="font-mokoko text-[24px] md:text-[30px] font-bold">Step 3</p>
@@ -2142,7 +2146,7 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
             <h2 class="text-[24px] font-bold text-black mb-1 leading-tight">Greenlight your compliance.</h2>
             <p class="text-sm text-black">Create your free account and start reporting verified data today.</p>
           </div>
-          <button onclick="window.location.href='/contact.html'" class="bg-[#155C3A] hover:bg-[#163024] text-white text-base font-semibold py-3 px-14 md:px-12 rounded-full transition-colors duration-200 w-auto">Get Started</button>
+          <button onclick="window.location.href='/contact.html'" class="bg-[#155C3A] hover:bg-[#163024] text-white text-[14px] font-semibold py-3 px-14 md:px-8 rounded-full transition-colors duration-200 w-auto">Get Started</button>
         </div>
   
       </div>

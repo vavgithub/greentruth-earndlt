@@ -16,6 +16,12 @@ function handleHashModal() {
   const dialog = document.getElementById(hash);
 
   if(isUserLoggedIn()) {
+    Array.from(document.getElementsByClassName("non-auth-text")).forEach(element => {
+      element.classList.add("hidden");
+    });
+    Array.from(document.getElementsByClassName("auth-text")).forEach(element => {
+      element.classList.remove("hidden");
+    });
     Array.from(document.getElementsByClassName("download-pdf")).forEach(element => {
       element.classList.remove("hidden");
     });
@@ -26,6 +32,12 @@ function handleHashModal() {
       element.classList.add("hidden");
     });
   } else {
+    Array.from(document.getElementsByClassName("non-auth-text")).forEach(element => {
+      element.classList.remove("hidden");
+    });
+    Array.from(document.getElementsByClassName("auth-text")).forEach(element => {
+      element.classList.add("hidden");
+    });
     Array.from(document.getElementsByClassName("download-pdf")).forEach(element => {
       element.classList.add("hidden");
     });
@@ -63,4 +75,35 @@ document.querySelectorAll("dialog").forEach(dialog => {
     dialog.close();
     history.replaceState(null, "", window.location.pathname);
   });
+});
+
+
+//Return URL redirections
+const baseUrl = window.location.origin;
+
+document.querySelectorAll(".create-account").forEach(link => {
+  const path = link.dataset.id || "";
+
+  link.href = `https://app.greentruth.com/register?returnUrl=${encodeURIComponent(baseUrl + '/resources.html#' + path)}`;
+});
+
+document.querySelectorAll(".create-account").forEach(link => {
+  const path = link.dataset.id || "";
+
+  if(!link){
+    return;
+  }
+
+  link.href = `https://app.greentruth.com/register?returnUrl=${encodeURIComponent(baseUrl + '/resources.html#' + path)}`;
+});
+
+
+document.querySelectorAll(".login").forEach(link => {
+  const path = link.dataset.id || "";
+
+  if(!link){
+    return;
+  }
+
+  link.href = `https://app.greentruth.com/login?returnUrl=${encodeURIComponent(baseUrl + '/resources.html#' + path)}`;
 });

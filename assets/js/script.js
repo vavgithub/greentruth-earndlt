@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo(0, 0);
   }, 0);
 
+  const byId = (id) => document.getElementById(id);
+
+  // Hero tab logic (only on pages that define the tab elements)
   const tabs = [
     { id: "tab-overview", content: "content-overview", type: "overview" },
     { id: "tab-mint", content: "content-mint", type: "middle" },
@@ -17,69 +20,78 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "tab-integrate", content: "content-integrate", type: "last" },
   ];
 
-  const byId = (id) => document.getElementById(id);
+  const tabsExist = tabs.every(
+    (t) => byId(t.id) !== null && byId(t.content) !== null
+  );
 
-  function setActive(activeId) {
-    const activeTab = tabs.find((t) => t.id === activeId);
-    if (!activeTab) return;
+  if (tabsExist) {
+    function setActive(activeId) {
+      const activeTab = tabs.find((t) => t.id === activeId);
+      if (!activeTab) return;
 
-    tabs.forEach((tab) => {
-      const content = byId(tab.content);
-      const button = byId(tab.id);
+      tabs.forEach((tab) => {
+        const content = byId(tab.content);
+        const button = byId(tab.id);
+        const isActive = tab.id === activeId;
 
-      const isActive = tab.id === activeId;
-      content.classList.toggle("hidden", !isActive);
+        content.classList.toggle("hidden", !isActive);
 
-      button.classList.remove(
-        "active-overview",
-        "inactive-overview",
-        "active-middle",
-        "inactive-middle",
-        "active-last",
-        "inactive-last"
-      );
+        button.classList.remove(
+          "active-overview",
+          "inactive-overview",
+          "active-middle",
+          "inactive-middle",
+          "active-last",
+          "inactive-last"
+        );
 
-      let activeClass, inactiveClass;
-      switch (tab.type) {
-        case "overview":
-          activeClass = "active-overview";
-          inactiveClass = "inactive-overview";
-          break;
-        case "middle":
-          activeClass = "active-middle";
-          inactiveClass = "inactive-middle";
-          break;
-        case "last":
-          activeClass = "active-last";
-          inactiveClass = "inactive-last";
-          break;
+        let activeClass, inactiveClass;
+        switch (tab.type) {
+          case "overview":
+            activeClass = "active-overview";
+            inactiveClass = "inactive-overview";
+            break;
+          case "middle":
+            activeClass = "active-middle";
+            inactiveClass = "inactive-middle";
+            break;
+          case "last":
+            activeClass = "active-last";
+            inactiveClass = "inactive-last";
+            break;
+        }
+
+        button.classList.add(isActive ? activeClass : inactiveClass);
+      });
+
+      const overviewTabContainer = byId("overview-tab-container");
+      if (overviewTabContainer) {
+        const isOverviewActive = activeTab.type === "overview";
+        overviewTabContainer.classList.toggle(
+          "bg-[#F5F5ED]",
+          isOverviewActive
+        );
+        overviewTabContainer.classList.toggle("bg-white", !isOverviewActive);
       }
 
-      button.classList.add(isActive ? activeClass : inactiveClass);
-    });
-
-    const overviewTabContainer = byId("overview-tab-container");
-    const isOverviewActive = activeTab.type === "overview";
-    overviewTabContainer.classList.toggle("bg-[#F5F5ED]", isOverviewActive);
-    overviewTabContainer.classList.toggle("bg-white", !isOverviewActive);
-
-    // Mint & Acquire tab background position handling
-    const bg1 = byId("hexagon-bg-1"); // 2xl version
-    const bg2 = byId("hexagon-bg-2"); // lg–xl version
-    if (bg1 && bg2) {
-      const isMint = activeTab.id === "tab-mint";
-      const isAcquire = activeTab.id === "tab-acquire";
-      bg1.classList.toggle("mint-active", isMint);
-      bg2.classList.toggle("mint-active", isMint);
-      bg1.classList.toggle("acquire-active", isAcquire);
-      bg2.classList.toggle("acquire-active", isAcquire);
+      // Mint & Acquire tab background position handling
+      const bg1 = byId("hexagon-bg-1"); // 2xl version
+      const bg2 = byId("hexagon-bg-2"); // lg–xl version
+      if (bg1 && bg2) {
+        const isMint = activeTab.id === "tab-mint";
+        const isAcquire = activeTab.id === "tab-acquire";
+        bg1.classList.toggle("mint-active", isMint);
+        bg2.classList.toggle("mint-active", isMint);
+        bg1.classList.toggle("acquire-active", isAcquire);
+        bg2.classList.toggle("acquire-active", isAcquire);
+      }
     }
-  }
 
-  tabs.forEach((t) =>
-    byId(t.id).addEventListener("click", () => setActive(t.id))
-  );
-  setActive("tab-overview");
+    tabs.forEach((t) =>
+      byId(t.id).addEventListener("click", () => setActive(t.id))
+    );
+    setActive("tab-overview");
+  }
 
   // Accordion logic
   document.querySelectorAll(".accordion-header").forEach((header) => {
@@ -96,7 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeMenuButton = byId("close-menu");
   const mobileMenuLinks = mobileMenu.querySelectorAll("a");
 
-  const toggleMenu = (show) => mobileMenu.classList.toggle("hidden", !show);
+  const toggleMenu = (show) => {
+    mobileMenu.classList.toggle("hidden", !show);
+    if (menuButton) menuButton.classList.toggle("hidden", show);
+    if (closeMenuButton) closeMenuButton.classList.toggle("hidden", !show);
+    document.body.style.overflow = show ? "hidden" : "";
+  };
 
   menuButton?.addEventListener("click", () => toggleMenu(true));
   closeMenuButton?.addEventListener("click", () => toggleMenu(false));
@@ -152,6 +169,32 @@ document.addEventListener("DOMContentLoaded", () => {
   sections.forEach((section) => {
     observer.observe(section);
   });
+
+  // Lottie Animation Control (Play only when visible)
+  const lottieObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const player = entry.target;
+      // Ensure player is ready and has methods
+      if (entry.isIntersecting) {
+        if (typeof player.play === 'function') {
+             player.play();
+        }
+      } else {
+        if (typeof player.stop === 'function') {
+            player.stop();
+        }
+      }
+    });
+  }, { threshold: 0.1 }); // Trigger when 10% visible
+
+  // Observe all lottie-players
+  // Wait a tick to ensure custom elements might be upgraded, though usually fine on DOMContentLoaded
+  setTimeout(() => {
+      document.querySelectorAll('lottie-player').forEach(player => {
+        lottieObserver.observe(player);
+      });
+  }, 100);
+
 });
 
 document.addEventListener("DOMContentLoaded", () => {

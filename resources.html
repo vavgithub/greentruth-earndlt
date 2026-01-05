@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resources - Greentruth</title>
+    <link href="assets/css/tailwind.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="assets/js/auth.js"></script>
+  </head>
+
+  <body
+    class="m-0 font-mokoko text-brand-dark bg-white flex flex-col min-h-screen"
+  >
+    <!-- Header -->
+    <header class="bg-white px-5 md:px-0 relative z-50">
+      <div
+        class="flex justify-between items-center md:items-end py-[25px] md:px-10 lg:px-[100px] max-w-content mx-auto relative"
+      >
+        <a href="/" class="hidden md:block">
+          <img
+            src="assets/images/logo.svg"
+            alt="Greentruth logo"
+            class="navbar__logo mb-3"
+          />
+        </a>
+        <a href="/" class="block md:hidden">
+          <img
+            src="assets/icons/logo-mobile.svg"
+            alt="Greentruth logo"
+            class="navbar__logo-mobile mb-3"
+          />
+        </a>
+        <nav class="hidden md:block lg:pr-[20px] self-end">
+          <ul class="flex gap-[20px] lg:gap-[30px] list-none md:pb-5 m-0">
+            <li>
+              <a
+                href="/resources.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                >Resources</a
+              >
+            </li>
+            <li>
+              <a
+                href="/about.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="/contact.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="flex items-center md:items-start md:self-start gap-5 md:gap-8 md:absolute md:right-[clamp(1.25rem,9vw,4%)] md:top-[13%] lg:right-[clamp(1.25rem,10vw,10%)] xl:right-0 xl:relative"
+        >
+          <a
+            id="get-started-button"
+            href="https://app.greentruth.com/register"
+            target="_blank"
+            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+            >Get Started</a
+          >
+          <a
+            id="login-button"
+            href="https://app.greentruth.com/login"
+            target="_blank"
+            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+            >Login</a
+          >
+          <button
+            id="logout-button"
+            type="button"
+            class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+          >
+            Logout
+          </button>
+          <button
+            id="menu-button"
+            class="md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+            aria-label="Toggle navigation"
+          >
+            <img src="assets/icons/menu-icon.svg" alt="Menu Icon" />
+          </button>
+          <button
+            id="close-menu"
+            class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+            aria-label="Close navigation"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Modal -->
+    <div
+      id="mobile-menu"
+      class="hidden fixed inset-x-0 bottom-0 z-50 flex flex-col w-full"
+      style="top: 85px"
+    >
+      <!-- Backdrop -->
+      <div
+        class="absolute inset-0 bg-[#01140B] opacity-95 cursor-pointer w-full h-full"
+        onclick="document.getElementById('close-menu').click()"
+      ></div>
+
+      <!-- Menu Content -->
+      <div
+        class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in"
+      >
+        <!-- Navigation -->
+        <nav class="flex flex-col font-mokoko">
+          <a
+            href="resources.html"
+            class="block py-5 text-center text-[20px] font-medium bg-brand-red text-white transition-colors"
+          >
+            Resources
+          </a>
+          <a
+            href="about.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#142D21]"
+          >
+            About
+          </a>
+          <a
+            href="contact.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#142D21]"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- <div class="min-h-screen flex items-center justify-center">
+      <h1
+        class="text-[#0f1c16] font-mokoko text-4xl md:text-3xl tracking-widest uppercase"
+      > -->
+
+    <section class="pt-14 md:pt-[88px]">
+      <h1
+        class="max-w-content mx-auto text-[20px] md:text-[36px] font-normal font-mokoko text-brand-red px-5 md:px-10 lg:px-[100px]"
+      >
+        Resources
+      </h1>
+    </section>
+
+    <main class="grow bg-[#E9E9D7] relative overflow-hidden">
+      <section class="max-w-content mx-auto md:px-10 lg:px-[100px]">
+        <div
+          id="reosurces-section"
+          class="max-w-content my-15 flex scroll-mt-10 px-6 md:px-0"
+        >
+          <div
+            class="flex items-center pr-4 md:pr-12 gap-1 h-20 bg-[#E9E9D7] text-2xl font-inter font-normal border-t border-r border-[#141D19]"
+          >
+            <span class="whitespace-nowrap"> Methodologies </span>
+          </div>
+
+          <div class="grow border-b bg-tr border-[#141D19] bg-[#E9E9D7]"></div>
+        </div>
+
+        <!-- Grid -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16 px-6 md:px-0 md:pb-20"
+        >
+          <!-- Card 1 -->
+          <div
+            class="group flex flex-col sm:flex-row gap-6 lg:gap-9 pb-[60px] md:pb-[10px] cursor-pointer"
+            onclick="window.location.hash='#qet'"
+          >
+            <!-- Image (always left aligned) -->
+            <div class="w-34.5 h-44.75 shrink-0">
+              <img
+                src="/assets/images/resources/qet-large.png"
+                alt="Methodology cover"
+                class="block w-[110%] h-full object-cover sm:-ml-0.5"
+              />
+            </div>
+
+            <!-- Content -->
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-4 lg:gap-6 text-left">
+                <h3
+                  class="group-hover:text-[#7a7e70] font-medium text-[#141D19] font-mokoko text-base md:text-lg"
+                >
+                  Methodology for the Production and Verification of Quantified
+                  Emissions Tokens® (QETs) in Accordance with ISO 14064-3
+                </h3>
+
+                <p
+                  class="group-hover:text-[#7a7e70] text-sm md:text-[16px] font-normal font-inter"
+                >
+                  This methodology establishes standardized processes for
+                  quantifying emissions factors, enabling verification while
+                  remaining agnostic to the measurement methodologies employed
+                  by producers of natural gas and other commodities.
+                </p>
+              </div>
+
+              <div
+                class="text-sm md:text-base group-hover:text-[#204734] text-brand-red hover:underline inline-flex items-center pt-4 lg:pt-6 justify-start lg:justify-start"
+              >
+                Preview this methodologies &gt;
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="group flex flex-col sm:flex-row gap-6 lg:gap-9 pb-[60px] md:pb-[10px] cursor-pointer"
+            onclick="window.location.hash='#low-carbon-qet'"
+          >
+            <div class="w-34.5 h-44.75 shrink-0">
+              <img
+                src="/assets/images/resources/low-carbon-qet-large.png"
+                alt="Methodology cover"
+                class="block w-[110%] h-full object-cover sm:-ml-0.5"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-4 lg:gap-6 text-left">
+                <h3
+                  class="group-hover:text-[#7a7e70] font-medium text-[#141D19] font-mokoko text-base md:text-lg"
+                >
+                  Methodology for the Production and Verification of Low Carbon
+                  Fuel Standard Quantified Emissions Tokens® (QET-LCFS) in
+                  Accordance with ISO 14064-3
+                </h3>
+
+                <p
+                  class="group-hover:text-[#7a7e70] text-sm md:text-[16px] font-normal font-inter"
+                >
+                  This methodology defines procedures for producing and
+                  verifying QET-LCFS for California LCFS compliance, extending
+                  the core QET framework to incorporate LCFS-specific carbon
+                  intensity, fuel pathway, and CARB verification requirements.
+                </p>
+              </div>
+
+              <a
+                class="text-sm md:text-base group-hover:text-[#204734] text-brand-red hover:underline inline-flex items-center pt-4 lg:pt-6 justify-start lg:justify-start"
+              >
+                Preview this methodologies &gt;
+              </a>
+            </div>
+          </div>
+
+          <!-- Divider after first 2 cards (desktop only) -->
+          <div
+            class="hidden lg:block col-span-2 h-[1px] bg-[#7A7E70] my-4"
+          ></div>
+
+          <!-- Card 3 -->
+          <div
+            class="group flex flex-col sm:flex-row gap-6 lg:gap-9 pb-[60px] md:pb-[10px] cursor-pointer"
+            onclick="window.location.hash='#ethanol-qet'"
+          >
+            <div class="w-34.5 h-44.75 shrink-0">
+              <img
+                src="/assets/images/resources/ethanol-qet-large.png"
+                alt="Methodology cover"
+                class="block w-[110%] h-full object-cover sm:-ml-0.5"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-4 lg:gap-6 text-left">
+                <h3
+                  class="group-hover:text-[#7a7e70] font-medium text-[#141D19] font-mokoko text-base md:text-lg"
+                >
+                  Methodology for the Production and Verification of Ethanol
+                  Quantified Emissions Tokens® (QET-Ethanol) in Accordance with
+                  ISO 14064-3
+                </h3>
+
+                <p
+                  class="group-hover:text-[#7a7e70] text-sm md:text-[16px] font-normal font-inter"
+                >
+                  This methodology extends the core QET framework to ethanol
+                  production, addressing process-specific characteristics
+                  including biological fermentation, synthetic production
+                  pathways, and diverse feedstock sources.
+                </p>
+              </div>
+
+              <a
+                class="text-sm md:text-base group-hover:text-[#204734] text-brand-red hover:underline inline-flex items-center pt-4 lg:pt-6 justify-start lg:justify-start"
+              >
+                Preview this methodologies &gt;
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="group flex flex-col sm:flex-row gap-6 lg:gap-9 pb-[60px] md:pb-[10px] cursor-pointer"
+            onclick="window.location.hash='#ccs-qet'"
+          >
+            <div class="w-34.5 h-44.75 shrink-0">
+              <img
+                src="/assets/images/resources/ccs-qet-large.png"
+                alt="Methodology cover"
+                class="block w-[110%] h-full object-cover sm:-ml-0.5"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-4 lg:gap-6 text-left">
+                <h3
+                  class="group-hover:text-[#7a7e70] font-medium text-[#141D19] font-mokoko text-base md:text-lg"
+                >
+                  Methodology for the Production and Verification of Carbon
+                  Capture and Sequestration Quantified Emissions Tokens®
+                  (QET-CCS) — kgCO₂e Removed
+                </h3>
+
+                <p
+                  class="group-hover:text-[#7a7e70] text-sm md:text-[16px] font-normal font-inter"
+                >
+                  This methodology defines a framework for QET-CCS, where each
+                  token represents 1 kgCO₂e permanently removed and immutably
+                  tracked via the EarnDLT registry.
+                </p>
+              </div>
+
+              <a
+                class="text-sm md:text-base group-hover:text-[#204734] text-brand-red hover:underline inline-flex items-center pt-4 lg:pt-6 justify-start lg:justify-start"
+              >
+                Preview this methodologies &gt;
+              </a>
+            </div>
+          </div>
+
+          <!-- Divider after next 2 cards (desktop only) -->
+          <div
+            class="hidden lg:block col-span-2 h-[1px] bg-[#7A7E70] my-4"
+          ></div>
+
+          <!-- Card 5 -->
+          <div
+            class="group flex flex-col sm:flex-row gap-6 lg:gap-9 pb-[60px] md:pb-[10px] cursor-pointer"
+            onclick="window.location.hash='#sol-qet'"
+          >
+            <div class="w-34.5 h-44.75 shrink-0">
+              <img
+                src="/assets/images/resources/sol-qet-large.png"
+                alt="Methodology cover"
+                class="block w-[110%] h-full object-cover sm:-ml-0.5"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-4 lg:gap-6 text-left">
+                <h3
+                  class="group-hover:text-[#7a7e70] font-medium text-[#141D19] font-mokoko text-base md:text-lg"
+                >
+                  Methodology for the Production and Verification of Solid Fuel
+                  Thermal Quantified Emissions Tokens (QET-SOL) — kgCO₂e/MMBtu
+                </h3>
+
+                <p
+                  class="group-hover:text-[#7a7e70] text-sm md:text-[16px] font-normal font-inter"
+                >
+                  This methodology defines procedures for producing,
+                  quantifying, disclosing, and verifying QET-SOL.
+                </p>
+              </div>
+
+              <a
+                class="text-sm md:text-base group-hover:text-[#204734] text-brand-red hover:underline inline-flex items-center pt-4 lg:pt-6 justify-start lg:justify-start"
+              >
+                Preview this methodologies &gt;
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="group flex flex-col sm:flex-row gap-6 lg:gap-9 pb-[60px] md:pb-[10px] cursor-pointer"
+            onclick="window.location.hash='#rng-qet'"
+          >
+            <div class="w-34.5 h-44.75 shrink-0">
+              <img
+                src="/assets/images/resources/rng-qet-large.png"
+                alt="Methodology cover"
+                class="block w-[110%] h-full object-cover sm:-ml-0.5"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <div class="flex flex-col gap-4 lg:gap-6 text-left">
+                <h3
+                  class="group-hover:text-[#7a7e70] font-medium text-[#141D19] font-mokoko text-base md:text-lg"
+                >
+                  Methodology for the Production and Verification of Renewable
+                  Natural Gas Quantified Emissions Token Thermal Certificates
+                  (QET-RNG) — kgCO₂e/MMBtu
+                </h3>
+
+                <p
+                  class="group-hover:text-[#7a7e70] text-sm md:text-[16px] font-normal font-inter"
+                >
+                  This methodology defines QET-RNG Thermal Certificates,
+                  measuring GHG intensity in kgCO₂e/MMBtu.
+                </p>
+              </div>
+
+              <a
+                class="text-sm md:text-base group-hover:text-[#204734] text-brand-red hover:underline inline-flex items-center pt-4 lg:pt-6 justify-start lg:justify-start"
+              >
+                Preview this methodologies &gt;
+              </a>
+            </div>
+          </div>
+
+          <!-- Divider after last 2 cards (desktop only) -->
+          <div
+            class="hidden lg:block col-span-2 h-[1px] bg-[#7A7E70] my-4"
+          ></div>
+        </div>
+        <!-- QET Dialog -->
+        <dialog
+          id="qet"
+          class="fixed inset-0 m-auto rounded-lg pt-4 w-[90vw] max-h-[80vh] max-w-[960px] hide-scrollbar backdrop:bg-black/40"
+        >
+          <!-- Header -->
+          <div class="flex px-6 items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div>
+                <img
+                  src="assets/images/greentruth-logo.svg"
+                  alt="Greentruth logo"
+                  class="mx-auto h-10 aspect-square"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-xl font-mokoko text-[#142d21]">
+                  Document Preview
+                </h3>
+                <p class="font-inter text-base text-[#6a7282]">
+                  Limited preview available
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="closeModal('qet')"
+              class="focus:outline-none opacity-80 hover:opacity-100 cursor-pointer"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 5L5 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 5L15 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Primary Body -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-4 sm:px-20 py-[60px]"
+          >
+            <div class="order-2 lg:order-1">
+              <h2
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Methodology for the Production and Verification of Quantified
+                Emissions Tokens® (QETs) in Accordance with ISO 14064-3
+              </h2>
+              <p class="font-inter mt-9 text-[#292929]">
+                This comprehensive methodology document outlines a verifiable
+                framework for the production of Quantified Emissions Tokens®
+                (QETs) that is aligned with ISO 14064-3 verification
+                requirements. The methodology establishes standardized processes
+                for quantifying emissions factors while remaining agnostic to
+                specific measurement methodologies employed by producers of
+                natural gas and other commodities.
+              </p>
+            </div>
+            <div class="order-1 lg:order-2 overflow-hidden">
+              <img
+                src="/assets/images/resources/qet-large.png"
+                alt="Methodology cover"
+                class="block w-[110%] -ml-[2%] object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Secondary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div>
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Introduction and Scope
+              </h3>
+              <p class="font-inter mt-4 text-[#292929]">
+                This methodology is designed to be compatible with and
+                verifiable under ISO 14064-3 standards for greenhouse-gas
+                quantification and reporting, while incorporating the principles
+                of ISO 14067 for product carbon footprinting. It establishes the
+                requirements for QET production regardless of the specific
+                measurement technology or approach used by the producer, so long
+                as the measurement methodology meets the minimum requirements
+                for data quality, uncertainty management, and verification.
+              </p>
+              <p class="font-inter mt-4 text-[#292929]">
+                The Quantified Emissions Token (QET) serves as a digital
+                container for verified environmental attributes and emissions
+                data from real-world commodities. This methodology document
+                provides the procedural framework for creating, validating, and
+                verifying QETs that represent the environmental impacts of
+                physical commodities, with particular focus on natural gas
+                production, processing, transmission, and distribution.
+              </p>
+            </div>
+          </div>
+
+          <!-- Terinary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <p class="font-inter text-xs text-[#4A5565]">
+                This document is compliant with ISO 14064-3 standards for
+                greenhouse-gas verification and validation.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                The information contained in this document is intended solely
+                for authorized recipients and may be legally privileged. Any
+                unauthorized review, use, disclosure, or distribution is
+                prohibited. Nothing contained herein shall be construed as
+                providing legal, financial, or technical advice. Earn DLT, Inc.
+                makes no warranties, express or implied, regarding the accuracy,
+                completeness, or fitness for a particular purpose of the
+                information contained herein.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                No part of this document may be reproduced, distributed to third
+                parties, in whole or in part, without the express written
+                permission of Earn DLT, Inc. The methodology described herein,
+                including the Quantified Emissions Token® (QET) framework, is
+                the intellectual property of Earn DLT, Inc. and is subject to
+                patent and/or other intellectual property protections.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                © 2025 Earn DLT, Inc. All rights reserved. This document
+                contains proprietary and confidential information of Earn DLT,
+                Inc. and is protected by copyright law. The Earn logo is a
+                registered trademark of Earn DLT, Inc.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contents section -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Contents
+              </h3>
+              <ol
+                class="font-inter text-sm text-[#292929] list-decimal list-inside flex flex-col gap-3 mt-6"
+              >
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>1. Introduction and Scope</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>1. Key Objectives</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>2. Normative References</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3. Terms and Definitions</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.1 Quantified Emissions Token (QET)</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.2 Methane Intensity (MI)</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.3 GHG Pollutant Intensity</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.4 Carbon Intensity (CI)</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.5 Measurement, Reporting, and Verification (MRV)</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.6 Primary Data</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.7 Secondary Data</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.8 Uncertainty</span><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.9 Global Warming Potential (GWP)</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.10 Path-Based Emissions</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.11 Segment Allocation Factor</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span
+                    >3.12 Pipeline and Hazardous Materials Safety Administration
+                    (PHMSA)</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.13 Delivery Location (DLVRY LOC)</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.14 Receipt Location (RCPT LOC)</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.15 Natural Gas Processing</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.16 Processing Plant Boundary</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.17 Natural Gas Liquids (NGL) Allocation</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.18 Processing Efficiency Factor</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.19 EU Methane Regulation (EUMR)</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.20 Production-Level Reporting</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.21 Reasonable Assurance for EU Compliance</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4. General Requirements for QET Production</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.1 Principles</span><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.2 Impartiality</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.3 Evidence-based Approach</span
+                  ><span class="text-right">15</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.4 System Boundaries</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.4.1 Boundary Definition</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.4.2 Included Activities</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.4.3 Emission Sources</span
+                  ><span class="text-right">17</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5. Quantification Methodology for QET Production</span
+                  ><span class="text-right">17</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1 Emissions Data Acquisition</span
+                  ><span class="text-right">18</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1.1 Data Requirements</span
+                  ><span class="text-right">18</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1.2 Data Hierarchy</span
+                  ><span class="text-right">18</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span
+                    >5.1.3 Minimum Detection Limits and Measurement
+                    Frequency</span
+                  ><span class="text-right">18</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.2 Methane Intensity Calculation</span
+                  ><span class="text-right">18</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.2.1 QET Pollutant Intensity Calculation</span
+                  ><span class="text-right">18</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-brand-red px-16">
+            <div class="py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#FFFFFF] leading-[1.2] text-center mb-6"
+              >
+                Continue Reading
+              </h3>
+              <p
+                class="font-inter text-center text-base text-[#FFFFFF] font-normal mb-4"
+              >
+                You've reached the end of the preview.
+              </p>
+              <p
+                class="non-auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Create an account or log in to access the full methodology
+                document.
+              </p>
+              <p
+                class="auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Download the full methodology document below.
+              </p>
+              
+
+              <div class="flex flex-wrap gap-4 justify-center mx-auto mt-6">
+                <a
+                  href="/assets/docs/Methodology for the Production and Verification of Quantified Emissions Tokens (QETs) in Accordance with ISO 14064-3 v2.pdf"
+                  target="_blank"
+                  class="download-pdf flex items-center justify-center h-9  bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Download PDF</a
+                >
+                <a
+                  href="#"
+                  data-id="qet"
+                  target="_blank"
+                  class="create-account flex items-center justify-center  h-9 bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Create an account</a
+                >
+                <a
+                  id="login"
+                  href="#"
+                  data-id="qet"
+                  target="_blank"
+                  class="login flex items-center justify-center h-9 border border-[#fdfdfb] hover:border-[#ff7e6c] text-[#fdfdfb] px-6 py-1 rounded-full"
+                  >Log In</a
+                >
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+            <!-- Low Carbon QET Dialog -->
+        <dialog
+          id="low-carbon-qet"
+          class="fixed inset-0 m-auto rounded-lg pt-4 w-[90vw] max-h-[80vh] max-w-[960px] hide-scrollbar backdrop:bg-black/40"
+        >
+          <!-- Header -->
+          <div class="flex px-6 items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div>
+                <img
+                  src="assets/images/greentruth-logo.svg"
+                  alt="Greentruth logo"
+                  class="mx-auto h-10 aspect-square"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-xl font-mokoko text-[#142d21]">
+                  Document Preview
+                </h3>
+                <p class="font-inter text-base text-[#6a7282]">
+                  Limited preview available
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="closeModal('qet')"
+              class="focus:outline-none opacity-80 hover:opacity-100 cursor-pointer"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 5L5 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 5L15 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Primary Body -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-4 sm:px-20 py-[60px]"
+          >
+            <div class="order-2 lg:order-1">
+              <h2
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Methodology for the Production and Verification of Low Carbon
+                Fuel Standard Quantified Emissions Tokens® (QET-LCFS) in
+                Accordance with ISO 14064-3
+              </h2>
+              <p class="font-inter mt-9 text-[#292929]">
+                This methodology defines procedures for producing and verifying
+                QET-LCFS for California LCFS compliance, extending the core QET
+                framework to incorporate LCFS-specific carbon intensity, fuel
+                pathway, and CARB verification requirements.
+              </p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img
+                src="/assets/images/resources/low-carbon-qet-large.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Secondary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div>
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Introduction and Scope
+              </h3>
+              <p class="font-inter mt-4 text-[#292929]">
+                The QET-LCFS methodology establishes a comprehensive framework
+                for producing verified emissions tokens that meet California's
+                Low Carbon Fuel Standard (LCFS) requirements. This methodology
+                extends the core QET framework while incorporating specific
+                requirements for carbon intensity calculation, fuel pathway
+                certification, and CARB verification processes.
+              </p>
+              <p class="font-inter mt-4 text-[#292929]">
+                This document provides the procedures necessary for tracking and
+                verifying the carbon intensity of transportation fuels
+                throughout their lifecycle, ensuring compliance with California
+                Air Resources Board (CARB) regulations while maintaining
+                compatibility with ISO 14064-3 verification standards.
+              </p>
+            </div>
+          </div>
+
+          <!-- Terinary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <p class="font-inter text-xs text-[#4A5565]">
+                This document is compliant with ISO 14064-3 standards for
+                greenhouse-gas verification and validation.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                The information contained in this document is intended solely
+                for authorized recipients and may be legally privileged. Any
+                unauthorized review, use, disclosure, or distribution is
+                prohibited. Nothing contained herein shall be construed as
+                providing legal, financial, or technical advice. Earn DLT, Inc.
+                makes no warranties, express or implied, regarding the accuracy,
+                completeness, or fitness for a particular purpose of the
+                information contained herein.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                No part of this document may be reproduced, distributed to third
+                parties, in whole or in part, without the express written
+                permission of Earn DLT, Inc. The methodology described herein,
+                including the Quantified Emissions Token® (QET) framework, is
+                the intellectual property of Earn DLT, Inc. and is subject to
+                patent and/or other intellectual property protections.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                © 2025 Earn DLT, Inc. All rights reserved. This document
+                contains proprietary and confidential information of Earn DLT,
+                Inc. and is protected by copyright law. The Earn logo is a
+                registered trademark of Earn DLT, Inc.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contents section -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Contents
+              </h3>
+              <ol
+                class="font-inter text-sm text-[#292929] list-decimal list-inside flex flex-col gap-3 mt-6"
+              >
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>1. Key Objectives</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>2. Normative References</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3. Terms and Definitions</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.1 Low Carbon Fuel Standard (LCFS)</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.2 Carbon Intensity (CI)</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.3 Fuel Pathway</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.4 CARB Verification</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.5 Lifecycle Analysis</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4. LCFS-Specific Requirements</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.1 Pathway Certification</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.2 CI Calculation Methods</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.3 Verification Requirements</span
+                  ><span class="text-right">15</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5. QET-LCFS Production</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1 Data Collection</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.2 CI Determination</span
+                  ><span class="text-right">17</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.3 Token Generation</span
+                  ><span class="text-right">18</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-brand-red px-16">
+            <div class="py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#FFFFFF] leading-[1.2] text-center mb-6"
+              >
+                Continue Reading
+              </h3>
+              <p
+                class="font-inter text-center text-base text-[#FFFFFF] font-normal mb-4"
+              >
+                You've reached the end of the preview.
+              </p>
+              <p
+                class="non-auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Create an account or log in to access the full methodology
+                document.
+              </p>
+              <p
+                class="auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Download the full methodology document below.
+              </p>
+              
+
+              <div class="flex flex-wrap gap-4 justify-center mx-auto mt-6">
+                <a
+                  href="/assets/docs/Methodology for the Production and Verification of Low Carbon Fuel Standard Quantified Emissions Tokens® (QET-LCFS) in Accordance with ISO 14064-3.pdf"
+                  target="_blank"
+                  class="download-pdf flex items-center justify-center h-9  bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Download PDF</a
+                >
+                <a
+                  href="#"
+                  data-id="low-carbon-qet"
+                  target="_blank"
+                  class="create-account flex items-center justify-center h-9 bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Create an account</a
+                >
+                <a
+                  id="login"
+                  href="#"
+                  data-id="low-carbon-qet"
+                  target="_blank"
+                  class="login flex items-center justify-center h-9 border border-[#fdfdfb] hover:border-[#ff7e6c] text-[#fdfdfb] px-6 py-1 rounded-full"
+                  >Log In</a
+                >
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- Ethanol QET Dialog -->
+        <dialog
+          id="ethanol-qet"
+          class="fixed inset-0 m-auto rounded-lg pt-4 w-[90vw] max-h-[80vh] max-w-[960px] hide-scrollbar backdrop:bg-black/40"
+        >
+          <!-- Header -->
+          <div class="flex px-6 items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div>
+                <img
+                  src="assets/images/greentruth-logo.svg"
+                  alt="Greentruth logo"
+                  class="mx-auto h-10 aspect-square"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-xl font-mokoko text-[#142d21]">
+                  Document Preview
+                </h3>
+                <p class="font-inter text-base text-[#6a7282]">
+                  Limited preview available
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="closeModal('qet')"
+              class="focus:outline-none opacity-80 hover:opacity-100 cursor-pointer"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 5L5 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 5L15 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Primary Body -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-4 sm:px-20 py-[60px]"
+          >
+            <div class="order-2 lg:order-1">
+              <h2
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Methodology for the Production and Verification of Ethanol
+                Quantified Emissions Tokens® (QET-Ethanol) in Accordance with
+                ISO 14064-3
+              </h2>
+              <p class="font-inter mt-9 text-[#292929]">
+                This methodology extends the core QET framework to ethanol
+                production, addressing process-specific characteristics
+                including biological fermentation, synthetic production
+                pathways, and diverse feedstock sources.
+              </p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img
+                src="/assets/images/resources/ethanol-qet-large.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Secondary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div>
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Introduction and Scope
+              </h3>
+              <p class="font-inter mt-4 text-[#292929]">
+                The QET-Ethanol methodology provides a specialized framework for
+                quantifying and verifying emissions associated with ethanol
+                production. This methodology addresses the unique
+                characteristics of ethanol manufacturing, including biological
+                fermentation processes, diverse feedstock options, and both
+                conventional and advanced production pathways.
+              </p>
+              <p class="font-inter mt-4 text-[#292929]">
+                This document establishes requirements for tracking emissions
+                throughout the ethanol production lifecycle, from feedstock
+                cultivation and processing through fermentation, distillation,
+                and distribution, while maintaining compliance with ISO 14064-3
+                verification standards.
+              </p>
+            </div>
+          </div>
+
+          <!-- Terinary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <p class="font-inter text-xs text-[#4A5565]">
+                This document is compliant with ISO 14064-3 standards for
+                greenhouse-gas verification and validation.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                The information contained in this document is intended solely
+                for authorized recipients and may be legally privileged. Any
+                unauthorized review, use, disclosure, or distribution is
+                prohibited. Nothing contained herein shall be construed as
+                providing legal, financial, or technical advice. Earn DLT, Inc.
+                makes no warranties, express or implied, regarding the accuracy,
+                completeness, or fitness for a particular purpose of the
+                information contained herein.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                No part of this document may be reproduced, distributed to third
+                parties, in whole or in part, without the express written
+                permission of Earn DLT, Inc. The methodology described herein,
+                including the Quantified Emissions Token® (QET) framework, is
+                the intellectual property of Earn DLT, Inc. and is subject to
+                patent and/or other intellectual property protections.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                © 2025 Earn DLT, Inc. All rights reserved. This document
+                contains proprietary and confidential information of Earn DLT,
+                Inc. and is protected by copyright law. The Earn logo is a
+                registered trademark of Earn DLT, Inc.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contents section -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Contents
+              </h3>
+              <ol
+                class="font-inter text-sm text-[#292929] list-decimal list-inside flex flex-col gap-3 mt-6"
+              >
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>1. Key Objectives</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>2. Normative References</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3. Terms and Definitions</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.1 Ethanol Production Pathways</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.2 Feedstock Categories</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.3 Fermentation Emissions</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.4 Co-product Allocation</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4. Ethanol-Specific Requirements</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.1 Feedstock Characterization</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.2 Process Emissions</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.3 Co-product Treatment</span
+                  ><span class="text-right">15</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5. QET-Ethanol Production</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1 Boundary Definition</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.2 Emissions Quantification</span
+                  ><span class="text-right">17</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.3 Verification Process</span
+                  ><span class="text-right">18</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-brand-red px-16">
+            <div class="py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#FFFFFF] leading-[1.2] text-center mb-6"
+              >
+                Continue Reading
+              </h3>
+              <p
+                class="font-inter text-center text-base text-[#FFFFFF] font-normal mb-4"
+              >
+                You've reached the end of the preview.
+              </p>
+              <p
+                class="non-auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Create an account or log in to access the full methodology
+                document.
+              </p>
+              <p
+                class="auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Download the full methodology document below.
+              </p>
+              
+
+              <div class="flex flex-wrap gap-4 justify-center mx-auto mt-6">
+                <a
+                  href="/assets/docs/Methodology for the Production and Verification of Ethanol Quantified Emissions Tokens® (QET-Ethanol) in Accordance with ISO 14064-3.pdf"
+                  target="_blank"
+                  class="download-pdf flex items-center justify-center h-9  bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Download PDF</a
+                >
+                <a
+                  href="#"
+                  data-id="ethanol-qet"
+                  target="_blank"
+                  class="create-account flex items-center justify-center h-9 bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Create an account</a
+                >
+                <a
+                  id="login"
+                  href="#"
+                  data-id="ethanol-qet"
+                  target="_blank"
+                  class="login flex items-center justify-center h-9 border border-[#fdfdfb] hover:border-[#ff7e6c] text-[#fdfdfb] px-6 py-1 rounded-full"
+                  >Log In</a
+                >
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- CCS QET Dialog -->
+        <dialog
+          id="ccs-qet"
+          class="fixed inset-0 m-auto rounded-lg pt-4 w-[90vw] max-h-[80vh] max-w-[960px] hide-scrollbar backdrop:bg-black/40"
+        >
+          <!-- Header -->
+          <div class="flex px-6 items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div>
+                <img
+                  src="assets/images/greentruth-logo.svg"
+                  alt="Greentruth logo"
+                  class="mx-auto h-10 aspect-square"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-xl font-mokoko text-[#142d21]">
+                  Document Preview
+                </h3>
+                <p class="font-inter text-base text-[#6a7282]">
+                  Limited preview available
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="closeModal('qet')"
+              class="focus:outline-none opacity-80 hover:opacity-100 cursor-pointer"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 5L5 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 5L15 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Primary Body -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-4 sm:px-20 py-[60px]"
+          >
+            <div class="order-2 lg:order-1">
+              <h2
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Methodology for the Production and Verification of Carbon
+                Capture and Sequestration Quantified Emissions Tokens® (QET-CCS)
+                — kgCO₂e Removed
+              </h2>
+              <p class="font-inter mt-9 text-[#292929]">
+                This methodology extends the core QET framework to ethanol
+                production, addressing process-specific characteristics
+                including biological fermentation, synthetic production
+                pathways, and diverse feedstock sources.
+              </p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img
+                src="/assets/images/resources/ccs-qet-large.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Secondary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div>
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Introduction and Scope
+              </h3>
+              <p class="font-inter mt-4 text-[#292929]">
+                The QET-CCS methodology establishes a comprehensive framework
+                for quantifying, verifying, and tokenizing carbon dioxide
+                removal through capture and sequestration technologies. Each
+                QET-CCS token represents one kilogram of CO₂ equivalent
+                permanently removed from the atmosphere and securely stored in
+                geological formations.
+              </p>
+              <p class="font-inter mt-4 text-[#292929]">
+                This methodology addresses the complete CCS value chain, from
+                carbon capture at emission sources through transportation and
+                injection into geological storage sites, ensuring permanent
+                sequestration and providing immutable verification through the
+                EarnDLT registry system.
+              </p>
+            </div>
+          </div>
+
+          <!-- Terinary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <p class="font-inter text-xs text-[#4A5565]">
+                This document is compliant with ISO 14064-3 standards for
+                greenhouse-gas verification and validation.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                The information contained in this document is intended solely
+                for authorized recipients and may be legally privileged. Any
+                unauthorized review, use, disclosure, or distribution is
+                prohibited. Nothing contained herein shall be construed as
+                providing legal, financial, or technical advice. Earn DLT, Inc.
+                makes no warranties, express or implied, regarding the accuracy,
+                completeness, or fitness for a particular purpose of the
+                information contained herein.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                No part of this document may be reproduced, distributed to third
+                parties, in whole or in part, without the express written
+                permission of Earn DLT, Inc. The methodology described herein,
+                including the Quantified Emissions Token® (QET) framework, is
+                the intellectual property of Earn DLT, Inc. and is subject to
+                patent and/or other intellectual property protections.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                © 2025 Earn DLT, Inc. All rights reserved. This document
+                contains proprietary and confidential information of Earn DLT,
+                Inc. and is protected by copyright law. The Earn logo is a
+                registered trademark of Earn DLT, Inc.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contents section -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Contents
+              </h3>
+              <ol
+                class="font-inter text-sm text-[#292929] list-decimal list-inside flex flex-col gap-3 mt-6"
+              >
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>1. Key Objectives</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>2. Normative References</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3. Terms and Definitions</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.1 Carbon Capture</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.2 Geological Sequestration</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.3 Permanence</span><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.4 Monitoring and Verification</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4. CCS-Specific Requirements</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.1 Capture Technology</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.2 Storage Site Characterization</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.3 Long-term Monitoring</span
+                  ><span class="text-right">15</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5. QET-CCS Production</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1 Capture Quantification</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.2 Injection Verification</span
+                  ><span class="text-right">17</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.3 Registry Integration</span
+                  ><span class="text-right">18</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-brand-red px-16">
+            <div class="py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#FFFFFF] leading-[1.2] text-center mb-6"
+              >
+                Continue Reading
+              </h3>
+              <p
+                class="font-inter text-center text-base text-[#FFFFFF] font-normal mb-4"
+              >
+                You've reached the end of the preview.
+              </p>
+              <p
+                class="non-auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Create an account or log in to access the full methodology
+                document.
+              </p>
+              <p
+                class="auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Download the full methodology document below.
+              </p>
+              
+
+              <div class="flex flex-wrap gap-4 justify-center mx-auto mt-6">
+                <a
+                  href="/assets/docs/Methodology for the Production and Verification of Carbon Capture and Sequestration Quantified Emissions Tokens® (QET-CCS) — kgCO₂e Removed v1.pdf"
+                  target="_blank"
+                  class="download-pdf flex items-center justify-center h-9  bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Download PDF</a
+                >
+                <a
+                  href="#"
+                  data-id="ccs-qet"
+                  target="_blank"
+                  class="create-account flex items-center justify-center h-9 bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Create an account</a
+                >
+                <a
+                  id="login"
+                  href="#"
+                  data-id="ccs-qet"
+                  target="_blank"
+                  class="login flex items-center justify-center h-9 border border-[#fdfdfb] hover:border-[#ff7e6c] text-[#fdfdfb] px-6 py-1 rounded-full"
+                  >Log In</a
+                >
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- SOL QET Dialog -->
+        <dialog
+          id="sol-qet"
+          class="fixed inset-0 m-auto rounded-lg pt-4 w-[90vw] max-h-[80vh] max-w-[960px] hide-scrollbar backdrop:bg-black/40"
+        >
+          <!-- Header -->
+          <div class="flex px-6 items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div>
+                <img
+                  src="assets/images/greentruth-logo.svg"
+                  alt="Greentruth logo"
+                  class="mx-auto h-10 aspect-square"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-xl font-mokoko text-[#142d21]">
+                  Document Preview
+                </h3>
+                <p class="font-inter text-base text-[#6a7282]">
+                  Limited preview available
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="closeModal('qet')"
+              class="focus:outline-none opacity-80 hover:opacity-100 cursor-pointer"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 5L5 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 5L15 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Primary Body -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-4 sm:px-20 py-[60px]"
+          >
+            <div class="order-2 lg:order-1">
+              <h2
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Methodology for the Production and Verification of Solid Fuel
+                Thermal Quantified Emissions Tokens (QET-SOL) — kgCO₂e/MMBtu
+              </h2>
+              <p class="font-inter mt-9 text-[#292929]">
+                This methodology defines procedures for producing, quantifying,
+                disclosing, and verifying QET-SOL, with GHG intensity
+                standardized to kgCO₂e/MMBtu. It enables QET-SOL to function as
+                audit-ready environmental attribute certificates aligned with
+                ISO 14064-3 and referencing the EarnDLT QET core methodology.
+              </p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img
+                src="/assets/images/resources/sol-qet-large.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Secondary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div>
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Introduction and Scope
+              </h3>
+              <p class="font-inter mt-4 text-[#292929]">
+                The QET-SOL methodology provides a standardized framework for
+                quantifying and verifying greenhouse gas emissions associated
+                with solid fuel production and combustion. This methodology
+                establishes procedures for measuring GHG intensity in units of
+                kgCO₂e per million British thermal units (MMBtu), enabling
+                transparent tracking of solid fuel environmental performance.
+              </p>
+              <p class="font-inter mt-4 text-[#292929]">
+                This document addresses the complete lifecycle of solid fuels,
+                including extraction, processing, transportation, and end-use
+                combustion, while providing mechanisms for environmental
+                attribute certification that meet ISO 14064-3 verification
+                standards.
+              </p>
+            </div>
+          </div>
+
+          <!-- Terinary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <p class="font-inter text-xs text-[#4A5565]">
+                This document is compliant with ISO 14064-3 standards for
+                greenhouse-gas verification and validation.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                The information contained in this document is intended solely
+                for authorized recipients and may be legally privileged. Any
+                unauthorized review, use, disclosure, or distribution is
+                prohibited. Nothing contained herein shall be construed as
+                providing legal, financial, or technical advice. Earn DLT, Inc.
+                makes no warranties, express or implied, regarding the accuracy,
+                completeness, or fitness for a particular purpose of the
+                information contained herein.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                No part of this document may be reproduced, distributed to third
+                parties, in whole or in part, without the express written
+                permission of Earn DLT, Inc. The methodology described herein,
+                including the Quantified Emissions Token® (QET) framework, is
+                the intellectual property of Earn DLT, Inc. and is subject to
+                patent and/or other intellectual property protections.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                © 2025 Earn DLT, Inc. All rights reserved. This document
+                contains proprietary and confidential information of Earn DLT,
+                Inc. and is protected by copyright law. The Earn logo is a
+                registered trademark of Earn DLT, Inc.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contents section -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Contents
+              </h3>
+              <ol
+                class="font-inter text-sm text-[#292929] list-decimal list-inside flex flex-col gap-3 mt-6"
+              >
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>1. Key Objectives</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>2. Normative References</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3. Terms and Definitions</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.1 Solid Fuel Categories</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.2 Thermal Content</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.3 Combustion Emissions</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.4 Lifecycle Boundaries</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4. SOL-Specific Requirements</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.1 Fuel Characterization</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.2 Intensity Calculation</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.3 Quality Assurance</span
+                  ><span class="text-right">15</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5. QET-SOL Production</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1 Data Collection</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.2 Emissions Accounting</span
+                  ><span class="text-right">17</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.3 Token Issuance</span
+                  ><span class="text-right">18</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-brand-red px-16">
+            <div class="py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#FFFFFF] leading-[1.2] text-center mb-6"
+              >
+                Continue Reading
+              </h3>
+              <p
+                class="font-inter text-center text-base text-[#FFFFFF] font-normal mb-4"
+              >
+                You've reached the end of the preview.
+              </p>
+              <p
+                class="non-auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Create an account or log in to access the full methodology
+                document.
+              </p>
+              <p
+                class="auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Download the full methodology document below.
+              </p>
+              
+
+              <div class="flex flex-wrap gap-4 justify-center mx-auto mt-6">
+                <a
+                  href="/assets/docs/Methodology for the Production and Verification of Solid Fuel Thermal Quantified Emissions Tokens (QET-SOL) — kgCO₂e_MMBtu v1.2 (2).pdf"
+                  target="_blank"
+                  class="download-pdf flex items-center justify-center h-9  bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Download PDF</a
+                >
+                <a
+                  href="#"
+                  data-id="sol-qet"
+                  target="_blank"
+                  class="create-account flex items-center justify-center h-9 bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Create an account</a
+                >
+                <a
+                  id="login"
+                  href="#"
+                  data-id="sol-qet"
+                  target="_blank"
+                  class="login flex items-center justify-center h-9 border border-[#fdfdfb] hover:border-[#ff7e6c] text-[#fdfdfb] px-6 py-1 rounded-full"
+                  >Log In</a
+                >
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- RNG QET Dialog -->
+        <dialog
+          id="rng-qet"
+          class="fixed inset-0 m-auto rounded-lg pt-4 w-[90vw] max-h-[80vh] max-w-[960px] hide-scrollbar backdrop:bg-black/40"
+        >
+          <!-- Header -->
+          <div class="flex px-6 items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div>
+                <img
+                  src="assets/images/greentruth-logo.svg"
+                  alt="Greentruth logo"
+                  class="mx-auto h-10 aspect-square"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-xl font-mokoko text-[#142d21]">
+                  Document Preview
+                </h3>
+                <p class="font-inter text-base text-[#6a7282]">
+                  Limited preview available
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="closeModal('qet')"
+              class="focus:outline-none opacity-80 hover:opacity-100 cursor-pointer"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 5L5 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 5L15 15"
+                  stroke="#99A1AF"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Primary Body -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-9 px-4 sm:px-20 py-[60px]"
+          >
+            <div class="order-2 lg:order-1">
+              <h2
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Methodology for the Production and Verification of Renewable
+                Natural Gas Quantified Emissions Token Thermal Certificates
+                (QET-RNG) — kgCO₂e/MMBtu
+              </h2>
+              <p class="font-inter mt-9 text-[#292929]">
+                This methodology defines QET-RNG Thermal Certificates, measuring
+                GHG intensity in kgCO₂e/MMBtu, with each token representing 1
+                MMBtu of verified renewable natural gas. Tokens are issued and
+                tracked through the EarnDLT registry, providing immutable
+                records and transparent chain-of-custody.
+              </p>
+            </div>
+            <div class="order-1 lg:order-2">
+              <img
+                src="/assets/images/resources/rng-qet-large.png"
+                alt="Methodology cover"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Secondary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div>
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Introduction and Scope
+              </h3>
+              <p class="font-inter mt-4 text-[#292929]">
+                The QET-RNG methodology establishes a comprehensive framework
+                for quantifying, verifying, and certifying renewable natural gas
+                production. This methodology addresses the unique
+                characteristics of RNG production from various feedstocks
+                including agricultural waste, landfill gas, wastewater treatment
+                facilities, and other organic sources.
+              </p>
+              <p class="font-inter mt-4 text-[#292929]">
+                Each QET-RNG token represents one million British thermal units
+                (MMBtu) of verified renewable natural gas, with associated
+                greenhouse gas intensity measured in kgCO₂e/MMBtu. This
+                methodology ensures transparent tracking of environmental
+                attributes while maintaining compatibility with existing
+                renewable fuel standards and ISO 14064-3 verification
+                requirements.
+              </p>
+            </div>
+          </div>
+
+          <!-- Terinary Body -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <p class="font-inter text-xs text-[#4A5565]">
+                This document is compliant with ISO 14064-3 standards for
+                greenhouse-gas verification and validation.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                The information contained in this document is intended solely
+                for authorized recipients and may be legally privileged. Any
+                unauthorized review, use, disclosure, or distribution is
+                prohibited. Nothing contained herein shall be construed as
+                providing legal, financial, or technical advice. Earn DLT, Inc.
+                makes no warranties, express or implied, regarding the accuracy,
+                completeness, or fitness for a particular purpose of the
+                information contained herein.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                No part of this document may be reproduced, distributed to third
+                parties, in whole or in part, without the express written
+                permission of Earn DLT, Inc. The methodology described herein,
+                including the Quantified Emissions Token® (QET) framework, is
+                the intellectual property of Earn DLT, Inc. and is subject to
+                patent and/or other intellectual property protections.
+              </p>
+              <p class="font-inter text-xs text-[#4A5565] mt-4">
+                © 2025 Earn DLT, Inc. All rights reserved. This document
+                contains proprietary and confidential information of Earn DLT,
+                Inc. and is protected by copyright law. The Earn logo is a
+                registered trademark of Earn DLT, Inc.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contents section -->
+          <div class="px-4 sm:px-16 pb-[60px]">
+            <div class="border-t border-[#D1D5DC] py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#141d19] leading-[1.2]"
+              >
+                Contents
+              </h3>
+              <ol
+                class="font-inter text-sm text-[#292929] list-decimal list-inside flex flex-col gap-3 mt-6"
+              >
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>1. Key Objectives</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>2. Normative References</span
+                  ><span class="text-right">10</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3. Terms and Definitions</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.1 Renewable Natural Gas</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.2 Feedstock Categories</span
+                  ><span class="text-right">11</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.3 Upgrading Processes</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>3.4 Pipeline Quality Standards</span
+                  ><span class="text-right">12</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4. RNG-Specific Requirements</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.1 Feedstock Qualification</span
+                  ><span class="text-right">13</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.2 Production Pathway</span
+                  ><span class="text-right">14</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>4.3 Environmental Attributes</span
+                  ><span class="text-right">15</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5. QET-RNG Production</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.1 Biogas Quantification</span
+                  ><span class="text-right">16</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.2 Upgrading Verification</span
+                  ><span class="text-right">17</span>
+                </li>
+                <li class="border-b border-[#D1D5DC] grid grid-cols-[1fr_auto]">
+                  <span>5.3 Certificate Generation</span
+                  ><span class="text-right">18</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-brand-red px-16">
+            <div class="py-[60px]">
+              <h3
+                class="font-mokoko text-[20px] md:text-[26px] font-regular text-[#FFFFFF] leading-[1.2] text-center mb-6"
+              >
+                Continue Reading
+              </h3>
+              <p
+                class="font-inter text-center text-base text-[#FFFFFF] font-normal mb-4"
+              >
+                You've reached the end of the preview.
+              </p>
+              <p
+                class="non-auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Create an account or log in to access the full methodology
+                document.
+              </p>
+              <p
+                class="auth-text font-inter text-center text-base text-[#FFFFFF] font-semibold"
+              >
+                Download the full methodology document below.
+              </p>
+              
+
+              <div class="flex flex-wrap gap-4 justify-center mx-auto mt-6">
+                <a
+                  href="/assets/docs/Methodology for the Production and Verification of Renewable Natural Gas Quantified Emissions Token Thermal Certificates (QET-RNG) — kgCO₂e_MMBtu v1.0.pdf"
+                  target="_blank"
+                  class="download-pdf flex items-center justify-center h-9  bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Download PDF</a
+                >
+                <a
+                  href="#"
+                  data-id="rng-qet"
+                  target="_blank"
+                  class="create-account flex items-center justify-center h-9 bg-[#fdfdfb] text-[#142d21] hover:bg-[#ff7e6c] hover:text-[#fdfdfb] transition-colors duration-200 px-6 py-1 rounded-full"
+                  >Create an account</a
+                >
+                <a
+                  id="login"
+                  href="#"
+                  data-id="rng-qet"
+                  target="_blank"
+                  class="login flex items-center justify-center h-9 border border-[#fdfdfb] hover:border-[#ff7e6c] text-[#fdfdfb] px-6 py-1 rounded-full"
+                  >Log In</a
+                >
+              </div>
+            </div>
+          </div>
+        </dialog>
+      </section>
+    </main>
+    <!-- </div> -->
+
+    <footer class="bg-[#141d19] py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+          <div class="lg:col-span-3 flex flex-col items-start">
+            <img src="assets/footer/logo.svg" alt="Greentruth Logo" class="" />
+            <p
+              class="text-[10px] text-[#7A7E70] font-normal font-inter text-right ml-16 mt-1"
+            >
+              A member of the Earn Ecosystem
+            </p>
+          </div>
+          <div
+            class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 font-mokoko text-[16px] font-medium text-[#7A7E70]"
+          >
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/"
+                class="hover:text-white transition-colors duration-200"
+                >Home</a
+              >
+              <a
+                href="/about.html"
+                class="hover:text-white transition-colors duration-200"
+                >About</a
+              >
+              <a
+                href="/resources.html"
+                class="hover:text-white transition-colors duration-200"
+                >Resources</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/contact.html"
+                class="hover:text-white transition-colors duration-200"
+                >Contact</a
+              >
+              <a
+                href="https://app.greentruth.com/register"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Get Started</a
+              >
+              <a
+                href="https://app.greentruth.com/login"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Login</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/privacy.html"
+                class="hover:text-white transition-colors duration-200"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms-of-use.html"
+                class="hover:text-white transition-colors duration-200"
+                >Term of Use</a
+              >
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 flex flex-col lg:items-end">
+            <div class="flex space-x-4 mb-4">
+              <a
+                href="https://www.linkedin.com/company/earndlt/"
+                target="_blank"
+                class=""
+              >
+                <img src="assets/footer/linkedin-icon.svg" alt="Linkedin" />
+              </a>
+              <a href="https://x.com/earndlt/" class="" target="_blank">
+                <img src="assets/footer/x-icon.svg" alt="X" />
+              </a>
+            </div>
+            <p class="text-sm text-[#7A7E70] font-normal font-inter">
+              (+1) 877-905-EARN (3276)
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-[#204734] my-8"></div>
+        <div
+          class="text-center text-[12px] text-[#606060] font-normal font-inter"
+        >
+          &copy; 2026 EarnDLT®. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/modal.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+  </body>
+</html>

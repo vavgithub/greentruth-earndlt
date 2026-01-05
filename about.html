@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About - Greentruth</title>
+    <link href="assets/css/tailwind.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="assets/js/auth.js"></script>
+  </head>
+
+  <body class="font-mokoko">
+    <!-- Header -->
+    <header class="bg-white px-5 md:px-0 relative z-50">
+      <div
+        class="flex justify-between items-center md:items-end py-[25px] md:px-10 lg:px-[100px] max-w-content mx-auto relative"
+      >
+        <a href="/" class="hidden md:block">
+          <img
+            src="assets/images/logo.svg"
+            alt="Greentruth logo"
+            class="navbar__logo mb-3"
+          />
+        </a>
+        <a href="/" class="block md:hidden">
+          <img
+            src="assets/icons/logo-mobile.svg"
+            alt="Greentruth logo"
+            class="navbar__logo-mobile mb-3"
+          />
+        </a>
+        <nav class="hidden md:block lg:pr-[20px] self-end">
+          <ul class="flex gap-[20px] lg:gap-[30px] list-none md:pb-5 m-0">
+            <li>
+              <a
+                href="/resources.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                >Resources</a
+              >
+            </li>
+            <li>
+              <a
+                href="/about.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="/contact.html"
+                class="text-base font-medium text-[#142D21] opacity-80 hover:opacity-100 transition-opacity"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="flex items-center md:items-start md:self-start gap-5 md:gap-8 md:absolute md:right-[clamp(1.25rem,9vw,4%)] md:top-[13%] lg:right-[clamp(1.25rem,10vw,10%)] xl:right-0 xl:relative"
+        >
+          <a
+            id="get-started-button"
+            href="https://app.greentruth.com/register"
+            target="_blank"
+            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+            >Get Started</a
+          >
+          <a
+            id="login-button"
+            href="https://app.greentruth.com/login"
+            target="_blank"
+            class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+            >Login</a
+          >
+          <button
+            id="logout-button"
+            type="button"
+            class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
+          >
+            Logout
+          </button>
+          <button
+            id="menu-button"
+            class="md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+            aria-label="Toggle navigation"
+          >
+            <img src="assets/icons/menu-icon.svg" alt="Menu Icon" />
+          </button>
+          <button
+            id="close-menu"
+            class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+            aria-label="Close navigation"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Modal -->
+    <div
+      id="mobile-menu"
+      class="hidden fixed inset-x-0 bottom-0 z-50 flex flex-col w-full"
+      style="top: 85px"
+    >
+      <!-- Backdrop -->
+      <div
+        class="absolute inset-0 bg-[#01140B] opacity-95 cursor-pointer w-full h-full"
+        onclick="document.getElementById('close-menu').click()"
+      ></div>
+
+      <!-- Menu Content -->
+      <div
+        class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in"
+      >
+        <!-- Navigation -->
+        <nav class="flex flex-col font-mokoko">
+          <a
+            href="resources.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#142D21]"
+          >
+            Resources
+          </a>
+          <a
+            href="about.html"
+            class="block py-5 text-center text-[20px] font-medium bg-brand-red text-white transition-colors border-t border-[#142D21]"
+          >
+            About
+          </a>
+          <a
+            href="contact.html"
+            class="block py-5 text-center text-[20px] font-medium bg-[#F5F5ED] text-[#E66547] hover:bg-brand-red hover:text-white transition-colors border-t border-[#142D21]"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="flex-grow">
+      <section class="pt-14 md:pt-[88px]">
+        <h1
+          class="max-w-content mx-auto text-[20px] md:text-[36px] font-normal font-mokoko text-brand-red px-5 md:px-10 lg:px-[100px]"
+        >
+          About Greentruth
+        </h1>
+      </section>
+
+      <section class="bg-[#E9E9D7] pb-24">
+        <div class="max-w-content mx-auto px-5 md:px-10 lg:px-[100px]">
+          <div
+            class="flex flex-col md:flex-row items-start gap-12 lg:gap-24 pt-14 md:pt-[120px] mb-10"
+          >
+            <div class="w-full md:max-w-[620px]">
+              <h2
+                class="text-[18px] md:text-[26px] font-mokoko font-medium mb-8 md:mb-12 text-[#141D19]"
+              >
+                Greentruth in the Earn Ecosystem
+              </h2>
+              <div
+                class="space-y-6 text-[16px] md:text-[20px] leading-[1.6] text-[#292929] font-normal font-inter"
+              >
+                <p>
+                  Greentruth is a vertical platform within the Earn ecosystem
+                  that provides a market interface and operational layer for
+                  verified emissions and environmental data. EarnDLT supplies
+                  the underlying infrastructure for verification, tokenization,
+                  and registry management.
+                </p>
+                <p>
+                  This arrangement enables Greentruth to deliver a focused,
+                  market-ready implementation, built on infrastructure designed
+                  for scale and rigor.
+                </p>
+              </div>
+              <div class="mt-8">
+                <a
+                  href="/resources.html"
+                  class="inline-flex items-center text-[#178B53] text-[16px] hover:opacity-80 transition-opacity group font-medium font-mokoko"
+                >
+                  Explore our tokenization methodologies
+                  <span
+                    class="ml-2 transform group-hover:translate-x-1 transition-transform"
+                    >&gt;</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div
+              class="w-full max-w-[341px] mx-auto flex justify-center pt-10 md:pt-20"
+            >
+              <img
+                src="assets/images/ecosystem.svg"
+                alt="Earn Ecosystem"
+                class=""
+              />
+            </div>
+          </div>
+
+          <hr class="border-[#292929] border-t-1 mb-20" />
+
+          <div class="flex flex-col md:flex-row gap-12 lg:gap-24">
+            <div class="w-full md:max-w-[620px]">
+              <h2
+                class="text-[18px] md:text-[26px] font-mokoko font-medium mb-8 md:mb-12 text-[#141D19]"
+              >
+                Accountability & Controls
+              </h2>
+              <div
+                class="space-y-6 text-[16px] md:text-[20px] leading-[1.6] text-[#292929] font-normal font-inter mb-8"
+              >
+                <p>
+                  Greentruth operates under governance frameworks and operating
+                  standards designed for regulated environments. These standards
+                  define how the organization manages security, data protection,
+                  and regulatory accountability.
+                </p>
+                <p>
+                  These standards ensure Greentruth operates in a manner
+                  suitable for audit, assurance, and regulatory use.
+                </p>
+              </div>
+              <ul
+                class="space-y-3 text-[16px] md:text-[20px] leading-[1.6] text-[#292929] font-normal font-inter pl-5 list-disc marker:text-gt-dark"
+              >
+                <li>
+                  ISO 27001–aligned information security management practices
+                </li>
+                <li>
+                  SOC 2–aligned operational controls governing security,
+                  availability, and operational integrity
+                </li>
+                <li>
+                  GDPR-compliant data protection and privacy controls across EU
+                  operations
+                </li>
+                <li>
+                  Regulatory monitoring and alignment processes across operating
+                  jurisdictions
+                </li>
+              </ul>
+            </div>
+            <div
+              class="w-full max-w-[341px] mx-auto flex flex-col justify-center"
+            >
+              <img
+                src="assets/images/accountability.svg"
+                alt="Accountability Standards"
+                class=""
+              />
+              <div class="mt-8">
+                <a
+                  href="/resources.html"
+                  class="inline-flex items-center text-[#178B53] text-[16px] hover:opacity-80 transition-opacity group font-medium font-mokoko"
+                >
+                  Explore our tokenization methodologies
+                  <span
+                    class="ml-2 transform group-hover:translate-x-1 transition-transform"
+                    >&gt;</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership section -->
+      <section class="bg-[#141d19] overflow-y-clip relative overflow-x-hidden">
+        <img
+          src="assets/images/leadership-section-bg.svg"
+          alt="dot field background"
+          class="mx-auto hidden md:block absolute top-[-2%] left-0 right-0 z-[1]"
+        />
+        <div
+          class="max-w-content mx-auto py-30 relative px-5 md:px-10 lg:px-[100px]"
+        >
+          <div class="relative z-20 mb-30">
+            <h2
+              class="text-[18px] md:text-[26px] font-mokoko font-medium mb-8 md:mb-12 text-[#fdfdfb]"
+            >
+              Leadership
+            </h2>
+            <p
+              class="text-[#fdfdfb] w-full font-inter md:w-[50%] max-w-[615px] text-[20px]"
+            >
+              The Greentruth leadership team brings direct experience building
+              and operating systems in regulated energy, industrial, financial,
+              and enterprise environments.
+            </p>
+          </div>
+
+          <div class="relative group">
+            <button
+              id="leadership-prev"
+              class="absolute left-[-20px] lg:left-[-50px] top-[35%] md:top-[30%] z-30 disabled:opacity-20 disabled:cursor-not-allowed md:hover:scale-110 transition-all duration-200 focus:outline-none p-2 active:scale-90 pointer-events-auto xl:hidden"
+              aria-label="Previous"
+            >
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-12 h-12 md:w-20 md:h-20"
+              >
+                <path
+                  opacity="0.6"
+                  d="M40 80C62.0914 80 80 62.0914 80 40C80 17.9086 62.0914 0 40 0C17.9086 0 0 17.9086 0 40C0 62.0914 17.9086 80 40 80Z"
+                  fill="#7A7E70"
+                />
+                <path
+                  d="M53.3599 68.7401L26.6399 42.0201L53.3599 15.3101"
+                  stroke="#FDFDFB"
+                  stroke-miterlimit="10"
+                />
+              </svg>
+            </button>
+
+            <div
+              class="absolute left-[-20px] top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-[#141d19] via-[#141d19] to-transparent z-20 pointer-events-none opacity-80 xl:hidden"
+            ></div>
+
+            <div
+              id="leadership-grid"
+              class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-6 z-10 relative pb-4 lg:pb-0 xl:justify-center xl:overflow-visible xl:gap-4"
+            >
+              <div
+                class="leader-card min-w-[240px] xl:min-w-[150px] xl:w-[165px] snap-center snap-always flex flex-col items-start justify-center gap-4 group cursor-pointer ml-10 xl:ml-0"
+              >
+                <div class="">
+                  <img
+                    src="assets/images/leaders/aaron-main.png"
+                    alt="leader 1"
+                    class="leader-img w-full h-full object-cover grayscale-0 scale-100 transition-all duration-300"
+                  />
+                </div>
+                <div class="pl-9 pr-4.5 xl:pl-4 xl:pr-0 min-h-[360px]">
+                  <p
+                    class="text-[#fdfdfb] text-[22px] font-medium text-left font-mokoko"
+                  >
+                    Aaron <br />
+                    Lohmann
+                  </p>
+                  <p class="text-[#e9e9d7] text-[16px] font-inter mt-2">
+                    CEO & Founder
+                  </p>
+                  <p
+                    class="leader-desc text-[#e9e9d7] text-[16px] font-inter mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    Two decades building and operating energy and environmental
+                    data platforms across regulated infrastructure markets.
+                  </p>
+                  <div
+                    class="leader-linkedin mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    <a
+                      href="https://www.linkedin.com/in/aaron-lohmann/"
+                      target="_blank"
+                      class="hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src="assets/icons/LinkedIn.svg"
+                        alt="LinkedIn"
+                        width="89"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="leader-card min-w-[240px] xl:min-w-[150px] xl:w-[165px] snap-center snap-always flex flex-col items-start justify-center gap-4 group cursor-pointer"
+              >
+                <div class="">
+                  <img
+                    src="assets/images/leaders/claas-main.png"
+                    alt="leader 2"
+                    class="leader-img w-full h-full object-cover grayscale scale-100 transition-all duration-300"
+                  />
+                </div>
+                <div class="pl-9 pr-4.5 xl:pl-4 xl:pr-0 min-h-[360px]">
+                  <p
+                    class="text-[#fdfdfb] text-[22px] font-medium text-left font-mokoko"
+                  >
+                    Claas <br />
+                    Gregar
+                  </p>
+                  <p class="text-[#e9e9d7] text-[16px] font-inter mt-2">
+                    Head of EU Strategy
+                  </p>
+                  <p
+                    class="leader-desc text-[#e9e9d7] text-[16px] font-inter mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    Leads European entity operations, regulatory engagement, and
+                    market deployment across EU jurisdictions.
+                  </p>
+                  <div
+                    class="leader-linkedin mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    <a
+                      href="https://www.linkedin.com/in/claas-greger-aa78118/"
+                      target="_blank"
+                      class="hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src="assets/icons/LinkedIn.svg"
+                        alt="LinkedIn"
+                        width="89"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="leader-card min-w-[240px] xl:min-w-[150px] xl:w-[165px] snap-center snap-always flex flex-col items-start justify-center gap-4 group cursor-pointer"
+              >
+                <div class="">
+                  <img
+                    src="assets/images/leaders/monica-main.png"
+                    alt="leader 3"
+                    class="leader-img w-full h-full object-cover grayscale scale-100 transition-all duration-300"
+                  />
+                </div>
+                <div class="pl-9 pr-4.5 xl:pl-4 xl:pr-0 min-h-[360px]">
+                  <p
+                    class="text-[#fdfdfb] text-[22px] font-medium text-left font-mokoko"
+                  >
+                    Monica <br />
+                    Spiteri
+                  </p>
+                  <p class="text-[#e9e9d7] text-[16px] font-inter mt-2">
+                    COO & Co-Founder
+                  </p>
+                  <p
+                    class="leader-desc text-[#e9e9d7] text-[16px] font-inter mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    Oversees operational governance, compliance controls, and
+                    execution discipline across the Earn ecosystem.
+                  </p>
+                  <div
+                    class="leader-linkedin mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    <a
+                      href="https://www.linkedin.com/in/monicaspiteri/"
+                      target="_blank"
+                      class="hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src="assets/icons/LinkedIn.svg"
+                        alt="LinkedIn"
+                        width="89"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="leader-card min-w-[240px] xl:min-w-[150px] xl:w-[165px] snap-center snap-always flex flex-col items-start justify-center gap-4 group cursor-pointer"
+              >
+                <div class="">
+                  <img
+                    src="assets/images/leaders/alibek-main.png"
+                    alt="leader 4"
+                    class="leader-img w-full h-full object-cover grayscale scale-100 transition-all duration-300"
+                  />
+                </div>
+                <div class="pl-9 pr-4.5 xl:pl-4 xl:pr-0 min-h-[360px]">
+                  <p
+                    class="text-[#fdfdfb] text-[22px] font-medium text-left font-mokoko"
+                  >
+                    Alibek <br />
+                    Junisbayev
+                  </p>
+                  <p class="text-[#e9e9d7] text-[16px] font-inter mt-2">
+                    Head of Technology
+                  </p>
+                  <p
+                    class="leader-desc text-[#e9e9d7] text-[16px] font-inter mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    Responsible for platform architecture, data integrity, and
+                    security controls.
+                  </p>
+                  <div
+                    class="leader-linkedin mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    <a
+                      href="https://www.linkedin.com/in/6b33a13a1/"
+                      target="_blank"
+                      class="hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src="assets/icons/LinkedIn.svg"
+                        alt="LinkedIn"
+                        width="89"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="leader-card min-w-[240px] xl:min-w-[150px] xl:w-[165px] snap-center snap-always flex flex-col items-start justify-center gap-4 group cursor-pointer"
+              >
+                <div class="">
+                  <img
+                    src="assets/images/leaders/macgill-main.png"
+                    alt="leader 5"
+                    class="leader-img w-full h-full object-cover grayscale scale-100 transition-all duration-300"
+                  />
+                </div>
+                <div class="pl-9 pr-4.5 xl:pl-4 xl:pr-0 min-h-[360px]">
+                  <p
+                    class="text-[#fdfdfb] text-[22px] font-medium text-left font-mokoko"
+                  >
+                    Macgill <br />
+                    James
+                  </p>
+                  <p class="text-[#e9e9d7] text-[16px] font-inter mt-2">
+                    Head of Growth & Partnerships
+                  </p>
+                  <p
+                    class="leader-desc text-[#e9e9d7] text-[16px] font-inter mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    Leads growth and partnerships across traditional energy,
+                    energy transition, and environmental commodities.
+                  </p>
+                  <div
+                    class="leader-linkedin mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    <a
+                      href="https://www.linkedin.com/in/macgill-james-4845b710/"
+                      target="_blank"
+                      class="hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src="assets/icons/LinkedIn.svg"
+                        alt="LinkedIn"
+                        width="89"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="leader-card min-w-[240px] xl:min-w-[150px] xl:w-[165px] snap-center snap-always flex flex-col items-start justify-center gap-4 group cursor-pointer mr-14 xl:mr-0"
+              >
+                <div class="">
+                  <img
+                    src="assets/images/leaders/seb-main.png"
+                    alt="leader 6"
+                    class="leader-img w-full h-full object-cover grayscale scale-100 transition-all duration-300"
+                  />
+                </div>
+                <div class="pl-9 pr-4.5 xl:pl-4 xl:pr-0 min-h-[360px]">
+                  <p
+                    class="text-[#fdfdfb] text-[22px] font-medium text-left font-mokoko"
+                  >
+                    Sebastian <br />
+                    Schenk
+                  </p>
+                  <p class="text-[#e9e9d7] text-[16px] font-inter mt-2">
+                    Head of Client Solutions
+                  </p>
+                  <p
+                    class="leader-desc text-[#e9e9d7] text-[16px] font-inter mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    Leads enterprise implementations and customer deployments
+                    across emissions and environmental data.
+                  </p>
+                  <div
+                    class="leader-linkedin mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500"
+                  >
+                    <a
+                      href="https://www.linkedin.com/in/shschenk/"
+                      target="_blank"
+                      class="hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src="assets/icons/LinkedIn.svg"
+                        alt="LinkedIn"
+                        width="89"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              id="leadership-next"
+              class="absolute right-[-20px] lg:right-[-50px] top-[35%] md:top-[30%] z-30 disabled:opacity-20 disabled:cursor-not-allowed md:hover:scale-110 transition-all duration-200 focus:outline-none p-2 active:scale-90 pointer-events-auto xl:hidden"
+              aria-label="Next"
+            >
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-12 h-12 md:w-20 md:h-20 rotate-180"
+              >
+                <path
+                  opacity="0.6"
+                  d="M40 80C62.0914 80 80 62.0914 80 40C80 17.9086 62.0914 0 40 0C17.9086 0 0 17.9086 0 40C0 62.0914 17.9086 80 40 80Z"
+                  fill="#7A7E70"
+                />
+                <path
+                  d="M53.3599 68.7401L26.6399 42.0201L53.3599 15.3101"
+                  stroke="#FDFDFB"
+                  stroke-miterlimit="10"
+                />
+              </svg>
+            </button>
+
+            <div
+              class="absolute left-[-5px] top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-[#141d19] via-[#141d19]/80 to-transparent z-20 pointer-events-none xl:hidden"
+            ></div>
+            <div
+              class="absolute right-[-5px] top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-[#141d19] via-[#141d19]/80 to-transparent z-20 pointer-events-none xl:hidden"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Adoption & Use section -->
+      <section class="bg-[#142d21] overflow-y-clip relative">
+        <img
+          src="assets/images/leadership-section-bg.svg"
+          alt="dot field background"
+          class="mx-auto h-auto hidden md:block absolute top-[-2%] left-0 right-0 z-[1]"
+        />
+        <div
+          class="max-w-content mx-auto py-30 relative px-5 md:px-10 lg:px-[100px]"
+        >
+          <div class="relative z-20">
+            <h2
+              class="text-[18px] md:text-[26px] font-mokoko font-medium mb-8 md:mb-12 text-[#fdfdfb]"
+            >
+              Adoption & Use
+            </h2>
+            <p
+              class="text-[#fdfdfb] w-full font-inter md:w-[50%] max-w-[615px] text-[20px]"
+            >
+              Greentruth is built on EarnDLT’s verification and data
+              infrastructure, which is already used across energy and industrial
+              markets, supporting 40+ clients and integrating data from 15+
+              providers across regulated value chains and regulatory regimes
+              worldwide.
+            </p>
+          </div>
+          <div class="relative z-20 mt-30">
+            <h2
+              class="text-[18px] md:text-[26px] font-mokoko font-medium mb-8 md:mb-12 text-[#fdfdfb]"
+            >
+              Institutional Backing
+            </h2>
+            <p
+              class="text-[#fdfdfb] w-full font-inter md:w-[50%] max-w-[615px] text-[20px]"
+            >
+              The Earn ecosystem is backed by strategic and institutional
+              investors with deep experience in energy infrastructure, financial
+              markets, industrial markets, and enterprise technology.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Verified Banner section -->
+      <section class="bg-[#e9e9d7] px-5 md:px-10 lg:px-[100px] overflow-y-clip">
+        <div class="max-w-content mx-auto py-30 relative">
+          <div class="relative z-20">
+            <h3
+              class="text-[36px] md:text-[44px] text-center font-mokoko font-medium mb-8 md:mb-12 text-[#141d19]"
+            >
+              Verified environmental performance,<br />operated with
+              infrastructure-grade rigor.
+            </h3>
+            <img
+              src="assets/images/greentruth-logo.svg"
+              alt="verified banner icon"
+              class="mx-auto"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#141d19] py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+          <div class="lg:col-span-3 flex flex-col items-start">
+            <img src="assets/footer/logo.svg" alt="Greentruth Logo" class="" />
+            <p
+              class="text-[10px] text-[#7A7E70] font-normal font-inter text-right ml-16 mt-1"
+            >
+              A member of the Earn Ecosystem
+            </p>
+          </div>
+          <div
+            class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 font-mokoko text-[16px] font-medium text-[#7A7E70]"
+          >
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/"
+                class="hover:text-white transition-colors duration-200"
+                >Home</a
+              >
+              <a
+                href="/about.html"
+                class="hover:text-white transition-colors duration-200"
+                >About</a
+              >
+              <a
+                href="/resources.html"
+                class="hover:text-white transition-colors duration-200"
+                >Resources</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/contact.html"
+                class="hover:text-white transition-colors duration-200"
+                >Contact</a
+              >
+              <a
+                href="https://app.greentruth.com/register"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Get Started</a
+              >
+              <a
+                href="https://app.greentruth.com/login"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Login</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/privacy.html"
+                class="hover:text-white transition-colors duration-200"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms-of-use.html"
+                class="hover:text-white transition-colors duration-200"
+                >Term of Use</a
+              >
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 flex flex-col lg:items-end">
+            <div class="flex space-x-4 mb-4">
+              <a
+                href="https://www.linkedin.com/company/earndlt/"
+                target="_blank"
+                class=""
+              >
+                <img src="assets/footer/linkedin-icon.svg" alt="Linkedin" />
+              </a>
+              <a href="https://x.com/earndlt/" class="" target="_blank">
+                <img src="assets/footer/x-icon.svg" alt="X" />
+              </a>
+            </div>
+            <p class="text-sm text-[#7A7E70] font-normal font-inter">
+              (+1) 877-905-EARN (3276)
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-[#204734] my-8"></div>
+        <div
+          class="text-center text-[12px] text-[#606060] font-normal font-inter"
+        >
+          &copy; 2026 EarnDLT®. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const leaders = Array.from(document.querySelectorAll(".leader-card"));
+        const grid = document.getElementById("leadership-grid");
+        const prevBtn = document.getElementById("leadership-prev");
+        const nextBtn = document.getElementById("leadership-next");
+        let activeIdx = 0;
+        let isUserInteracting = false;
+
+        // --- Core Functions ---
+        const updateUI = (index) => {
+          leaders.forEach((card, i) => {
+            const isActive = i === index;
+            const img = card.querySelector(".leader-img");
+            const desc = card.querySelector(".leader-desc");
+            const linkedin = card.querySelector(".leader-linkedin");
+
+            if (img) {
+              img.classList.toggle("grayscale-0", isActive);
+              img.classList.toggle("grayscale", !isActive);
+              img.classList.toggle("scale-110", isActive);
+              img.classList.toggle("scale-100", !isActive);
+            }
+
+            if (desc) {
+              desc.classList.toggle("opacity-100", isActive);
+              desc.classList.toggle("max-h-[200px]", isActive);
+              desc.classList.toggle("opacity-0", !isActive);
+              desc.classList.toggle("max-h-0", !isActive);
+            }
+
+            if (linkedin) {
+              linkedin.classList.toggle("opacity-100", isActive);
+              linkedin.classList.toggle("max-h-[50px]", isActive);
+              linkedin.classList.toggle("opacity-0", !isActive);
+              linkedin.classList.toggle("max-h-0", !isActive);
+            }
+          });
+
+          // Update button states
+          const maxScroll = grid.scrollWidth - grid.clientWidth;
+          prevBtn.disabled = grid.scrollLeft <= 15;
+          nextBtn.disabled = grid.scrollLeft >= maxScroll - 15;
+        };
+
+        const scrollToCard = (index) => {
+          const card = leaders[index];
+          const scrollTarget =
+            card.offsetLeft - grid.clientWidth / 2 + card.clientWidth / 2;
+          grid.scrollTo({ left: scrollTarget, behavior: "smooth" });
+          updateUI(index);
+        };
+
+        // --- Event Listeners ---
+        leaders.forEach((card, i) => {
+          card.addEventListener("mouseenter", () => {
+            isUserInteracting = true;
+            activeIdx = i;
+            updateUI(i);
+          });
+          card.addEventListener("mouseleave", () => {
+            isUserInteracting = false;
+            // Removed desktop default force to 0 to keep carousel behavior consistent
+            updateUI(activeIdx);
+          });
+        });
+
+        const handleNav = (dir) => {
+          activeIdx = Math.max(
+            0,
+            Math.min(leaders.length - 1, activeIdx + dir)
+          );
+          scrollToCard(activeIdx);
+        };
+
+        prevBtn.onclick = () => handleNav(-1);
+        nextBtn.onclick = () => handleNav(1);
+
+        grid.onscroll = () => {
+          // Update buttons immediately
+          const maxScroll = grid.scrollWidth - grid.clientWidth;
+          prevBtn.disabled = grid.scrollLeft <= 15;
+          nextBtn.disabled = grid.scrollLeft >= maxScroll - 15;
+
+          if (isUserInteracting) return;
+
+          // Auto-highlight center card on scroll
+          const center = grid.scrollLeft + grid.clientWidth / 2;
+          let closestIdx = activeIdx;
+          let minDist = Infinity;
+
+          leaders.forEach((card, i) => {
+            const cardCenter = card.offsetLeft + card.clientWidth / 2;
+            const dist = Math.abs(center - cardCenter);
+            if (dist < minDist) {
+              minDist = dist;
+              closestIdx = i;
+            }
+          });
+
+          if (activeIdx !== closestIdx) {
+            activeIdx = closestIdx;
+            updateUI(activeIdx);
+          }
+        };
+
+        window.onresize = () => updateUI(activeIdx);
+
+        // Initial State
+        setTimeout(() => updateUI(activeIdx), 100);
+      });
+    </script>
+    <script src="assets/js/script.js" defer></script>
+  </body>
+</html>

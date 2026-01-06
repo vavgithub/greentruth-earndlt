@@ -619,6 +619,9 @@
   .h-\[1px\] {
     height: 1px;
   }
+  .h-\[8\%\] {
+    height: 8%;
+  }
   .h-\[30\%\] {
     height: 30%;
   }
@@ -634,11 +637,23 @@
   .h-\[45\%\] {
     height: 45%;
   }
+  .h-\[55\%\] {
+    height: 55%;
+  }
+  .h-\[58\%\] {
+    height: 58%;
+  }
   .h-\[60\%\] {
     height: 60%;
   }
   .h-\[68\%\] {
     height: 68%;
+  }
+  .h-\[80\%\] {
+    height: 80%;
+  }
+  .h-\[85\%\] {
+    height: 85%;
   }
   .h-\[132px\] {
     height: 132px;
@@ -648,6 +663,9 @@
   }
   .h-\[220px\] {
     height: 220px;
+  }
+  .h-\[300px\] {
+    height: 300px;
   }
   .h-\[600px\] {
     height: 600px;
@@ -2355,6 +2373,38 @@
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
+  .md\:scale-1 {
+    @media (width >= 48rem) {
+      --tw-scale-x: 1%;
+      --tw-scale-y: 1%;
+      --tw-scale-z: 1%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .md\:scale-125 {
+    @media (width >= 48rem) {
+      --tw-scale-x: 125%;
+      --tw-scale-y: 125%;
+      --tw-scale-z: 125%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .md\:scale-150 {
+    @media (width >= 48rem) {
+      --tw-scale-x: 150%;
+      --tw-scale-y: 150%;
+      --tw-scale-z: 150%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .md\:scale-1525 {
+    @media (width >= 48rem) {
+      --tw-scale-x: 1525%;
+      --tw-scale-y: 1525%;
+      --tw-scale-z: 1525%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
   .md\:grid-cols-2 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3008,6 +3058,11 @@
       position: relative;
     }
   }
+  .xl\:top-0 {
+    @media (width >= 80rem) {
+      top: calc(var(--spacing) * 0);
+    }
+  }
   .xl\:top-\[-2\%\] {
     @media (width >= 80rem) {
       top: -2%;
@@ -3096,6 +3151,22 @@
   .xl\:min-w-\[150px\] {
     @media (width >= 80rem) {
       min-width: 150px;
+    }
+  }
+  .xl\:scale-0 {
+    @media (width >= 80rem) {
+      --tw-scale-x: 0%;
+      --tw-scale-y: 0%;
+      --tw-scale-z: 0%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .xl\:scale-100 {
+    @media (width >= 80rem) {
+      --tw-scale-x: 100%;
+      --tw-scale-y: 100%;
+      --tw-scale-z: 100%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
   .xl\:justify-center {

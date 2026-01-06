@@ -244,6 +244,9 @@
   .-top-\[10\%\] {
     top: calc(10% * -1);
   }
+  .-top-\[20\%\] {
+    top: calc(20% * -1);
+  }
   .-top-\[30\%\] {
     top: calc(30% * -1);
   }
@@ -262,11 +265,17 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
   .top-2 {
     top: calc(var(--spacing) * 2);
+  }
+  .top-10 {
+    top: calc(var(--spacing) * 10);
   }
   .top-\[-2\%\] {
     top: -2%;
@@ -357,6 +366,9 @@
   }
   .z-0 {
     z-index: 0;
+  }
+  .z-1 {
+    z-index: 1;
   }
   .z-10 {
     z-index: 10;
@@ -462,6 +474,12 @@
   }
   .mt-9 {
     margin-top: calc(var(--spacing) * 9);
+  }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
+  .mt-14 {
+    margin-top: calc(var(--spacing) * 14);
   }
   .mt-30 {
     margin-top: calc(var(--spacing) * 30);
@@ -807,6 +825,9 @@
   }
   .min-w-4 {
     min-width: calc(var(--spacing) * 4);
+  }
+  .min-w-\[150px\] {
+    min-width: 150px;
   }
   .min-w-\[240px\] {
     min-width: 240px;
@@ -1232,6 +1253,9 @@
   }
   .bg-contain {
     background-size: contain;
+  }
+  .bg-cover {
+    background-size: cover;
   }
   .object-contain {
     object-fit: contain;
@@ -2040,6 +2064,41 @@
   .md\:top-2 {
     @media (width >= 48rem) {
       top: calc(var(--spacing) * 2);
+    }
+  }
+  .md\:top-10 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:top-20 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 20);
+    }
+  }
+  .md\:top-40 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 40);
+    }
+  }
+  .md\:top-48 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 48);
+    }
+  }
+  .md\:top-52 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 52);
+    }
+  }
+  .md\:top-56 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 56);
+    }
+  }
+  .md\:top-60 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 60);
     }
   }
   .md\:top-\[13\%\] {
@@ -2946,6 +3005,11 @@
       position: relative;
     }
   }
+  .xl\:top-\[-2\%\] {
+    @media (width >= 80rem) {
+      top: -2%;
+    }
+  }
   .xl\:top-\[44\%\] {
     @media (width >= 80rem) {
       top: 44%;
@@ -3034,6 +3098,16 @@
   .xl\:justify-center {
     @media (width >= 80rem) {
       justify-content: center;
+    }
+  }
+  .xl\:gap-0 {
+    @media (width >= 80rem) {
+      gap: calc(var(--spacing) * 0);
+    }
+  }
+  .xl\:gap-4 {
+    @media (width >= 80rem) {
+      gap: calc(var(--spacing) * 4);
     }
   }
   .xl\:overflow-visible {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Greentruth Landing</title>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link href="assets/css/tailwind.css" rel="stylesheet">
+    <link href="assets/css/tailwind.css" rel="stylesheet" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -70,13 +70,15 @@
         >
           <a
             id="get-started-button"
-            href="https://app.greentruth.com/register" target="_blank"
+            href="https://app.greentruth.com/register"
+            target="_blank"
             class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
             >Get Started</a
           >
           <a
             id="login-button"
-            href="https://app.greentruth.com/login" target="_blank"
+            href="https://app.greentruth.com/login"
+            target="_blank"
             class="text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
             >Login</a
           >
@@ -84,8 +86,9 @@
             id="logout-button"
             type="button"
             class="hidden text-sm font-medium text-brand-red whitespace-nowrap hover:opacity-80 transition-opacity"
-            >Logout</button
           >
+            Logout
+          </button>
           <button
             id="menu-button"
             class="md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
@@ -94,24 +97,24 @@
             <img src="assets/icons/menu-icon.svg" alt="Menu Icon" />
           </button>
           <button
-              id="close-menu"
-              class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
-              aria-label="Close navigation"
+            id="close-menu"
+            class="hidden md:hidden border-0 bg-transparent text-2xl cursor-pointer text-brand-dark p-0 ml-0"
+            aria-label="Close navigation"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
       </div>
     </header>
@@ -120,16 +123,18 @@
     <div
       id="mobile-menu"
       class="hidden fixed inset-x-0 bottom-0 z-50 flex flex-col w-full"
-      style="top: 85px;"
+      style="top: 85px"
     >
       <!-- Backdrop -->
-      <div 
+      <div
         class="absolute inset-0 bg-[#01140B] opacity-95 cursor-pointer w-full h-full"
         onclick="document.getElementById('close-menu').click()"
       ></div>
 
       <!-- Menu Content -->
-      <div class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in">
+      <div
+        class="relative bg-white w-full overflow-hidden flex flex-col z-10 shadow-xl animate-fade-in"
+      >
         <!-- Navigation -->
         <nav class="flex flex-col font-mokoko">
           <a
@@ -153,57 +158,55 @@
         </nav>
       </div>
     </div>
-       <!-- Floating Nav for >=1900px (outside hero to avoid stacking issues) -->
-       <nav
-       class="hidden min-[1900px]:block fixed right-[0%] top-[40%] text-[13px] leading-[2] text-brand-dark flex-shrink-0 pl-5 lg:pt-[36px] z-[999] isolate"
-       >
-       <ul
-           class="list-none relative bg-white/80 p-10 rounded-lg"
-         >
-           <li>
-             <a
-               href="#hero-section"
-               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
-               >Top</a
-             >
-           </li>
-           <li>
-             <a
-               href="#compliance-section"
-               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
-               >The Challenge</a
-             >
-           </li>
-           <li>
-             <a
-               href="#platform-section"
-               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
-               >The Platform</a
-             >
-           </li>
-           <li>
-             <a
-               href="#proof-in-action"
-               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
-               >Proof in Action</a
-             >
-           </li>
-           <li>
-             <a
-               href="#cost-of-standing-still"
-               class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
-               >The Cost of Waiting</a
-             >
-           </li>
-           <!--<li>
+    <!-- Floating Nav for >=1900px (outside hero to avoid stacking issues) -->
+    <nav
+      class="hidden min-[1900px]:block fixed right-[0%] top-[40%] text-[13px] leading-[2] text-brand-dark flex-shrink-0 pl-5 lg:pt-[36px] z-[999] isolate"
+    >
+      <ul class="list-none relative bg-white/80 p-10 rounded-lg">
+        <li>
+          <a
+            href="#hero-section"
+            class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+            >Top</a
+          >
+        </li>
+        <li>
+          <a
+            href="#compliance-section"
+            class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+            >The Challenge</a
+          >
+        </li>
+        <li>
+          <a
+            href="#platform-section"
+            class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+            >The Platform</a
+          >
+        </li>
+        <li>
+          <a
+            href="#proof-in-action"
+            class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+            >Proof in Action</a
+          >
+        </li>
+        <li>
+          <a
+            href="#cost-of-standing-still"
+            class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
+            >The Cost of Waiting</a
+          >
+        </li>
+        <!--<li>
              <a
                href="#get-started-section"
                class="nav-link opacity-70 hover:opacity-100 transition-opacity relative"
                >Get Started</a
              >
            </li>-->
-         </ul>
-       </nav>
+      </ul>
+    </nav>
 
     <!-- HERO Section -->
     <section
@@ -226,7 +229,8 @@
         </div>
         <!-- In-hero nav for screens < 1900px -->
         <nav
-        class="hero-nav hidden md:block min-[1900px]:hidden text-[13px] leading-[2] text-brand-dark flex-shrink-0 pl-5 lg:pt-[36px]">
+          class="hero-nav hidden md:block min-[1900px]:hidden text-[13px] leading-[2] text-brand-dark flex-shrink-0 pl-5 lg:pt-[36px]"
+        >
           <ul class="list-none relative">
             <li>
               <a
@@ -266,10 +270,12 @@
           </ul>
         </nav>
       </div>
-      <div id="floating-dots-container"
-        class="fixed w-full h-full pointer-events-none bottom-[-48%] md:bottom-[-30%] 2xl:bottom-[-13%] left-0 2xl:left-[-5%] "
+      <div
+        id="floating-dots-container"
+        class="fixed w-full h-full pointer-events-none bottom-[-48%] md:bottom-[-30%] 2xl:bottom-[-13%] left-0 2xl:left-[-5%]"
       >
-        <svg id="hero-floating-dots"
+        <svg
+          id="hero-floating-dots"
           class="absolute 2xl:bottom-[10%] w-[260px] md:w-[540px] overflow-visible"
           height="735"
           viewBox="0 0 608 735"
@@ -277,23 +283,95 @@
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <pattern id="img-dot-1" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <image href="assets/images/image-1.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            <pattern
+              id="img-dot-1"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <image
+                href="assets/images/image-1.png"
+                x="0"
+                y="0"
+                width="1"
+                height="1"
+                preserveAspectRatio="xMidYMid slice"
+              />
             </pattern>
-            <pattern id="img-dot-2" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <image href="assets/images/image-2.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            <pattern
+              id="img-dot-2"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <image
+                href="assets/images/image-2.png"
+                x="0"
+                y="0"
+                width="1"
+                height="1"
+                preserveAspectRatio="xMidYMid slice"
+              />
             </pattern>
-            <pattern id="img-dot-3" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <image href="assets/images/image-3.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            <pattern
+              id="img-dot-3"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <image
+                href="assets/images/image-3.png"
+                x="0"
+                y="0"
+                width="1"
+                height="1"
+                preserveAspectRatio="xMidYMid slice"
+              />
             </pattern>
-            <pattern id="img-dot-4" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <image href="assets/images/image-4.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            <pattern
+              id="img-dot-4"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <image
+                href="assets/images/image-4.png"
+                x="0"
+                y="0"
+                width="1"
+                height="1"
+                preserveAspectRatio="xMidYMid slice"
+              />
             </pattern>
-            <pattern id="img-dot-5" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <image href="assets/images/image-5.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            <pattern
+              id="img-dot-5"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <image
+                href="assets/images/image-5.png"
+                x="0"
+                y="0"
+                width="1"
+                height="1"
+                preserveAspectRatio="xMidYMid slice"
+              />
             </pattern>
-            <pattern id="img-dot-6" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <image href="assets/images/image-6.png" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            <pattern
+              id="img-dot-6"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <image
+                href="assets/images/image-6.png"
+                x="0"
+                y="0"
+                width="1"
+                height="1"
+                preserveAspectRatio="xMidYMid slice"
+              />
             </pattern>
           </defs>
           <g opacity="0.12">
@@ -483,8 +561,9 @@
     </section>
 
     <!-- Mandates Section -->
-    <section id="mandate-section"
-      class="flex flex-col md:flex-row gap-6 md:gap-10 max-w-content mx-auto px-5 pt-[50px] md:pt-[40px] xl:pt-[60px] pb-[100px] md:pb-[160px] md:px-10 lg:px-[100px] items-stretch md:items-start justify-center "
+    <section
+      id="mandate-section"
+      class="flex flex-col md:flex-row gap-6 md:gap-10 max-w-content mx-auto px-5 pt-[50px] md:pt-[40px] xl:pt-[60px] pb-[100px] md:pb-[160px] md:px-10 lg:px-[100px] items-stretch md:items-start justify-center"
     >
       <div class="flex-1 md:max-w-[500px]">
         <h2
@@ -586,7 +665,8 @@
           </div>
         </div>
       </div>
-      <div id="mandate-section-target"
+      <div
+        id="mandate-section-target"
         class="flex-1 min-h-[300px] md:min-h-[500px] md:max-w-[500px] flex items-start justify-center pt-[40px] md:pt-0"
       >
         <!-- <img
@@ -600,18 +680,23 @@
     <!-- Compliance Circle Section -->
     <section
       id="compliance-section"
-      class="flex flex-col items-center justify-center  min-h-[100vh] scroll-mt-10"
+      class="flex flex-col items-center justify-center min-h-[100vh] scroll-mt-10"
     >
       <div
         class="relative flex items-center justify-center w-full min-h-[600px] md:min-h-[700px] overflow-hidden"
       >
-        <div id="compliance-circle-target"
+        <div
+          id="compliance-circle-target"
           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center w-[600px] h-[600px] md:w-[680px] md:h-[680px] mx-auto opacity-0 bg-[#142D21] inset-shadow-effect"
         >
-          <div id="compliance-content-wrapper"
+          <div
+            id="compliance-content-wrapper"
             class="px-5 py-7 sm:px-10 sm:py-10 md:px-16 md:py-16 flex flex-col items-start justify-center w-full max-w-[60%] sm:max-w-[64%]"
           >
-            <h3 id="compliance-heading" class="text-[#FF7E6C] text-lg md:text-xl font-medium mb-6">
+            <h3
+              id="compliance-heading"
+              class="text-[#FF7E6C] text-lg md:text-xl font-medium mb-6"
+            >
               Compliance Greenlighted
             </h3>
             <ul class="mb-7 space-y-4 w-full font-inter">
@@ -647,8 +732,8 @@
 
             <div id="compliance-text-1" class="mb-2 font-inter">
               <p class="text-white text-sm font-normal leading-snug mb-2">
-                Greentruth—one simple system for Scope 3 visibility,
-                from source to statement.
+                Greentruth—one simple system for Scope 3 visibility, from source
+                to statement.
               </p>
             </div>
             <div id="compliance-text-2" class="mb-2 text-[#C5F2EE] font-inter">
@@ -671,12 +756,11 @@
     </section>
 
     <!-- greentruth connects Section -->
-    <section id="greentruth-connects-section"
+    <section
+      id="greentruth-connects-section"
       class="flex items-start gap-6 flex-col md:flex-row justify-start max-w-content 2xl:max-w-[1610px] mx-auto pt-[50px] md:pt-[100px] pb-[100px] md:pb-[60px] xl:pb-[40px] 2xl:pb-[180px] px-5 md:px-10 lg:px-[100px]"
     >
-      <div id="greentruth-connects-logo" class="w-[148px] h-[148px]">
-
-      </div>
+      <div id="greentruth-connects-logo" class="w-[148px] h-[148px]"></div>
       <div
         class="max-w-[80%] xl:max-w-[56%] text-[20px] leading-[32px] xl:text-[24px] xl:leading-10 text-[#292929]"
       >
@@ -773,19 +857,19 @@
         </div>
         <div class="max-w-[426px] z-[9] py-[36px] md:py-0 flex-shrink-0">
           <lottie-player
-           src="assets/animations/overview-tab-mobile.json"
-           background="transparent"
-           speed="1"
-           class="w-full h-auto lg:hidden"
-           loop
+            src="assets/animations/overview-tab-mobile.json"
+            background="transparent"
+            speed="1"
+            class="w-full h-auto lg:hidden"
+            loop
           ></lottie-player>
 
           <lottie-player
-           src="assets/animations/overview-tab-animation.json"
-           background="transparent"
-           speed="1"
-           class="w-full h-auto hidden lg:block"
-           loop
+            src="assets/animations/overview-tab-animation.json"
+            background="transparent"
+            speed="1"
+            class="w-full h-auto hidden lg:block"
+            loop
           ></lottie-player>
         </div>
 
@@ -828,8 +912,9 @@
             class="text-[#292929] lg:text-[#FDFDFB] font-inter hidden md:block"
           >
             <p class="">
-              Each QET represents the <strong> verified emissions profile of specific
-                molecules</strong> produced and transported through the system.
+              Each QET represents the
+              <strong> verified emissions profile of specific molecules</strong>
+              produced and transported through the system.
             </p>
             <p class="pt-5">
               It is a standardized on-chain proof asset carrying its own
@@ -842,33 +927,34 @@
           class="max-w-[426px] z-[9] py-[36px] md:py-0 mb-[10px] md:mb-0 flex-shrink-0"
         >
           <lottie-player
-           src="assets/animations/mint-tab-mobile.json"
-           background="transparent"
-           speed="1"
-           class="w-full h-auto lg:hidden"
-           loop
+            src="assets/animations/mint-tab-mobile.json"
+            background="transparent"
+            speed="1"
+            class="w-full h-auto lg:hidden"
+            loop
           ></lottie-player>
           <lottie-player
-           src="assets/animations/Mint-tab-animation.json"
-           background="transparent"
-           speed="1"
-           class="w-full h-auto hidden lg:block"
-           loop
+            src="assets/animations/Mint-tab-animation.json"
+            background="transparent"
+            speed="1"
+            class="w-full h-auto hidden lg:block"
+            loop
           ></lottie-player>
         </div>
         <div
-        class="text-[#292929] lg:text-[#FDFDFB] font-inter mb-[70px] md:hidden"
-      >
-      <p class="">
-        Each QET represents the <strong> verified emissions profile of specific
-          molecules</strong> produced and transported through the system.
-      </p>
-      <p class="pt-5">
-        It is a standardized on-chain proof asset carrying its own
-        integrity, provenance, and audit trail—including the complete
-        record of its source and verification data.
-      </p>
-      </div>
+          class="text-[#292929] lg:text-[#FDFDFB] font-inter mb-[70px] md:hidden"
+        >
+          <p class="">
+            Each QET represents the
+            <strong> verified emissions profile of specific molecules</strong>
+            produced and transported through the system.
+          </p>
+          <p class="pt-5">
+            It is a standardized on-chain proof asset carrying its own
+            integrity, provenance, and audit trail—including the complete record
+            of its source and verification data.
+          </p>
+        </div>
       </div>
 
       <div
@@ -894,7 +980,9 @@
               confidence.
             </p>
 
-            <div class="max-w-[426px] md:max-w-[700px] z-[10] py-[36px] md:py-0">
+            <div
+              class="max-w-[426px] md:max-w-[700px] z-[10] py-[36px] md:py-0"
+            >
               <img
                 src="assets/images/greentruth-acquire-1.svg"
                 alt="Greentruth overview"
@@ -911,13 +999,15 @@
             </p>
           </div> -->
         </div>
-        <div class="max-w-[426px] z-[9] py-[36px] md:py-0 mb-[70px] md:mb-0 flex-shrink-0">
+        <div
+          class="max-w-[426px] z-[9] py-[36px] md:py-0 mb-[70px] md:mb-0 flex-shrink-0"
+        >
           <lottie-player
-           src="assets/animations/acquire-tab-mobile.json"
-           background="transparent"
-           speed="1"
-           class="w-full h-auto lg:hidden"
-           loop
+            src="assets/animations/acquire-tab-mobile.json"
+            background="transparent"
+            speed="1"
+            class="w-full h-auto lg:hidden"
+            loop
           ></lottie-player>
           <lottie-player
             src="assets/animations/acquire-tab-animation.json"
@@ -925,7 +1015,7 @@
             speed="1"
             class="w-full h-auto hidden lg:block"
             loop
-         ></lottie-player>
+          ></lottie-player>
         </div>
       </div>
 
@@ -951,7 +1041,9 @@
               source with precision and confidence.
             </p>
 
-            <div class="max-w-[500px] md:max-w-[700px] z-[10] py-[36px] md:py-0">
+            <div
+              class="max-w-[500px] md:max-w-[700px] z-[10] py-[36px] md:py-0"
+            >
               <img
                 src="assets/images/greentruth-discover-1.svg"
                 alt="Greentruth overview"
@@ -959,7 +1051,7 @@
               />
             </div>
           </div>
-<!-- 
+          <!-- 
           <div class="text-[#292929] lg:text-[#FDFDFB] font-inter">
             <p class="font-light text-lg">
               <strong class="font-bold"
@@ -1032,7 +1124,9 @@
               partners.
             </p>
             <p class="pb-5 md:pb-8">
-              GreenTruth works the way you work—<span class="font-black">a modern, API-first platform</span>
+              GreenTruth works the way you work—<span class="font-black"
+                >a modern, API-first platform</span
+              >
               built for seamless, low-lift, self-serve integration.
             </p>
             <p class="pb-5 md:pb-8">
@@ -1051,11 +1145,11 @@
         </div>
         <div class="max-w-[426px] z-[9] py-[36px] md:py-0 flex-shrink-0">
           <lottie-player
-           src="assets/animations/integrate-tab-mobile.json"
-           background="transparent"
-           speed="1"
-           class="w-full h-auto lg:hidden"
-           loop
+            src="assets/animations/integrate-tab-mobile.json"
+            background="transparent"
+            speed="1"
+            class="w-full h-auto lg:hidden"
+            loop
           ></lottie-player>
           <lottie-player
             src="assets/animations/integrate-tab-animation.json"
@@ -1063,7 +1157,7 @@
             speed="1"
             class="w-full h-auto hidden lg:block"
             loop
-         ></lottie-player>
+          ></lottie-player>
         </div>
 
         <div
@@ -1122,19 +1216,15 @@
 
     <section
       id="proof-in-action"
-      class="relative pt-[50px] md:pt-[60px] lg:pt-[120px] 2xl:pt-[60px] px-5 md:px-10 lg:px-[100px] "
-    > 
-    <div class="max-w-[1440px] mx-auto">
-      <p class="text-brand-red text-[20px] leading-6 pb-2">
-        Proof in Action
-      </p>
-      <p class="text-brand-red text-[28px] leading-8">
-        Trusted. Tested. Traction.
-      </p>
-    </div>
-      <div
-        class="max-w-content mx-auto relative group md:px-10"
-      >
+      class="relative pt-[50px] md:pt-[60px] lg:pt-[120px] 2xl:pt-[60px] px-5 md:px-10 lg:px-[100px]"
+    >
+      <div class="max-w-[1440px] mx-auto">
+        <p class="text-brand-red text-[20px] leading-6 pb-2">Proof in Action</p>
+        <p class="text-brand-red text-[28px] leading-8">
+          Trusted. Tested. Traction.
+        </p>
+      </div>
+      <div class="max-w-content mx-auto relative group md:px-10">
         <img
           src="assets/images/proof-in-action-dotfield.svg"
           alt="dot field background"
@@ -1142,9 +1232,7 @@
         />
 
         <div>
-
-
-          <div
+          <!-- <div
             id="proof-tabs-container"
             class="mt-[36px] xl:mt-[44px] flex items-end overflow-x-auto hide-scrollbar gap-0 scroll-smooth"
           >
@@ -1195,7 +1283,7 @@
                 class="w-full"
               />
             </button>
-          </div>
+          </div> -->
 
           <!--<button
             id="prev-tab-btn"
@@ -1207,11 +1295,11 @@
               viewBox="0 0 64 64"
               xmlns="http://www.w3.org/2000/svg"
             >-->
-              <!-- Circle background (tweak color as needed) -->
-              <!--<circle cx="32" cy="32" r="32" fill="#C3C8BF" />-->
+          <!-- Circle background (tweak color as needed) -->
+          <!--<circle cx="32" cy="32" r="32" fill="#C3C8BF" />-->
 
-              <!-- Long, thin white chevron touching near right side -->
-              <!--<path
+          <!-- Long, thin white chevron touching near right side -->
+          <!--<path
                 d="M22 16 L42 32 L22 48"
                 fill="none"
                 stroke="#FFFFFF"
@@ -1232,11 +1320,11 @@
               viewBox="0 0 64 64"
               xmlns="http://www.w3.org/2000/svg"
             >-->
-              <!-- Circle background (tweak color as needed) -->
-              <!--<circle cx="32" cy="32" r="32" fill="#C3C8BF" />-->
+          <!-- Circle background (tweak color as needed) -->
+          <!--<circle cx="32" cy="32" r="32" fill="#C3C8BF" />-->
 
-              <!-- Long, thin white chevron touching near right side -->
-              <!--<path
+          <!-- Long, thin white chevron touching near right side -->
+          <!--<path
                 d="M22 16 L42 32 L22 48"
                 fill="none"
                 stroke="#FFFFFF"
@@ -1253,11 +1341,18 @@
             >
               <div class="lg:max-w-[590px]">
                 <p class="text-[16px] leading-7 font-medium">
-                  Tallgrass partnered with Greentruth to integrate verified environmental data directly into its midstream operations. By binding methane and carbon-intensity attributes to real pipeline flows, Tallgrass gained precise, attribute-level visibility into the environmental performance of the gas moving through its system.
-                  </p>
-                  <br/>
+                  Tallgrass partnered with Greentruth to integrate verified
+                  environmental data directly into its midstream operations. By
+                  binding methane and carbon-intensity attributes to real
+                  pipeline flows, Tallgrass gained precise, attribute-level
+                  visibility into the environmental performance of the gas
+                  moving through its system.
+                </p>
+                <br />
                 <p class="text-[16px] leading-7 font-medium">
-The integration strengthens Tallgrass’ ability to serve producers, shippers, and buyers with transparent, audit-ready data—unlocking new value across the ecosystem.
+                  The integration strengthens Tallgrass’ ability to serve
+                  producers, shippers, and buyers with transparent, audit-ready
+                  data—unlocking new value across the ecosystem.
                 </p>
                 <!--<p class="mt-2 font-inter font-medium">
                   — Full Name, Title, Company
@@ -1269,22 +1364,36 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <div
                   class="w-[128px] h-[132px] md:w-[178px] md:h-[196px] flex-shrink-0 hidden"
                 >
-                 <!--<img
+                  <!--<img
                     src="assets/images/greentruth-case-study.svg"
                     alt="greentruth"
                     class="w-full h-full object-cover"
                   />-->
                 </div>
                 <div class="lg:max-w-[380px]">
-                  <p class="text-[14px] font-semibold pb-4">What the integration enables:</p>
-                  <!--<p class="text-[12px] font-normal pb-3 font-inter">-->
-                    <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                      <li style="margin-bottom: 0.5rem;">Attribute-level methane and CI tracking aligned to physical movements</li>
-                      <li style="margin-bottom: 0.5rem;">Verified, tamper-evident data for reporting and disclosures</li>
-                      <li style="margin-bottom: 0.5rem;">Machine-readable environmental data standardized for system-wide interoperability</li>
-                      <li style="margin-bottom: 0.5rem;">Support for producer differentiation and buyer procurement grounded in real CI performance</li>
+                  <p class="text-[14px] font-semibold pb-4">
+                    What the integration enables:
                   </p>
-                  <!--<a
+                  <!--<p class="text-[12px] font-normal pb-3 font-inter">-->
+                  <ul style="list-style-type: disc; margin-left: 1.5rem">
+                    <li style="margin-bottom: 0.5rem">
+                      Attribute-level methane and CI tracking aligned to
+                      physical movements
+                    </li>
+                    <li style="margin-bottom: 0.5rem">
+                      Verified, tamper-evident data for reporting and
+                      disclosures
+                    </li>
+                    <li style="margin-bottom: 0.5rem">
+                      Machine-readable environmental data standardized for
+                      system-wide interoperability
+                    </li>
+                    <li style="margin-bottom: 0.5rem">
+                      Support for producer differentiation and buyer procurement
+                      grounded in real CI performance
+                    </li>
+                  </ul>
+                  <!-- <a
                     href="#"
                     class="text-brand-red underline text-xs hover:no-underline transition-all"
                     >Velit esse molestie consequat &gt;</a
@@ -1688,7 +1797,7 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
       </div>
     </section>
 
-    <section class="relative pt-[60px] pb-[60px] px-5 md:px-10 lg:px-[100px]">
+    <section class="relative pb-[60px] px-5 md:px-10 lg:px-[100px]">
       <div class="max-w-[1440px] mx-auto">
         <div class="mb-12">
           <p
@@ -1703,15 +1812,13 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
           </h2>
         </div>
 
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-x-8"
-        >
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-x-8">
           <div class="flex flex-col items-start text-left gap-1">
             <div
               class="group relative inline-block cursor-pointer w-full xl:w-auto"
             >
               <span
-                class="text-[20px] text-left md:text-[24px] lg:text-[30px] xl:text-[34px]  font-inter font-black text-[#FF7E6C] transition-colors duration-300 group-hover:text-brand-dark"
+                class="text-[20px] text-left md:text-[24px] lg:text-[30px] xl:text-[34px] font-inter font-black text-[#FF7E6C] transition-colors duration-300 group-hover:text-brand-dark"
               >
                 ISO 14064-3
               </span>
@@ -1721,7 +1828,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Independent verification of emissions data—turning reporting into defensible proof.
+                  Independent verification of emissions data—turning reporting
+                  into defensible proof.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1731,7 +1839,7 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
               class="group relative inline-block cursor-pointer w-full xl:w-auto"
             >
               <span
-                class="text-[20px] text-left md:text-[24px] lg:text-[30px] xl:text-[34px]  font-inter font-black text-[#FF7E6C] transition-colors duration-300 group-hover:text-brand-dark"
+                class="text-[20px] text-left md:text-[24px] lg:text-[30px] xl:text-[34px] font-inter font-black text-[#FF7E6C] transition-colors duration-300 group-hover:text-brand-dark"
               >
                 IPCC AR5
               </span>
@@ -1741,7 +1849,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Standardized global warming potentials to ensure emissions are comparable and credible.
+                  Standardized global warming potentials to ensure emissions are
+                  comparable and credible.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1761,7 +1870,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Methane-intensity targets aligned to leading industry performance benchmarks.
+                  Methane-intensity targets aligned to leading industry
+                  performance benchmarks.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1781,7 +1891,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  California-recognized lifecycle carbon calculations for low-carbon fuel pathways.
+                  California-recognized lifecycle carbon calculations for
+                  low-carbon fuel pathways.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1803,7 +1914,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Framework for product-level carbon footprints with transparent, verifiable boundaries.
+                  Framework for product-level carbon footprints with
+                  transparent, verifiable boundaries.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1823,7 +1935,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  UN-backed methane reporting aligned to the most rigorous measurement-based framework.
+                  UN-backed methane reporting aligned to the most rigorous
+                  measurement-based framework.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1843,7 +1956,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Industry-aligned methane measurement and reporting across operational segments.
+                  Industry-aligned methane measurement and reporting across
+                  operational segments.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1863,7 +1977,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  North American energy data standards enabling interoperability across markets.
+                  North American energy data standards enabling interoperability
+                  across markets.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1885,7 +2000,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Standardized methods for quantifying methane emissions from the oil and gas sector.
+                  Standardized methods for quantifying methane emissions from
+                  the oil and gas sector.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1905,7 +2021,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Border-carbon compliance that requires verified emissions tied to real supply-chain data.
+                  Border-carbon compliance that requires verified emissions tied
+                  to real supply-chain data.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1925,7 +2042,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Precise measurement standards ensuring volumetric and flow data integrity.
+                  Precise measurement standards ensuring volumetric and flow
+                  data integrity.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1945,7 +2063,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Regulatory-grade carbon intensity reporting for low-carbon fuel markets.
+                  Regulatory-grade carbon intensity reporting for low-carbon
+                  fuel markets.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1967,7 +2086,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Climate-leadership framework emphasizing measurement-based emissions reductions.
+                  Climate-leadership framework emphasizing measurement-based
+                  emissions reductions.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1987,7 +2107,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  California’s mandatory, audit-ready emissions disclosure requirements.
+                  California’s mandatory, audit-ready emissions disclosure
+                  requirements.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -2007,7 +2128,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Renewable procurement standards tied to verifiable environmental attributes.
+                  Renewable procurement standards tied to verifiable
+                  environmental attributes.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -2027,7 +2149,8 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
                 <p
                   class="text-[#FF7E6C] text-sm leading-relaxed font-inter relative z-10"
                 >
-                  Global frameworks governing how emissions are measured, reported, and assured.
+                  Global frameworks governing how emissions are measured,
+                  reported, and assured.
                 </p>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -2038,192 +2161,321 @@ The integration strengthens Tallgrass’ ability to serve producers, shippers, a
     </section>
 
     <section
-    id="cost-of-standing-still"
-    class="w-full bg-[#FF7E6C] font-sans text-[#1a1a1a] overflow-hidden mb-[100px] md:mb-0 relative z-20"
-  >
-    <div class="max-w-[1440px] mx-auto pt-[60px] pb-10 relative px-5 md:px-10 lg:px-[100px]">
-       <div class="max-w-[530px] relative z-20">
-          <h2 class="font-mokoko text-[20px] md:text-[24px] text-[#1a1a1a] font-medium">The Cost of Standing Still</h2>
-          <p class="text-[16px] md:text-[20px] leading-5 md:leading-[24px] text-[#1a1a1a] max-w-[300px] mb-8 md:mb-12">Stalled Deals. Penalties. Lost Ground.</p>
-          <div
-          class="space-y-4 md:space-y-6 text-base leading-relaxed max-w-[530px] font-medium opacity-90"
-        >
-          <p>
-            Every month of delay widens the compliance gap. Regulations like
-            <span class="font-bold">SB 253</span> and
-            <span class="font-bold">EU CBAM</span>
-            are already in effect—and markets are adapting faster than most
-            companies can report.
-          </p>
-          <p>
-            Fragmented data slows verification, increases audit exposure, and
-            erodes credibility with investors, regulators, and procurement
-            partners.
-          </p>
-          <p class="font-bold text-lg">
-            The risk isn’t abstract.<br />
-            It’s operational, financial, and compounding.
-          </p>
-        </div>
-      </div>
-    </div>
-  
-  
-  <div id="get-started-section" class="w-full bg-white relative z-20 overflow-hidden h-screen max-h-screen flex flex-col"> 
-    <!-- FIX: Top Orange Background (Header Area) -->
-    <div class="absolute top-0 left-0 w-full h-[60%] bg-[#FF7E6C] z-0 pointer-events-none"></div>
-
-    <div class=" w-full bg-[#FF7E6C] flex-shrink-0 relative z-10">
-      <div class="border-[2px] border-t border-white/20 max-w-[320px]  md:max-w-5xl mx-auto relative z-20"></div>
-    </div>     
-    <div class="relative w-full max-w-[1440px] mx-auto flex-grow 2xl:flex-grow-0 h-full 2xl:h-auto 2xl:max-h-[1200px] 2xl:mt-auto flex flex-col z-10">
-      
-       <!-- FIX: Column 1 Background Extension (Orange) -->
-       <!-- This fills the vertical space behind Step 1 so no white gap appears -->
-       <div class="absolute top-0 bottom-[-100vh] left-0 w-full md:w-[33.33%] bg-[#FF7E6C] z-0 pointer-events-none hidden md:block"></div>
-
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-full bg-[#FF7E6C] z-0 pointer-events-none"></div>
-        <div 
-          id="get-started-header" 
-          class="relative z-30 px-5 md:px-10 lg:px-[100px] pt-4 md:pt-[60px] pb-4 flex-shrink-0"
-        >
-          <h2 class="font-mokoko text-[32px] lg:text-[48px] text-[#1a1a1a] font-medium">
-            Get Started
-          </h2>
-          <p class="text-[24px] leading-[28px] lg:leading-[36px] text-[#1a1a1a] max-w-[220px]">
-            No Cost. <br class="md:hidden" />No Risk. <br class="md:hidden" />No Complexity<br class="md:hidden" /> Go as Fast as You Need.
-          </p>
-        </div>        
-        <img
-          id="sticky-logo"
-          src="assets/icons/logo-white.svg"
-          alt="logo"
-          class="absolute top-2 md:top-2 right-5 md:right-10 w-[100px] md:w-[140px] z-50 pointer-events-none invert brightness-0"
-          style="opacity: 0.2;" 
-        />
-  
-        <div class="grid grid-cols-1 md:grid-cols-3 w-full flex-grow items-end relative z-10 max-h-[580px] md:max-h-none">
-          
-          <div class="relative bg-[#FF7E6C] h-full flex flex-col justify-center md:justify-end get-started-step px-5 md:px-0 z-10 pl-5 md:pl-10 lg:pl-[100px] md:pb-[10vh]">
-            <div class="absolute right-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"></div>
-            
-            <div class="relative z-10 md:max-w-[211px] step-content">
-              <p class="font-mokoko text-[24px] md:text-[30px] font-bold">Step 1</p>
-              <p class="font-mokoko text-[16px] md:text-[20px] leading-5 md:leading-[24px] font-bold mb-4">Create your account</p>
-              <p class="text-sm text-[#1a1a1a]">Enter your company details and D-U-N-S® number to set up your verified organization profile.</p>
-            </div>
-          </div>
-  
-          <div class="flex flex-col w-full h-full get-started-step z-10">
-            <div class="bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 md:pb-[10vh] relative z-20">
-              <div class="md:max-w-[240px] step-content">
-                <p class="font-mokoko text-[24px] md:text-[30px]  font-bold">Step 2</p>
-                <p class="font-mokoko text-[16px] md:text-[20px] font-bold mb-4 leading-5 md:leading-[24px]">Discover & Acquire</p>
-                <p class="text-sm text-[#333]">Search verified gas data by delivery location. Compare and select options aligned with your emissions goals.</p>
-              </div>
-            </div>
-            <div class="bg-white h-[clamp(140px,18vh,300px)] w-full hidden md:block -mt-[1px]"></div>
-          </div>
-
-          <div class="flex flex-col w-full h-full get-started-step z-10">
-            <div class="relative bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 md:pb-[10vh] z-20">
-              <div class="absolute left-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"></div>
-              <div class="md:max-w-[240px] relative z-10 step-content">
-                <p class="font-mokoko text-[24px] md:text-[30px] font-bold">Step 3</p>
-                <p class="font-mokoko text-[16px] md:text-[20px] leading-5 md:leading-[24px] font-bold mb-4">Retire & Report</p>
-                <p class="text-sm text-[#333]">Retire tokens and generate audit-ready records for filings and disclosures.</p>
-              </div>
-            </div>
-            <div class="bg-white h-[clamp(280px,36vh,600px)] w-full hidden md:block relative -mt-[1px]">
-               <div class="absolute left-[100%] top-0 h-full w-[100vw] bg-white"></div>
-            </div>
-          </div>
-  
-        </div>
-  
-         <div id="greenlight-footer" 
-              class="hidden md:flex md:absolute md:left-[68%] lg:left-[64%] xl:left-[60%] min-[1320px]:left-[55%] md:-translate-x-1/2 z-30 items-center justify-between w-full max-w-[632px] p-6 z-20"
-              style="bottom: calc(clamp(140px, 18vh, 300px) / 2 - 60px);"
-         >
-            <div class="pr-2">
-            <h2 class="text-[24px] font-bold text-black mb-1 leading-tight">Greenlight your compliance.</h2>
-            <p class="text-sm text-black">Create your free account and start reporting verified data today.</p>
-          </div>
-          <a href="https://app.greentruth.com/register" target="_blank" class="bg-[#155C3A] hover:bg-[#163024] text-white text-[14px] font-semibold py-3 px-14 md:px-8 rounded-full transition-colors duration-200 w-auto">Get Started</a>
-        </div>
-  
-      </div>
-    </div>
-  </section>
-
-        <section class="mt-[-70px] md:-mt-[100px] md:hidden mb-10">
-          <div
-            class="flex items-start flex-wrap gap-4  justify-center w-full max-w-[500px] mx-auto p-6"
+      id="cost-of-standing-still"
+      class="w-full bg-[#FF7E6C] font-sans text-[#1a1a1a] overflow-hidden mb-[100px] md:mb-0 relative z-20"
+    >
+      <div
+        class="max-w-[1440px] mx-auto pt-[60px] pb-10 relative px-5 md:px-10 lg:px-[100px]"
+      >
+        <div class="max-w-[530px] relative z-20">
+          <h2
+            class="font-mokoko text-[20px] md:text-[24px] text-[#1a1a1a] font-medium"
           >
-            <div class="text-center">
-              <h2 class="text-[16px] font-bold text-black mb-1">
-                Greenlight your compliance.
-              </h2>
-              <p class="text-sm text-black">
-                Create your free account and start reporting verified data today.
-              </p>
-            </div>
-
-            <a 
-              href="https://app.greentruth.com/register" target="_blank"
-              class="bg-[#155C3A] hover:bg-[#163024] text-white text-lg font-semibold py-3 px-14 md:px-10 rounded-full transition-colors duration-200 w-auto"
-            >
-            Get Started
-          </a>
+            The Cost of Standing Still
+          </h2>
+          <p
+            class="text-[16px] md:text-[20px] leading-5 md:leading-[24px] text-[#1a1a1a] max-w-[300px] mb-8 md:mb-12"
+          >
+            Stalled Deals. Penalties. Lost Ground.
+          </p>
+          <div
+            class="space-y-4 md:space-y-6 text-base leading-relaxed max-w-[530px] font-medium opacity-90"
+          >
+            <p>
+              Every month of delay widens the compliance gap. Regulations like
+              <span class="font-bold">SB 253</span> and
+              <span class="font-bold">EU CBAM</span>
+              are already in effect—and markets are adapting faster than most
+              companies can report.
+            </p>
+            <p>
+              Fragmented data slows verification, increases audit exposure, and
+              erodes credibility with investors, regulators, and procurement
+              partners.
+            </p>
+            <p class="font-bold text-lg">
+              The risk isn’t abstract.<br />
+              It’s operational, financial, and compounding.
+            </p>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <footer class="bg-[#141d19] py-12">
-          <div class="container mx-auto px-6 md:px-10 lg:px-[100px] md:px-10 lg:px-[100px]">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
-              <div class="lg:col-span-3 flex flex-col items-start">
-                <img src="assets/footer/logo.svg" alt="Greentruth Logo" class="" />
-                <p class="text-[10px] text-[#7A7E70] font-normal font-inter text-right ml-16 mt-1">A member of the Earn Ecosystem</p>
-              </div>
-              <div class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 font-mokoko text-[16px] font-medium text-[#7A7E70]">       
-                <div class="flex flex-col space-y-4">
-                  <a href="/" class="hover:text-white transition-colors duration-200">Home</a>
-                  <a href="/about.html" class="hover:text-white transition-colors duration-200">About</a>
-                  <a href="/resources.html" class="hover:text-white transition-colors duration-200">Resources</a>
-                </div>
-        
-                <div class="flex flex-col space-y-4">
-                  <a href="/contact.html" class="hover:text-white transition-colors duration-200">Contact</a>
-                  <a href="https://app.greentruth.com/register" target="_blank" class="hover:text-white transition-colors duration-200">Get Started</a>
-                  <a href="https://app.greentruth.com/login" target="_blank" class="hover:text-white transition-colors duration-200">Login</a>
-                </div>
-        
-                <div class="flex flex-col space-y-4">
-                  <a href="/privacy.html" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
-                  <a href="/terms-of-use.html" class="hover:text-white transition-colors duration-200">Term of Use</a>
-                </div>
-              </div>
-        
-              <div class="lg:col-span-3 flex flex-col lg:items-end">
-                <div class="flex space-x-4 mb-4">
-                  <a href="https://www.linkedin.com/company/earndlt/" target="_blank" class="">
-                    <img src="assets/footer/linkedin-icon.svg" alt="Linkedin">
-                  </a>           
-                  <a href="https://x.com/earndlt/" class="" target="_blank">
-                    <img src="assets/footer/x-icon.svg" alt="X">
-                  </a>
-                </div>  
-                <p class="text-sm text-[#7A7E70] font-normal font-inter">
-                  (+1) 877-905-EARN (3276)
+      <div
+        id="get-started-section"
+        class="w-full bg-white relative z-20 overflow-hidden h-screen max-h-screen flex flex-col"
+      >
+        <!-- FIX: Top Orange Background (Header Area) -->
+        <div
+          class="absolute top-0 left-0 w-full h-[60%] bg-[#FF7E6C] z-0 pointer-events-none"
+        ></div>
+
+        <div class="w-full bg-[#FF7E6C] flex-shrink-0 relative z-10">
+          <div
+            class="border-[2px] border-t border-white/20 max-w-[320px] md:max-w-5xl mx-auto relative z-20"
+          ></div>
+        </div>
+        <div
+          class="relative w-full max-w-[1440px] mx-auto flex-grow 2xl:flex-grow-0 h-full 2xl:h-auto 2xl:max-h-[1200px] 2xl:mt-auto flex flex-col z-10"
+        >
+          <!-- FIX: Column 1 Background Extension (Orange) -->
+          <!-- This fills the vertical space behind Step 1 so no white gap appears -->
+          <div
+            class="absolute top-0 bottom-[-100vh] left-0 w-full md:w-[33.33%] bg-[#FF7E6C] z-0 pointer-events-none hidden md:block"
+          ></div>
+
+          <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-full bg-[#FF7E6C] z-0 pointer-events-none"
+          ></div>
+          <div
+            id="get-started-header"
+            class="relative z-30 px-5 md:px-10 lg:px-[100px] pt-4 md:pt-[60px] pb-4 flex-shrink-0"
+          >
+            <h2
+              class="font-mokoko text-[32px] lg:text-[48px] text-[#1a1a1a] font-medium"
+            >
+              Get Started
+            </h2>
+            <p
+              class="text-[24px] leading-[28px] lg:leading-[36px] text-[#1a1a1a] max-w-[255px] md:max-w-[370px]"
+            >
+              No Cost. <br class="md:hidden" />No Risk.
+              <br class="md:hidden" />No Complexity.<br />
+              Go as Fast as You Need.
+            </p>
+          </div>
+          <img
+            id="sticky-logo"
+            src="assets/icons/logo-white.svg"
+            alt="logo"
+            class="absolute top-2 md:top-2 right-5 md:right-10 w-[100px] md:w-[140px] z-50 pointer-events-none invert brightness-0"
+            style="opacity: 0.2"
+          />
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 w-full flex-grow items-end relative z-10 max-h-[580px] md:max-h-none"
+          >
+            <div
+              class="relative bg-[#FF7E6C] h-full flex flex-col justify-center md:justify-end get-started-step px-5 md:px-0 z-10 pl-5 md:pl-10 lg:pl-[100px] md:pb-[10vh]"
+            >
+              <div
+                class="absolute right-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"
+              ></div>
+
+              <div class="relative z-10 md:max-w-[211px] step-content">
+                <p class="font-mokoko text-[24px] md:text-[30px] font-bold">
+                  Step 1
+                </p>
+                <p
+                  class="font-mokoko text-[16px] md:text-[20px] leading-5 md:leading-[24px] font-bold mb-4"
+                >
+                  Create your account
+                </p>
+                <p class="text-sm text-[#1a1a1a]">
+                  Enter your company details and D-U-N-S® number to set up your
+                  verified organization profile.
                 </p>
               </div>
             </div>
-            <div class="border-t border-[#204734] my-8"></div>
-            <div class="text-center text-[12px] text-[#606060] font-normal font-inter">
-              &copy; 2026 EarnDLT®. All Rights Reserved
+
+            <div class="flex flex-col w-full h-full get-started-step z-10">
+              <div
+                class="bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 md:pb-[10vh] relative z-20"
+              >
+                <div class="md:max-w-[240px] step-content">
+                  <p class="font-mokoko text-[24px] md:text-[30px] font-bold">
+                    Step 2
+                  </p>
+                  <p
+                    class="font-mokoko text-[16px] md:text-[20px] font-bold mb-4 leading-5 md:leading-[24px]"
+                  >
+                    Discover & Acquire
+                  </p>
+                  <p class="text-sm text-[#333]">
+                    Search verified gas data by delivery location. Compare and
+                    select options aligned with your emissions goals.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-white h-[clamp(140px,18vh,300px)] w-full hidden md:block -mt-[1px]"
+              ></div>
+            </div>
+
+            <div class="flex flex-col w-full h-full get-started-step z-10">
+              <div
+                class="relative bg-[#FF7E6C] flex-grow flex flex-col justify-center md:justify-end px-5 md:px-0 md:pb-[10vh] z-20"
+              >
+                <div
+                  class="absolute left-[100%] top-0 bottom-0 w-[100vw] bg-[#FF7E6C]"
+                ></div>
+                <div class="md:max-w-[240px] relative z-10 step-content">
+                  <p class="font-mokoko text-[24px] md:text-[30px] font-bold">
+                    Step 3
+                  </p>
+                  <p
+                    class="font-mokoko text-[16px] md:text-[20px] leading-5 md:leading-[24px] font-bold mb-4"
+                  >
+                    Retire & Report
+                  </p>
+                  <p class="text-sm text-[#333]">
+                    Retire tokens and generate audit-ready records for filings
+                    and disclosures.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-white h-[clamp(280px,36vh,600px)] w-full hidden md:block relative -mt-[1px]"
+              >
+                <div
+                  class="absolute left-[100%] top-0 h-full w-[100vw] bg-white"
+                ></div>
+              </div>
             </div>
           </div>
-        </footer>
+
+          <div
+            id="greenlight-footer"
+            class="hidden md:flex md:absolute md:left-[68%] lg:left-[64%] xl:left-[60%] min-[1320px]:left-[55%] md:-translate-x-1/2 z-30 items-center justify-between w-full max-w-[632px] p-6 z-20"
+            style="bottom: calc(clamp(140px, 18vh, 300px) / 2 - 60px)"
+          >
+            <div class="pr-2">
+              <h2 class="text-[24px] font-bold text-black mb-1 leading-tight">
+                Greenlight your compliance.
+              </h2>
+              <p class="text-sm text-black">
+                Create your free account and start reporting verified data
+                today.
+              </p>
+            </div>
+            <a
+              href="https://app.greentruth.com/register"
+              target="_blank"
+              class="bg-[#155C3A] hover:bg-[#163024] text-white text-[14px] font-semibold py-3 px-14 md:px-8 rounded-full transition-colors duration-200 w-auto"
+              >Get Started</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-[-70px] md:-mt-[100px] md:hidden mb-10">
+      <div
+        class="flex items-start flex-wrap gap-4 justify-center w-full max-w-[500px] mx-auto p-6"
+      >
+        <div class="text-center">
+          <h2 class="text-[16px] font-bold text-black mb-1">
+            Greenlight your compliance.
+          </h2>
+          <p class="text-sm text-black">
+            Create your free account and start reporting verified data today.
+          </p>
+        </div>
+
+        <a
+          href="https://app.greentruth.com/register"
+          target="_blank"
+          class="bg-[#155C3A] hover:bg-[#163024] text-white text-lg font-semibold py-3 px-14 md:px-10 rounded-full transition-colors duration-200 w-auto"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+
+    <footer class="bg-[#141d19] py-12">
+      <div
+        class="container mx-auto px-6 md:px-10 lg:px-[100px] md:px-10 lg:px-[100px]"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+          <div class="lg:col-span-3 flex flex-col items-start">
+            <img src="assets/footer/logo.svg" alt="Greentruth Logo" class="" />
+            <p
+              class="text-[10px] text-[#7A7E70] font-normal font-inter text-right ml-16 mt-1"
+            >
+              A member of the Earn Ecosystem
+            </p>
+          </div>
+          <div
+            class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8 font-mokoko text-[16px] font-medium text-[#7A7E70]"
+          >
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/"
+                class="hover:text-white transition-colors duration-200"
+                >Home</a
+              >
+              <a
+                href="/about.html"
+                class="hover:text-white transition-colors duration-200"
+                >About</a
+              >
+              <a
+                href="/resources.html"
+                class="hover:text-white transition-colors duration-200"
+                >Resources</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/contact.html"
+                class="hover:text-white transition-colors duration-200"
+                >Contact</a
+              >
+              <a
+                href="https://app.greentruth.com/register"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Get Started</a
+              >
+              <a
+                href="https://app.greentruth.com/login"
+                target="_blank"
+                class="hover:text-white transition-colors duration-200"
+                >Login</a
+              >
+            </div>
+
+            <div class="flex flex-col space-y-4">
+              <a
+                href="/privacy.html"
+                class="hover:text-white transition-colors duration-200"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms-of-use.html"
+                class="hover:text-white transition-colors duration-200"
+                >Term of Use</a
+              >
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 flex flex-col lg:items-end">
+            <div class="flex space-x-4 mb-4">
+              <a
+                href="https://www.linkedin.com/company/earndlt/"
+                target="_blank"
+                class=""
+              >
+                <img src="assets/footer/linkedin-icon.svg" alt="Linkedin" />
+              </a>
+              <a href="https://x.com/earndlt/" class="" target="_blank">
+                <img src="assets/footer/x-icon.svg" alt="X" />
+              </a>
+            </div>
+            <p class="text-sm text-[#7A7E70] font-normal font-inter">
+              (+1) 877-905-EARN (3276)
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-[#204734] my-8"></div>
+        <div
+          class="text-center text-[12px] text-[#606060] font-normal font-inter"
+        >
+          &copy; 2026 EarnDLT®. All Rights Reserved
+        </div>
+      </div>
+    </footer>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/animations.js" defer></script>
   </body>

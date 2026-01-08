@@ -290,9 +290,6 @@
   .right-\[-20px\] {
     right: -20px;
   }
-  .right-\[-30px\] {
-    right: -30px;
-  }
   .right-\[0\%\] {
     right: 0%;
   }
@@ -599,9 +596,6 @@
   .h-\[148px\] {
     height: 148px;
   }
-  .h-\[179px\] {
-    height: 179px;
-  }
   .h-\[220px\] {
     height: 220px;
   }
@@ -689,9 +683,6 @@
   .w-\[80\%\] {
     width: 80%;
   }
-  .w-\[80vw\] {
-    width: 80vw;
-  }
   .w-\[90vw\] {
     width: 90vw;
   }
@@ -706,9 +697,6 @@
   }
   .w-\[128px\] {
     width: 128px;
-  }
-  .w-\[138px\] {
-    width: 138px;
   }
   .w-\[148px\] {
     width: 148px;
@@ -1117,12 +1105,6 @@
   .border-black {
     border-color: var(--color-black);
   }
-  .border-black\/20 {
-    border-color: color-mix(in srgb, #000 20%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-black) 20%, transparent);
-    }
-  }
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
@@ -1278,9 +1260,6 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-4\.5 {
-    padding-inline: calc(var(--spacing) * 4.5);
-  }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
@@ -1292,9 +1271,6 @@
   }
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
-  }
-  .px-10\.5 {
-    padding-inline: calc(var(--spacing) * 10.5);
   }
   .px-14 {
     padding-inline: calc(var(--spacing) * 14);
@@ -1397,9 +1373,6 @@
   }
   .pb-24 {
     padding-bottom: calc(var(--spacing) * 24);
-  }
-  .pb-\[5vh\] {
-    padding-bottom: 5vh;
   }
   .pb-\[60px\] {
     padding-bottom: 60px;
@@ -2468,11 +2441,6 @@
       padding-inline: calc(var(--spacing) * 10);
     }
   }
-  .md\:px-12 {
-    @media (width >= 48rem) {
-      padding-inline: calc(var(--spacing) * 12);
-    }
-  }
   .md\:px-16 {
     @media (width >= 48rem) {
       padding-inline: calc(var(--spacing) * 16);
@@ -2724,11 +2692,6 @@
   .lg\:left-\[-50px\] {
     @media (width >= 64rem) {
       left: -50px;
-    }
-  }
-  .lg\:left-\[62\%\] {
-    @media (width >= 64rem) {
-      left: 62%;
     }
   }
   .lg\:left-\[64\%\] {

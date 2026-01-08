@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.create({
     trigger: "#mandate-section",
     start: "center center",
-    end: "+=800",
+    end: "+=480", // 40% faster (was 800)
     pin: true,
     pinSpacing: true,
     anticipatePin: 1,
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
       start: "top top",
       endTrigger: "#mandate-section",
       // Ends exactly when the pinning starts (+ buffer)
-      end: () => ScrollTrigger.getById("pinning").start + 400,
+      end: () => ScrollTrigger.getById("pinning").start + 240, // 40% faster (was 400)
       scrub: 1,
       invalidateOnRefresh: true, // recalculation on resize
       fastScrollEnd: true,
@@ -353,10 +353,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 3. Fade in scalingDot only near the end of mandate arrival
-  const mandateFadeInTime = Math.max(tlAnimation.duration() - 0.2, 0);
+  const mandateFadeInTime = Math.max(tlAnimation.duration() - 0.12, 0); // 40% faster (was 0.2)
   tlAnimation.to(
     scalingDot,
-    { opacity: 1, duration: 0.2, ease: "power1.inOut" },
+    { opacity: 1, duration: 0.12, ease: "power1.inOut" }, // 40% faster (was 0.2)
     mandateFadeInTime
   );
 
@@ -374,8 +374,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let flockDots = Array.from(sourcePaths).slice(0, leaderIndex);
 
   // B. Timing Configuration
-  const flockStartTime = 1.0;
-  const streamDuration = 8.0;
+  const flockStartTime = 0.6; // 40% faster (was 1.0)
+  const streamDuration = 4.8; // 40% faster (was 8.0)
 
   // C. Sort Flock by Distance
   const windowCenter = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: "#compliance-section",
       start: "top center", // Start later to ensure Phase 1 is complete
       end: "bottom top",
-      scrub: 1.5,
+      scrub: 0.9, // 40% faster (was 1.5)
       invalidateOnRefresh: true,
       fastScrollEnd: true,
       preventOverlaps: true,
@@ -436,11 +436,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // FIX: Force the leader to be sharp as it arrives at the center
       filter: "blur(0px)",
 
-      duration: 50,
+      duration: 30, // 40% faster (was 50)
       ease: "none",
       overwrite: "auto",
     },
-    0.1
+    0.06 // 40% faster (was 0.1)
   );
 
   // E. FLOCK ANIMATION (Just Movement)
@@ -451,8 +451,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const dest = calculateComplianceCenterValues(originalIndex, dot);
 
     const progress = i / flockDots.length;
-    const arrivalDelay = progress * streamDuration * 5.0;
-    const travelDuration = 40.0 + Math.random() * 16.0;
+    const arrivalDelay = progress * streamDuration * 3.0; // 40% faster multiplier (was 5.0)
+    const travelDuration = 24.0 + Math.random() * 9.6; // 40% faster (was 40.0 + random * 16.0)
     let startTime = flockStartTime + arrivalDelay;
 
     tlComplianceTransition.to(
@@ -500,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: "#compliance-section",
       start: "center center",
-      end: "+=6000",
+      end: "+=3600", // 40% faster (was 6000)
       pin: true,
       scrub: 1,
       invalidateOnRefresh: true,
@@ -550,7 +550,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       scale: () => calculateComplianceScalingValues(scalingDot).scale,
       fill: "#142D21",
-      duration: 2,
+      duration: 1.2, // 40% faster (was 2)
       ease: "power1.inOut",
       immediateRender: false,
       overwrite: "auto", // Ensures Phase 1 stops fighting
@@ -564,9 +564,9 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       scale: 0,
       opacity: 0,
-      duration: 1.5,
+      duration: 0.9, // 40% faster (was 1.5)
       ease: "power1.in",
-      stagger: { amount: 0.5, from: "center" },
+      stagger: { amount: 0.3, from: "center" }, // 40% faster (was 0.5)
     },
     0
   );
@@ -576,10 +576,10 @@ document.addEventListener("DOMContentLoaded", () => {
     finalCircleTarget,
     {
       opacity: 1,
-      duration: 0.01,
+      duration: 0.006, // 40% faster (was 0.01)
       ease: "power1.in",
     },
-    1.8
+    1.08 // 40% faster (was 1.8)
   );
 
   // --- STEP 2: Content Fade In (20% -> 50%) ---
@@ -588,15 +588,15 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       y: 0,
       opacity: 1,
-      duration: 2,
-      stagger: 0.3,
+      duration: 1.2, // 40% faster (was 2)
+      stagger: 0.18, // 40% faster (was 0.3)
       ease: "power2.out",
     },
-    2
+    1.2 // 40% faster (was 2)
   );
 
   // --- STEP 3: Hold (50% -> 80%) ---
-  tlComplianceSequence.to({}, { duration: 2 }, 4);
+  tlComplianceSequence.to({}, { duration: 1.2 }, 2.4); // 40% faster (was 2 at 4)
 
   // --- STEP 4: Content Fade Out (80% -> 90%) ---
   tlComplianceSequence.to(
@@ -604,11 +604,11 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       y: -20,
       opacity: 0,
-      duration: 2,
-      stagger: 0.1,
+      duration: 1.2, // 40% faster (was 2)
+      stagger: 0.06, // 40% faster (was 0.1)
       ease: "power2.in",
     },
-    6
+    3.6 // 40% faster (was 6)
   );
 
   // Fade out container
@@ -616,10 +616,10 @@ document.addEventListener("DOMContentLoaded", () => {
     finalCircleTarget,
     {
       opacity: 0,
-      duration: 0.01,
+      duration: 0.006, // 40% faster (was 0.01)
       ease: "power2.in",
     },
-    8
+    4.8 // 40% faster (was 8)
   );
 
   // --- STEP 5: Scale Down & Logo Formation Transition (90% -> 100%) ---
@@ -631,15 +631,15 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: () =>
         calculateLogoValues(sourcePaths.length - 1, scalingDot).scale, // Scale to final logo size
       // x & y stay at center for now
-      duration: 2,
+      duration: 1.2, // 40% faster (was 2)
       ease: "power1.inOut",
     },
-    8.5
+    5.1 // 40% faster (was 8.5)
   );
 
   // 5b. Flock: Moves OUT while leader is shrinking
   // The flock leaves the center to form the logo while the leader stays put & shrinks.
-  tlComplianceSequence.set(otherDots, { opacity: 1 }, 8.5);
+  tlComplianceSequence.set(otherDots, { opacity: 1 }, 5.1); // 40% faster (was 8.5)
 
   tlComplianceSequence.to(
     otherDots,
@@ -649,18 +649,18 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: (index, path) => calculateLogoValues(index, path).scale,
       fill: (index) => finaltargetDotsData[index]?.color ?? "#303030",
       filter: "blur(0px)",
-      duration: 2.5,
+      duration: 1.5, // 40% faster (was 2.5)
       ease: "power2.inOut",
       stagger: {
-        amount: 1,
+        amount: 0.6, // 40% faster (was 1)
         from: "random",
       },
     },
-    8.5
+    5.1 // 40% faster (was 8.5)
   );
 
   // 5c. Scaling Dot: Moves LAST
-  // After it has finished shrinking (at 8.5 + 2 = 10.5), it moves to its final spot.
+  // After it has finished shrinking (at 5.1 + 1.2 = 6.3), it moves to its final spot.
   tlComplianceSequence.to(
     scalingDot,
     {
@@ -669,10 +669,10 @@ document.addEventListener("DOMContentLoaded", () => {
       fill: () =>
         finaltargetDotsData[sourcePaths.length - 1]?.color ?? "#303030",
       filter: "blur(0px)",
-      duration: 1.5,
+      duration: 0.9, // 40% faster (was 1.5)
       ease: "power1.inOut",
     },
-    10.5
+    6.3 // 40% faster (was 10.5)
   );
 
   // =============================================================================
@@ -684,7 +684,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.create({
     trigger: "#greentruth-connects-section",
     start: "center center",
-    end: "+=800", // Reduced from 1100 to 600 for faster exit
+    end: "+=480", // 40% faster (was 800)
     pin: true,
     pinSpacing: true,
     id: "greentruth-pin",
@@ -715,14 +715,14 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         y: 0,
         opacity: 1,
-        duration: 0.2, // Faster duration relative to scroll distance
+        duration: 0.12, // 40% faster (was 0.2)
         ease: "power2.out",
       },
       0
     );
 
     // Add buffer to timeline so animation completes early
-    tlLogoFormation.to({}, { duration: 0.7 });
+    tlLogoFormation.to({}, { duration: 0.42 }); // 40% faster (was 0.7)
   }
 
   // =============================================================================
@@ -819,7 +819,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollTrigger: {
           trigger: section,
           start: "top+50px top+=15px",
-          end: () => (window.innerWidth < 1280 ? "+=1200" : "+=2300"),
+          end: () => (window.innerWidth < 1280 ? "+=720" : "+=1380"), // 40% faster (was 1200/2300)
           pin: true,
           scrub: 1,
           anticipatePin: 1,
@@ -870,7 +870,7 @@ document.addEventListener("DOMContentLoaded", () => {
           logo,
           {
             opacity: 1,
-            duration: 150, // Fixed duration for fade in
+            duration: 90, // 40% faster (was 150)
             ease: "none",
           },
           startY3
@@ -888,16 +888,16 @@ document.addEventListener("DOMContentLoaded", () => {
           footer,
           {
             opacity: 1,
-            duration: 150, // Arbitrary duration for fade-in
+            duration: 90, // 40% faster (was 150)
             ease: "none",
           },
-          startY3 + 150
-        ); // Starts after Logo finishes fading in (startY3 + 150)
+          startY3 + 90 // 40% faster (was startY3 + 150)
+        ); // Starts after Logo finishes fading in
       }
 
       // Add a substantial buffer at the end so the user can read the content
       // before the footer scrolls into view.
-      mainTl.to({}, { duration: 200 }); // Large buffer for a "hold" phase
+      mainTl.to({}, { duration: 120 }); // 40% faster (was 200)
     },
 
     // --- Mobile Animation ---

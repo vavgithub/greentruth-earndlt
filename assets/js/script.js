@@ -67,10 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const overviewTabContainer = byId("overview-tab-container");
       if (overviewTabContainer) {
         const isOverviewActive = activeTab.type === "overview";
-        overviewTabContainer.classList.toggle(
-          "bg-[#F5F5ED]",
-          isOverviewActive
-        );
+        overviewTabContainer.classList.toggle("bg-[#F5F5ED]", isOverviewActive);
         overviewTabContainer.classList.toggle("bg-white", !isOverviewActive);
       }
 
@@ -131,7 +128,61 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetId = link.getAttribute("href")?.substring(1);
       const targetSection = targetId ? document.getElementById(targetId) : null;
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (targetId === "compliance-section") {
+          // Wait for ScrollTrigger to be ready
+          setTimeout(() => {
+            // Check if ScrollTrigger is available
+            if (typeof ScrollTrigger === "undefined") {
+              // Fallback if ScrollTrigger not loaded
+              targetSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              return;
+            }
+
+            // Find the ScrollTrigger for compliance sequence
+            const allSTs = ScrollTrigger.getAll();
+            const complianceST = allSTs.find(
+              (st) => st.trigger === targetSection && st.vars?.pin === true
+            );
+
+            if (complianceST) {
+              // The ScrollTrigger starts at "center center" and has end: "+=6000"
+              // We want 55% progress (where text is about to fade out)
+              // 80% of 6000 = 4800 pixels past the start point
+
+              // Get the start scroll position (where section reaches center center)
+              const startScroll = complianceST.start;
+
+              // Calculate target scroll position (start + 55% of the scroll distance)
+              const scrollDistance = complianceST.end - complianceST.start;
+              const targetProgress = 0.55; // 55%
+              const targetScroll =
+                startScroll + scrollDistance * targetProgress;
+
+              // Scroll to that position
+              window.scrollTo({
+                top: targetScroll,
+                behavior: "smooth",
+              });
+            } else {
+              // Fallback: calculate manually if ScrollTrigger not found
+              const sectionTop = targetSection.offsetTop;
+              const viewportHeight = window.innerHeight;
+              const centerPoint = sectionTop - viewportHeight / 2;
+              const scrollDistance = 6000; // From end: "+=6000"
+              const targetScroll = centerPoint + scrollDistance * 0.55;
+
+              window.scrollTo({
+                top: targetScroll,
+                behavior: "smooth",
+              });
+            }
+          }, 100); // Small delay to ensure ScrollTrigger is initialized
+        } else {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     });
   });
@@ -171,30 +222,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Lottie Animation Control (Play only when visible)
-  const lottieObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const player = entry.target;
-      // Ensure player is ready and has methods
-      if (entry.isIntersecting) {
-        if (typeof player.play === 'function') {
-             player.play();
-        }
-      } else {
-        if (typeof player.stop === 'function') {
+  const lottieObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const player = entry.target;
+        // Ensure player is ready and has methods
+        if (entry.isIntersecting) {
+          if (typeof player.play === "function") {
+            player.play();
+          }
+        } else {
+          if (typeof player.stop === "function") {
             player.stop();
+          }
         }
-      }
-    });
-  }, { threshold: 0.1 }); // Trigger when 10% visible
+      });
+    },
+    { threshold: 0.1 }
+  ); // Trigger when 10% visible
 
   // Observe all lottie-players
   // Wait a tick to ensure custom elements might be upgraded, though usually fine on DOMContentLoaded
   setTimeout(() => {
-      document.querySelectorAll('lottie-player').forEach(player => {
-        lottieObserver.observe(player);
-      });
+    document.querySelectorAll("lottie-player").forEach((player) => {
+      lottieObserver.observe(player);
+    });
   }, 100);
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {

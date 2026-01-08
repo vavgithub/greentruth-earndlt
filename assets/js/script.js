@@ -130,7 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetSection) {
         if (targetId === "compliance-section") {
           // Wait for ScrollTrigger to be ready
-          setTimeout(() => {
+          // Use a retry mechanism to ensure animation scripts have initialized ScrollTrigger
+          const findAndScroll = (attempt = 0) => {
             // Check if ScrollTrigger is available
             if (typeof ScrollTrigger === "undefined") {
               // Fallback if ScrollTrigger not loaded
@@ -143,19 +144,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Find the ScrollTrigger for compliance sequence
             const allSTs = ScrollTrigger.getAll();
-            const complianceST = allSTs.find(
+            let complianceST = allSTs.find(
               (st) => st.trigger === targetSection && st.vars?.pin === true
             );
 
+            // If not found, try finding any ScrollTrigger for this section
+            if (!complianceST) {
+              complianceST = allSTs.find((st) => st.trigger === targetSection);
+            }
+
+            // If still not found and we haven't exceeded max attempts, retry
+            if (!complianceST && attempt < 4) {
+              setTimeout(() => findAndScroll(attempt + 1), 150);
+              return;
+            }
+
             if (complianceST) {
-              // The ScrollTrigger starts at "center center" and has end: "+=6000"
+              // The ScrollTrigger starts at "center center" and has a dynamic end value
+              // (6000 for animations.js, 4800 for dummy-20.js, 3600 for dummy-40.js)
               // We want 55% progress (where text is about to fade out)
-              // 80% of 6000 = 4800 pixels past the start point
 
               // Get the start scroll position (where section reaches center center)
               const startScroll = complianceST.start;
 
               // Calculate target scroll position (start + 55% of the scroll distance)
+              // Use the actual ScrollTrigger end value instead of hardcoded value
               const scrollDistance = complianceST.end - complianceST.start;
               const targetProgress = 0.55; // 55%
               const targetScroll =
@@ -167,11 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth",
               });
             } else {
-              // Fallback: calculate manually if ScrollTrigger not found
+              // Fallback: calculate manually if ScrollTrigger not found after retries
               const sectionTop = targetSection.offsetTop;
               const viewportHeight = window.innerHeight;
               const centerPoint = sectionTop - viewportHeight / 2;
-              const scrollDistance = 6000; // From end: "+=6000"
+
+              // Default to 6000 (animations.js value) as last resort
+              // This should rarely happen if ScrollTrigger is properly initialized
+              const scrollDistance = 6000;
               const targetScroll = centerPoint + scrollDistance * 0.55;
 
               window.scrollTo({
@@ -179,7 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth",
               });
             }
-          }, 100); // Small delay to ensure ScrollTrigger is initialized
+          };
+
+          // Start the search with initial delay
+          setTimeout(() => findAndScroll(0), 200);
         } else {
           targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
         }

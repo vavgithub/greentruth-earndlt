@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetId = link.getAttribute("href")?.substring(1);
       const targetSection = targetId ? document.getElementById(targetId) : null;
       if (targetSection) {
-        if (targetId === "compliance-section") {
+        if (targetId === "mandate-section") {
           // Wait for ScrollTrigger to be ready
           // Use a retry mechanism to ensure animation scripts have initialized ScrollTrigger
           const findAndScroll = (attempt = 0) => {
@@ -142,35 +142,35 @@ document.addEventListener("DOMContentLoaded", () => {
               return;
             }
 
-            // Find the ScrollTrigger for compliance sequence
+            // Find the ScrollTrigger for mandate sequence
             const allSTs = ScrollTrigger.getAll();
-            let complianceST = allSTs.find(
+            let mandateST = allSTs.find(
               (st) => st.trigger === targetSection && st.vars?.pin === true
             );
 
             // If not found, try finding any ScrollTrigger for this section
-            if (!complianceST) {
-              complianceST = allSTs.find((st) => st.trigger === targetSection);
+            if (!mandateST) {
+              mandateST = allSTs.find((st) => st.trigger === targetSection);
             }
 
             // If still not found and we haven't exceeded max attempts, retry
-            if (!complianceST && attempt < 4) {
+            if (!mandateST && attempt < 4) {
               setTimeout(() => findAndScroll(attempt + 1), 150);
               return;
             }
 
-            if (complianceST) {
+            if (mandateST) {
               // The ScrollTrigger starts at "center center" and has a dynamic end value
-              // (6000 for animations.js, 4800 for dummy-20.js, 3600 for dummy-40.js)
-              // We want 55% progress (where text is about to fade out)
+              // (800 for animations.js, 640 for dummy-20.js, 480 for dummy-40.js)
+              // We want to scroll to where the animation is completed (near the end)
 
               // Get the start scroll position (where section reaches center center)
-              const startScroll = complianceST.start;
+              const startScroll = mandateST.start;
 
-              // Calculate target scroll position (start + 55% of the scroll distance)
+              // Calculate target scroll position (start + percentage of the scroll distance)
               // Use the actual ScrollTrigger end value instead of hardcoded value
-              const scrollDistance = complianceST.end - complianceST.start;
-              const targetProgress = 0.55; // 55%
+              const scrollDistance = mandateST.end - mandateST.start;
+              const targetProgress = 0.6; // 85% - shows completed animation
               const targetScroll =
                 startScroll + scrollDistance * targetProgress;
 
@@ -185,10 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
               const viewportHeight = window.innerHeight;
               const centerPoint = sectionTop - viewportHeight / 2;
 
-              // Default to 6000 (animations.js value) as last resort
-              // This should rarely happen if ScrollTrigger is properly initialized
-              const scrollDistance = 6000;
-              const targetScroll = centerPoint + scrollDistance * 0.55;
+              // Default to 800 (animations.js value) as last resort
+              const scrollDistance = 800;
+              const targetScroll = centerPoint + scrollDistance * 0.6;
 
               window.scrollTo({
                 top: targetScroll,

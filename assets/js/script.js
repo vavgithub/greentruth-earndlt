@@ -67,10 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const overviewTabContainer = byId("overview-tab-container");
       if (overviewTabContainer) {
         const isOverviewActive = activeTab.type === "overview";
-        overviewTabContainer.classList.toggle(
-          "bg-[#F5F5ED]",
-          isOverviewActive
-        );
+        overviewTabContainer.classList.toggle("bg-[#F5F5ED]", isOverviewActive);
         overviewTabContainer.classList.toggle("bg-white", !isOverviewActive);
       }
 
@@ -131,7 +128,79 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetId = link.getAttribute("href")?.substring(1);
       const targetSection = targetId ? document.getElementById(targetId) : null;
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (targetId === "mandate-section") {
+          // Wait for ScrollTrigger to be ready
+          // Use a retry mechanism to ensure animation scripts have initialized ScrollTrigger
+          const findAndScroll = (attempt = 0) => {
+            // Check if ScrollTrigger is available
+            if (typeof ScrollTrigger === "undefined") {
+              // Fallback if ScrollTrigger not loaded
+              targetSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              return;
+            }
+
+            // Find the ScrollTrigger for mandate sequence
+            const allSTs = ScrollTrigger.getAll();
+            let mandateST = allSTs.find(
+              (st) => st.trigger === targetSection && st.vars?.pin === true
+            );
+
+            // If not found, try finding any ScrollTrigger for this section
+            if (!mandateST) {
+              mandateST = allSTs.find((st) => st.trigger === targetSection);
+            }
+
+            // If still not found and we haven't exceeded max attempts, retry
+            if (!mandateST && attempt < 4) {
+              setTimeout(() => findAndScroll(attempt + 1), 150);
+              return;
+            }
+
+            if (mandateST) {
+              // The ScrollTrigger starts at "center center" and has a dynamic end value
+              // (800 for animations.js, 640 for dummy-20.js, 480 for dummy-40.js)
+              // We want to scroll to where the animation is completed (near the end)
+
+              // Get the start scroll position (where section reaches center center)
+              const startScroll = mandateST.start;
+
+              // Calculate target scroll position (start + percentage of the scroll distance)
+              // Use the actual ScrollTrigger end value instead of hardcoded value
+              const scrollDistance = mandateST.end - mandateST.start;
+              const targetProgress = 0.6; // 85% - shows completed animation
+              const targetScroll =
+                startScroll + scrollDistance * targetProgress;
+
+              // Scroll to that position
+              window.scrollTo({
+                top: targetScroll,
+                behavior: "smooth",
+              });
+            } else {
+              // Fallback: calculate manually if ScrollTrigger not found after retries
+              const sectionTop = targetSection.offsetTop;
+              const viewportHeight = window.innerHeight;
+              const centerPoint = sectionTop - viewportHeight / 2;
+
+              // Default to 800 (animations.js value) as last resort
+              const scrollDistance = 800;
+              const targetScroll = centerPoint + scrollDistance * 0.6;
+
+              window.scrollTo({
+                top: targetScroll,
+                behavior: "smooth",
+              });
+            }
+          };
+
+          // Start the search with initial delay
+          setTimeout(() => findAndScroll(0), 200);
+        } else {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     });
   });
@@ -171,30 +240,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Lottie Animation Control (Play only when visible)
-  const lottieObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const player = entry.target;
-      // Ensure player is ready and has methods
-      if (entry.isIntersecting) {
-        if (typeof player.play === 'function') {
-             player.play();
-        }
-      } else {
-        if (typeof player.stop === 'function') {
+  const lottieObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const player = entry.target;
+        // Ensure player is ready and has methods
+        if (entry.isIntersecting) {
+          if (typeof player.play === "function") {
+            player.play();
+          }
+        } else {
+          if (typeof player.stop === "function") {
             player.stop();
+          }
         }
-      }
-    });
-  }, { threshold: 0.1 }); // Trigger when 10% visible
+      });
+    },
+    { threshold: 0.1 }
+  ); // Trigger when 10% visible
 
   // Observe all lottie-players
   // Wait a tick to ensure custom elements might be upgraded, though usually fine on DOMContentLoaded
   setTimeout(() => {
-      document.querySelectorAll('lottie-player').forEach(player => {
-        lottieObserver.observe(player);
-      });
+    document.querySelectorAll("lottie-player").forEach((player) => {
+      lottieObserver.observe(player);
+    });
   }, 100);
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {

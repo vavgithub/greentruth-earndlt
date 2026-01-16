@@ -90,15 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setActive("tab-overview");
   }
 
-  // Accordion logic
-  document.querySelectorAll(".accordion-header").forEach((header) => {
-    header.addEventListener("click", () => {
-      const content = header.nextElementSibling;
-      content.classList.toggle("hidden");
-      header.classList.toggle("is-open");
-    });
-  });
-
   // Mobile Menu Toggle
   const mobileMenu = byId("mobile-menu");
   const menuButton = byId("menu-button");

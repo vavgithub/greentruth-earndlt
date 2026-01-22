@@ -306,9 +306,29 @@ body:has(#form-success:target) #contact-form {
 /* =========================================
    Media Queries
    ========================================= */
-@media (min-width: 1900px) {
-  .hero-nav {
-    display: none;
+
+@media (max-width: 767px) {
+  .accordion-icon {
+    display: block;
+  }
+}
+
+/* Mint tab positions */
+@media (min-width: 1024px) {
+  #hexagon-bg-2.mint-active {
+    top: 31%;
+    transition: top 0.2s linear;
+  }
+  #hexagon-bg-2.acquire-active {
+    top: 44%;
+    transition: top 0.2s linear;
+  }
+}
+
+@media (min-width: 1130px) {
+  #hexagon-bg-2.acquire-active {
+    top: 40%;
+    transition: top 0.2s linear;
   }
 }
 
@@ -327,23 +347,21 @@ body:has(#form-success:target) #contact-form {
     width: 100px;
     height: 100px;
   }
-}
 
-/* Mint tab positions */
-@media (min-width: 1024px) {
   #hexagon-bg-2.mint-active {
-    top: 32%;
+    top: 26%;
     transition: top 0.2s linear;
   }
+
   #hexagon-bg-2.acquire-active {
-    top: 44%;
+    top: 36%;
     transition: top 0.2s linear;
   }
+
 }
 
-@media (max-width: 767px) {
-  .accordion-icon {
-    display: block;
+@media (min-width: 1900px) {
+  .hero-nav {
+    display: none;
   }
 }
-
